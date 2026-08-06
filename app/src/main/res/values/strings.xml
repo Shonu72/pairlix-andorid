@@ -1,6 +1,7 @@
 <resources>
 
     <string name="app_name" translatable="false">Pairlix</string>
+    <string name="default_web_client_id" translatable="false">911055312636-rbh0pe283606qhvmnknjcji6num93dq3.apps.googleusercontent.com</string>
     <string name="no_network_found">No Network Found</string>
     <string name="default_notification_channel_id">Channel_01</string>
     <string name="change_language">Change Language</string>

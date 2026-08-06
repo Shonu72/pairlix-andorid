@@ -11,6 +11,7 @@ import androidx.lifecycle.ProcessLifecycleOwner
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin
 import com.amplifyframework.auth.cognito.AWSCognitoAuthSession
 import com.amplifyframework.core.Amplify
+import com.google.firebase.FirebaseApp
 import com.gravito.waiter_.Localization.Const
 import com.pairlix.dating.LanguageManager.AppLanguageManager
 import com.pairlix.dating.helper.NetworkMonitor
@@ -45,6 +46,7 @@ class MyApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        FirebaseApp.initializeApp(this)
         Const.countryCode=getCountryIso(this)
         appContext = this
         setupLifecycleObserver()
