@@ -1,0 +1,22 @@
+package com.pairlix.dating.notification
+
+object NotificationType {
+    const val CHAT_MSG = "CHAT_MSG"
+    const val INCOMING_CALL = "INCOMING_CALL"
+    const val MISSED_CALL = "MISSED_CALL"
+    const val CALL_ENDED = "CALL_ENDED"
+    const val ADMIN_MSG = "ADMIN_MSG"
+    const val ADMIN_WARNING = "ADMIN_WARNING"
+    const val MATCH = "MATCH"
+    const val LIKE = "LIKE"
+    const val SUPERLIKE = "SUPERLIKE"
+    const val ACCOUNT_CREATED = "ACCOUNT_CREATED"
+    const val PROFILE_NEEDS_UPDATE = "PROFILE_NEEDS_UPDATE"
+    const val NEW_DEVICE_LOGIN = "NEW_DEVICE_LOGIN"
+    const val UNREAD_MESSAGE_REMINDER = "UNREAD_MESSAGE_REMINDER"
+    const val MATCH_INACTIVE_REMINDER = "MATCH_INACTIVE_REMINDER"
+    const val PROFILE_REMINDER = "PROFILE_REMINDER"
+    const val AI_WEEKLY_MATCH = "AI_WEEKLY_MATCH"
+    const val SUBSCRIPTION_EXPIRING_SOON = "SUBSCRIPTION_EXPIRING_SOON"
+    const val SUBSCRIPTION_EXPIRED = "SUBSCRIPTION_EXPIRED"
+}

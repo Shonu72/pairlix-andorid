@@ -1,0 +1,1854 @@
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+-->
+<resources>
+
+
+    <string name="app_name" translatable="false">Pairlix</string>
+    <string name="no_network_found">لا يوجد اتصال بالشبكة</string>
+    <string name="default_notification_channel_id">Channel_01</string>
+    <string name="change_language">تغيير اللغة</string>
+    <string name="Continue">متابعة</string>
+
+    <!-- Login Screen -->
+    <string name="login">تسجيل الدخول</string>
+    <string name="mobile_number">رقم الهاتف</string>
+    <string name="email_id">البريد الإلكتروني</string>
+    <string name="enter_mobile_number">أدخل رقم الهاتف</string>
+    <string name="enter_email_id">أدخل البريد الإلكتروني</string>
+    <string name="please_upload_document">يرجى تحميل صورة الوجه الأمامي للمستند</string>
+    <!-- Validation -->
+    <string name="please_enter_mobile_number">يرجى إدخال رقم الهاتف</string>
+    <string name="please_enter_valid_phone">يرجى إدخال رقم هاتف صحيح</string>
+    <string name="location_not_fetch">تعذر تحديد الموقع</string>
+    <string name="please_enter_email">يرجى إدخال البريد الإلكتروني</string>
+    <string name="please_enter_valid_email">يرجى إدخال بريد إلكتروني صحيح</string>
+
+    <!-- Social login -->
+    <string name="or_sign_in_with">أو تسجيل الدخول باستخدام</string>
+
+    <!-- Create account -->
+    <string name="new_user">مستخدم جديد؟</string>
+    <string name="create_account">إنشاء حساب</string>
+
+    <string name="language">اللغة</string>
+    <string name="theme">المظهر</string>
+    <string name="blocked_profile">الملفات المحظورة</string>
+    <string name="ticket">تذكرة</string>
+
+    <string name="terms_conditions">الشروط والأحكام</string>
+    <string name="privacy_policy">سياسة الخصوصية</string>
+    <string name="faq">الأسئلة الشائعة</string>
+    <string name="help">المساعدة</string>
+
+    <string name="share_app">مشاركة التطبيق</string>
+    <string name="rate_app">تقييم التطبيق</string>
+    <string name="settings">الإعدادات</string>
+
+    <string name="safety_support">الأمان والدعم</string>
+
+    <string name="light_mode">الوضع الفاتح</string>
+    <string name="dark_mode">الوضع الداكن</string>
+    <string name="as_per_os">حسب النظام</string>
+
+    <string name="expire_in_days">ينتهي خلال %1$d يوم</string>
+    <string name="expire_today">ينتهي اليوم</string>
+    <string name="expired">منتهي</string>
+
+    <string name="logout">تسجيل الخروج</string>
+
+    <string name="manage_profile">إدارة الملف الشخصي</string>
+
+    <string name="active_plan">الخطة النشطة</string>
+    <string name="free_plan">الخطة المجانية</string>
+    <string name="gold_plan">الخطة الذهبية</string>
+    <string name="platinum_plan">الخطة البلاتينية</string>
+
+    <string name="upgrade_plan">ترقية الخطة</string>
+
+    <string name="follow_us">تابعنا</string>
+    <string name="facebook">فيسبوك</string>
+    <string name="instagram">إنستغرام</string>
+    <string name="twitter">X</string>
+
+    <string name="app_version">إصدار التطبيق 1.0.1</string>
+
+    <string name="title_account_authentication">توثيق الحساب</string>
+
+    <string name="pending">قيد الانتظار</string>
+    <string name="tickets">التذاكر</string>
+
+    <string name="description">الوصف</string>
+    <string name="ticket_type">نوع التذكرة</string>
+
+    <string name="payment_issue">مشكلة في الدفع</string>
+
+    <string name="attachment">مرفق</string>
+
+    <string name="replied_by_admin">تم الرد من قبل الإدارة</string>
+
+    <string name="matchmaking_for_marriage">التوفيق للزواج</string>
+    <string name="shariah_aligned">متوافق مع الشريعة</string>
+    <string name="please_do_not_write_email_phone_or_links">يرجى عدم كتابة البريد الإلكتروني أو رقم الهاتف أو الروابط</string>
+    <string name="every_person_is_real">كل شخص حقيقي.</string>
+    <string name="every_profile_is_verified">كل ملف شخصي موثق.</string>
+    <string name="meaningful_conversations">محادثات ذات معنى.</string>
+    <string name="respectful_communication">تواصل باحترام</string>
+
+    <string name="edit_profile">تعديل الملف الشخصي</string>
+
+    <string name="change_profile_photo">تغيير صورة الملف الشخصي</string>
+    <string name="upload_profile">رفع صورة الملف الشخصي</string>
+
+    <string name="first_name">الاسم الأول</string>
+    <string name="required_symbol">*</string>
+    <string name="enter_first_name">أدخل الاسم الأول</string>
+
+    <string name="last_name">اسم العائلة</string>
+    <string name="enter_last_name">أدخل اسم العائلة</string>
+
+    <string name="no_country_found">لم يتم العثور على دولة</string>
+    <string name="no_city_found">لم يتم العثور على مدينة</string>
+
+    <string name="please_enter_a_valid_mobile_number_7_to_15_digits">
+يرجى إدخال رقم هاتف صحيح (7 إلى 15 رقم)
+</string>
+
+    <string name="select_country">اختر الدولة</string>
+    <string name="select_location">اختر الموقع</string>
+
+    <string name="gender">الجنس</string>
+    <string name="date_of_birth">تاريخ الميلاد</string>
+
+    <string name="please_enter_first_name">يرجى إدخال الاسم الأول</string>
+    <string name="please_enter_last_name">يرجى إدخال اسم العائلة</string>
+
+    <string name="please_enter_country_code">يرجى إدخال رمز الدولة</string>
+
+    <string name="please_select_dob">يرجى اختيار تاريخ الميلاد</string>
+
+    <string name="minimum_age_required">الحد الأدنى للعمر هو 18 سنة</string>
+
+    <string name="please_select_city">يرجى اختيار المدينة</string>
+    <string name="please_select_gender">يرجى اختيار الجنس</string>
+
+    <string name="please_upload_profile_image">يرجى رفع صورة الملف الشخصي</string>
+
+    <string name="submit">إرسال</string>
+
+    <string name="already_have_an_account">لديك حساب بالفعل؟</string>
+
+    <string name="please_choose_country_first">يرجى اختيار الدولة أولاً</string>
+
+    <string name="select_city">اختر المدينة</string>
+    <string name="select_option">اختر خيار</string>
+
+    <!-- OTP Verification -->
+    <string name="otp_verification">التحقق من الرمز</string>
+    <string name="_4_digit_otp_has_been_sent_to_your">
+تم إرسال رمز التحقق المكون من 4 أرقام إلى
+%1$s
+</string>
+
+    <string name="_4_digit_otp_has_been_sent_to_your_registered_email_id">
+تم إرسال رمز التحقق المكون من 4 أرقام إلى بريدك الإلكتروني المسجل
+</string>
+
+    <string name="please_enter_valid_4_digit_otp">يرجى إدخال رمز تحقق صحيح مكون من 4 أرقام</string>
+
+    <string name="otp_must_be_numbers_only">يجب أن يحتوي رمز التحقق على أرقام فقط</string>
+
+    <string name="email_otp_must_be_numbers_only">يجب أن يحتوي رمز التحقق الخاص بالبريد الإلكتروني على أرقام فقط</string>
+
+    <string name="please_enter_valid_4_digit_email_otp">يرجى إدخال رمز تحقق صحيح للبريد الإلكتروني</string>
+
+    <string name="resend_otp">إعادة إرسال رمز التحقق</string>
+
+    <string name="in">خلال</string>
+
+    <string name="sec">%1$s ثانية</string>
+
+    <string name="now">الآن</string>
+
+    <string name="registered_email_id">البريد الإلكتروني المسجل</string>
+
+    <string name="registered_mobile_number">رقم الهاتف المسجل</string>
+
+
+    <!-- Complete Profile -->
+    <string name="complete_profile">إكمال الملف الشخصي</string>
+
+    <string name="upload_upto_9_photo_three_mandatory">
+ارفع حتى 9 صور (3 صور إلزامية)
+</string>
+
+    <string name="please_wait_for_uploads_to_complete">
+يرجى الانتظار حتى يكتمل رفع الصور
+</string>
+
+    <string name="please_wait_for_at_least_3_images_to_upload_successfully">
+يرجى الانتظار حتى يتم رفع 3 صور على الأقل بنجاح
+</string>
+
+    <string name="camera_permission_is_required">
+مطلوب إذن الكاميرا
+</string>
+
+    <string name="choose_source">اختر المصدر</string>
+
+    <string name="camera">الكاميرا</string>
+
+    <string name="please_wait_until_images_upload">
+يرجى الانتظار حتى يتم رفع الصور
+</string>
+
+    <string name="moderation_failed_images_rejected">
+فشل الفحص. تم رفض الصور
+</string>
+
+    <string name="images_rejected_due_to_content_policy">
+تم رفض الصور بسبب سياسة المحتوى
+</string>
+
+    <string name="images_approved">
+تمت الموافقة على الصور
+</string>
+
+    <string name="gallery">المعرض</string>
+
+    <string name="upload_failed">فشل الرفع: %1$s</string>
+
+
+    <!-- Interests -->
+    <string name="interested_in">مهتم بـ</string>
+
+    <string name="spoken_language">اللغات المتحدث بها</string>
+
+    <string name="select_up_to_10">(يمكن اختيار حتى 10)</string>
+
+    <string name="what_sect_do_you_belong_to">
+إلى أي مذهب تنتمي؟
+</string>
+
+    <string name="type_your_sect">اكتب مذهبك</string>
+
+    <string name="please_select_your_interest">
+يرجى اختيار اهتماماتك
+</string>
+
+    <string name="please_select_at_least_1_language">
+يرجى اختيار لغة واحدة على الأقل
+</string>
+
+    <string name="please_select_what_sect_you_belong_to">
+يرجى اختيار المذهب الذي تنتمي إليه
+</string>
+
+    <string name="please_enter_your_sect">
+يرجى إدخال مذهبك
+</string>
+
+
+    <!-- Profession -->
+    <string name="what_is_your_current_profession">
+ما هي مهنتك الحالية؟
+</string>
+
+    <string name="type_your_profession">
+اكتب مهنتك
+</string>
+
+
+    <!-- Education -->
+    <string name="education">التعليم</string>
+
+    <string name="select_education_level">
+اختر مستوى التعليم
+</string>
+
+    <string name="please_select_your_profession">
+يرجى اختيار مهنتك
+</string>
+
+    <string name="please_select_your_education">
+يرجى اختيار مستوى التعليم
+</string>
+
+    <string name="please_enter_profession">
+يرجى إدخال المهنة
+</string>
+
+
+    <!-- Gender -->
+    <string name="male">ذكر</string>
+
+    <string name="female">أنثى</string>
+    <!-- Marital / Religion / Lifestyle -->
+
+    <string name="marital_status">الحالة الاجتماعية</string>
+
+    <string name="do_you_have_children">هل لديك أطفال؟</string>
+
+    <string name="how_do_you_practice_your_religion">
+كيف تمارس دينك؟
+</string>
+
+    <string name="please_select_your_marital_status">
+يرجى اختيار حالتك الاجتماعية
+</string>
+
+    <string name="please_select_your_children_status">
+يرجى اختيار حالة الأطفال
+</string>
+
+    <string name="please_select_your_religious_practice_level">
+يرجى اختيار مستوى ممارستك الدينية
+</string>
+
+    <string name="how_often_do_you_drink">
+كم مرة تشرب الكحول؟
+</string>
+
+    <string name="how_often_do_you_smoke">
+كم مرة تدخن؟
+</string>
+
+    <string name="how_often_do_you_workout">
+كم مرة تمارس التمارين؟
+</string>
+
+    <string name="please_select_how_often_you_drink">
+يرجى اختيار عدد مرات الشرب
+</string>
+
+    <string name="please_select_how_often_you_smoke">
+يرجى اختيار عدد مرات التدخين
+</string>
+
+    <string name="please_select_your_workout_frequency">
+يرجى اختيار عدد مرات التمرين
+</string>
+
+    <string name="unknown_category">فئة غير معروفة</string>
+
+    <string name="unnamed">بدون اسم</string>
+
+    <string name="you_can_select_maximum_10_tags">
+يمكنك اختيار 10 علامات كحد أقصى
+</string>
+
+    <string name="please_select_at_least_one_tag">
+يرجى اختيار علامة واحدة على الأقل
+</string>
+
+    <string name="how_would_you_describe_your_personality">
+كيف تصف شخصيتك؟
+</string>
+
+    <string name="select_the_category_that_best_represents_your_faith_identity">
+اختر الفئة التي تمثل هويتك الدينية
+</string>
+
+    <string name="would_you_move_abroad_after_marriage">
+هل ستنتقل إلى الخارج بعد الزواج؟
+</string>
+
+    <string name="height">الطول</string>
+
+    <string name="please_select_at_least_one_faith_identity">
+يرجى اختيار هوية دينية واحدة على الأقل
+</string>
+
+    <string name="please_enter_a_valid_height">
+يرجى إدخال طول صحيح
+</string>
+
+    <string name="please_write_something_about_your_personality">
+يرجى كتابة شيء عن شخصيتك
+</string>
+
+    <string name="please_enter_your_height">
+يرجى إدخال طولك
+</string>
+
+    <string name="please_select_your_move_abroad_after_marriage_preference">
+يرجى اختيار تفضيل الانتقال للخارج بعد الزواج
+</string>
+
+    <string name="unknown">غير معروف</string>
+
+
+    <!-- ID Verification -->
+
+    <string name="upload_id">رفع الهوية</string>
+
+    <string name="ocr_error">خطأ</string>
+
+    <string name="upload_id_proof">رفع إثبات الهوية</string>
+
+    <string name="upload_front_side">رفع الجهة الأمامية</string>
+
+    <string name="upload_back_side">رفع الجهة الخلفية</string>
+
+    <string name="select_image">اختر صورة</string>
+
+    <string name="choose_image_source">اختر مصدر الصورة</string>
+
+    <string name="user_information">معلومات المستخدم</string>
+
+    <string name="extracted_text_front">
+النص المستخرج (الأمام)
+</string>
+
+    <string name="extracted_text_back">
+النص المستخرج (الخلف)
+</string>
+
+    <string name="date_of_birth_not_match_with_your_document">
+تاريخ الميلاد لا يطابق المستند
+</string>
+
+    <string name="skip_for_now">تخطي الآن</string>
+
+    <string name="camera_permission_denied">
+تم رفض إذن الكاميرا
+</string>
+
+
+    <!-- Bottom Navigation -->
+
+    <string name="home">الرئيسية</string>
+
+    <string name="activity">النشاط</string>
+
+    <string name="chat">الدردشة</string>
+
+    <string name="profile">الملف الشخصي</string>
+
+
+    <!-- Status -->
+
+    <string name="inactive">غير نشط</string>
+
+    <string name="km_away">%1$s كم بعيد</string>
+
+    <string name="match">تطابق</string>
+
+    <string name="just_now">الآن</string>
+
+    <string name="minutes_ago">%1$d دقيقة مضت</string>
+
+    <string name="hours_ago">%1$d ساعة مضت</string>
+
+    <string name="days_ago">%1$d يوم مضى</string>
+
+    <string-array name="popup_benefits">
+        <item>دردشة نصية ومكالمات غير محدودة</item>
+        <item>مطابقات ذكية بالذكاء الاصطناعي</item>
+        <item>شاهد من أعجب بك فورًا</item>
+        <item>تحكم كامل في الظهور</item>
+        <item>تعزيز الملف الشخصي</item>
+        <item>حصري: كبار الشخصيات</item>
+    </string-array>
+
+
+    <!-- Filter -->
+
+    <string name="filter">تصفية</string>
+
+    <string name="filter_cleared_successfully">
+تم مسح التصفية بنجاح
+</string>
+
+    <string name="clear_filter">مسح التصفية</string>
+
+    <string name="maximum_distance">أقصى مسافة</string>
+
+    <string name="km">كم</string>
+
+    <string name="age_range">نطاق العمر</string>
+
+    <string name="country">الدولة</string>
+
+    <string name="user_type">نوع المستخدم</string>
+
+    <string name="children">الأطفال</string>
+
+    <string name="sect">المذهب</string>
+
+    <string name="profession">المهنة</string>
+
+    <string name="language_spoken">اللغة</string>
+
+    <string name="drinking">الشرب</string>
+
+    <string name="smoking">التدخين</string>
+
+    <string name="cancel">إلغاء</string>
+
+    <string name="done">تم</string>
+
+    <string name="religion">الدين</string>
+
+    <string name="edit_bio">تعديل النبذة</string>
+
+    <string name="language_not_found">لم يتم العثور على اللغة</string>
+
+    <string name="country_not_found">لم يتم العثور على الدولة</string>
+
+    <string name="yes">نعم</string>
+
+    <string name="no">لا</string>
+
+    <!-- Plans / Subscription -->
+
+    <string name="platinum">بلاتيني</string>
+    <string name="gold">ذهبي</string>
+
+    <string name="profiles_you_skip_will_appear_here_for_reference">
+الملفات التي تتجاوزها ستظهر هنا للرجوع إليها
+</string>
+
+    <string name="complete_your_profile_and_upload_great_photos_to_get_noticed">
+أكمل ملفك الشخصي وارفع صورًا جيدة ليلاحظك الآخرون
+</string>
+
+    <string name="start_exploring_profiles_and_send_your_first_like">
+ابدأ في استكشاف الملفات الشخصية وأرسل أول إعجاب
+</string>
+
+    <string name="keep_swiping_the_right_connection_takes_time">
+استمر في التمرير، فالعلاقة المناسبة تحتاج وقتًا
+</string>
+
+    <string name="profile_views">مشاهدات الملف الشخصي</string>
+
+    <string name="search">بحث</string>
+
+    <string name="your_profile_is_not_being_viewed_by_anyone">
+لا أحد يشاهد ملفك الشخصي
+</string>
+
+
+    <!-- Media -->
+
+    <string name="video">فيديو</string>
+    <string name="image">صورة</string>
+    <string name="audio">صوت</string>
+    <string name="media">وسائط</string>
+
+    <string name="no_message">لا توجد رسائل</string>
+
+    <string name="no_name">بدون اسم</string>
+
+
+    <!-- Plan -->
+
+    <string name="your_current_plan">خطتك الحالية</string>
+
+    <string name="auto_renewal">التجديد التلقائي</string>
+
+    <string name="turn_on_auto_renew_to_keep_your_subscription_active_without_any_hassle">
+قم بتشغيل التجديد التلقائي للحفاظ على اشتراكك نشطًا بدون أي عناء
+</string>
+
+    <string name="upgrade_aed_160">ترقية - 160 درهم</string>
+
+    <string name="gps_is_off_opaening_settings">
+نظام تحديد الموقع مغلق، يتم فتح الإعدادات
+</string>
+
+    <string name="plans">الخطط</string>
+
+    <string name="plan_to_upgrade">الخطة للترقية</string>
+
+    <string name="note_now_you_can_only_explore_plan_once_your_plan_expire_then_you_can_purchase_upgrade">
+ملاحظة: يمكنك الآن فقط استكشاف الخطة، بعد انتهاء خطتك يمكنك الشراء أو الترقية
+</string>
+
+    <string name="visibility_and_ultimate_connections">
+رؤية أفضل واتصالات أقوى
+</string>
+
+    <string name="plan_details">تفاصيل الخطة</string>
+
+    <string name="basic_matching_connection">
+المطابقة والاتصال الأساسي
+</string>
+
+    <string name="visibility_ultimate_connections">
+رؤية واتصالات مميزة
+</string>
+
+    <string name="ultimate_dating_experience">أفضل تجربة</string>
+
+    <string name="upgrade_price">ترقية - %1$s</string>
+
+    <string name="currently_active">نشطة حاليًا</string>
+
+    <string name="expire_in_sample">ينتهي خلال 4 أيام</string>
+
+
+    <!-- Location -->
+
+    <string name="location_permission_denied">
+تم رفض إذن الموقع
+</string>
+
+
+    <!-- Plan Duration -->
+
+    <string name="select_duration">اختر المدة</string>
+
+    <string name="plan_1_month">شهر واحد</string>
+
+    <string name="plan_3_months">3 أشهر</string>
+
+    <string name="plan_6_months">6 أشهر</string>
+
+    <string name="plan_purchased_sucessfully">
+تم شراء الخطة بنجاح
+</string>
+
+
+    <!-- Ticket -->
+
+    <string name="message">رسالة</string>
+
+    <string name="write_a_reason_here">
+اكتب السبب هنا
+</string>
+
+    <!-- Plan Benefits -->
+
+    <string-array name="gold_benefits">
+        <item>التمرير والإعجابات: غير محدودة</item>
+        <item>الدردشة: دردشة نصية غير محدودة</item>
+        <item>المعجبون: معرفة من أعجب بك فوراً</item>
+        <item>الإعجابات المميزة: 4 يومياً</item>
+        <item>تعزيز الملف الشخصي: 2 أسبوعياً</item>
+        <item>مطابقات ذكية بالذكاء الاصطناعي: 3 أسبوعياً</item>
+        <item>حصري: شارة VIP الذهبية</item>
+        <item>ميزة خاصة: يمكن الإعجاب أو الإعجاب المميز حتى بعد الرفض</item>
+    </string-array>
+
+    <string-array name="platinum_benefits">
+        <item>يتضمن: جميع ميزات الذهبي +</item>
+        <item>الإعجابات المميزة: غير محدودة</item>
+        <item>المكالمات: مكالمات صوتية ومرئية (اتصال مباشر)</item>
+        <item>تعزيز الملف الشخصي: 5 مرات أسبوعياً</item>
+        <item>مطابقات ذكية بالذكاء الاصطناعي: 5 مطابقات أسبوعياً</item>
+<!--
+        <item>مدة المطابقة: ممتدة إلى 48 ساعة (+12 ساعة إضافية)</item>
+-->
+        <item>الاتصالات: فرصة ثانية (إعادة المطابقة)</item>
+        <item>الخصوصية: تحكم كامل في الظهور</item>
+        <item>حصري: شارة كبار الشخصيات البلاتينية</item>
+        <item>ميزة خاصة: يمكن الإعجاب أو الإعجاب المميز حتى بعد الرفض</item>
+    </string-array>
+
+    <string-array name="free_benefits">
+        <item>التمرير: غير محدود (تصفح جميع الملفات الشخصية)</item>
+        <item>الإعجابات: 30 إعجاب يومياً</item>
+        <item>الإعجابات المميزة: 1 شهرياً</item>
+        <item>تعزيز الملف الشخصي: 2 تعزيز مجاني شهرياً</item>
+        <item>مطابقات ذكية بالذكاء الاصطناعي: 1 مطابقة أسبوعياً</item>
+    </string-array>
+
+
+    <!-- Sect -->
+
+    <string-array name="belong_list">
+        <item>سني</item>
+        <item>شيعي</item>
+        <item>أفضل عدم الإفصاح</item>
+        <item>أخرى</item>
+
+    </string-array>
+    <string-array name="profile_chips">
+        <item>حول</item>
+        <item>التعليم</item>
+        <item>الاهتمامات</item>
+        <item>الهوية الدينية</item>
+        <item>الشخصية (السيرة الذاتية)</item>
+    </string-array>
+
+
+    <!-- Interested -->
+
+    <string-array name="interested_list">
+        <item>رجال</item>
+        <item>نساء</item>
+        <item>الجميع</item>
+    </string-array>
+
+    <!-- Education Levels -->
+    <string-array name="education_levels">
+        <item>المستوى المتقدم</item>
+        <item>جمعية المحاسبين القانونيين المعتمدين</item>
+        <item>شهادة عالمة</item>
+        <item>شهادة اللغة العربية</item>
+        <item>بكالوريوس الآداب</item>
+        <item>بكالوريوس العمارة</item>
+        <item>رخصة المحاماة</item>
+        <item>بكالوريوس إدارة الأعمال</item>
+        <item>بكالوريوس التجارة</item>
+        <item>بكالوريوس علوم الحاسوب</item>
+        <item>بكالوريوس طب الأسنان</item>
+        <item>بكالوريوس الهندسة</item>
+        <item>بكالوريوس التربية</item>
+        <item>بكالوريوس تكنولوجيا المعلومات</item>
+        <item>بكالوريوس العلوم</item>
+        <item>بكالوريوس عام</item>
+        <item>بكالوريوس التكنولوجيا</item>
+        <item>محاسب قانوني معتمد</item>
+        <item>محلل مالي معتمد</item>
+        <item>محاسب إداري معتمد</item>
+        <item>دبلوم الهندسة</item>
+        <item>درس نظامي (دورة عالم)</item>
+        <item>دكتوراه في إدارة الأعمال</item>
+        <item>دكتوراه في الفلسفة</item>
+        <item>دكتوراه في التربية</item>
+        <item>زمالة كلية الأطباء والجراحين</item>
+        <item>حفظ القرآن الكريم</item>
+        <item>المرحلة المتوسطة</item>
+        <item>الدراسات الإسلامية</item>
+        <item>بكالوريوس القانون</item>
+        <item>ماجستير القانون</item>
+        <item>ماجستير الآداب</item>
+        <item>المرحلة الثانوية</item>
+        <item>ماجستير إدارة الأعمال</item>
+        <item>بكالوريوس الطب والجراحة</item>
+        <item>ماجستير التجارة</item>
+        <item>ماجستير علوم الحاسوب</item>
+        <item>ماجستير التربية</item>
+        <item>ماجستير الهندسة</item>
+        <item>ماجستير الفلسفة</item>
+        <item>عضوية الكلية الملكية للأطباء</item>
+        <item>ماجستير العلوم</item>
+        <item>ماجستير العلوم</item>
+        <item>ماجستير تكنولوجيا المعلومات</item>
+        <item>ناظرة</item>
+        <item>بدون تعليم رسمي</item>
+        <item>المستوى العادي</item>
+        <item>دكتور صيدلة</item>
+        <item>دكتوراه</item>
+        <item>المدرسة الابتدائية</item>
+        <item>الشريعة / القانون الإسلامي</item>
+        <item>شهادة التجويد</item>
+        <item>اختبار الترخيص الطبي الأمريكي</item>
+    </string-array>
+    <!-- Marital Status -->
+    <string-array name="marital_status_list">
+        <item>لم يسبق له الزواج</item>
+        <item>مطلق</item>
+        <item>أرمل</item>
+        <item>منفصل</item>
+    </string-array>
+
+    <!-- Religious Practice -->
+    <string-array name="religious_practice_list">
+        <item>ملتزم جدًا (يؤدي الصلوات الخمس يوميًا)</item>
+        <item>ملتزم (يحاول الصلاة بانتظام)</item>
+        <item>ملتزم بدرجة متوسطة (يصلي أحيانًا)</item>
+        <item>مسلم ثقافي (يعرّف نفسه كمسلم لكن ليس منتظمًا في العبادة)</item>
+    </string-array>
+
+    <!-- Children -->
+    <string-array name="children_list">
+        <item>نعم</item>
+        <item>لا</item>
+        <item>أفضل عدم الإفصاح</item>
+    </string-array>
+
+    <!-- Drinking -->
+    <string-array name="drinking_frequency_list">
+        <item>أبدًا</item>
+        <item>أحيانًا</item>
+        <item>بانتظام</item>
+    </string-array>
+
+    <!-- Smoking -->
+    <string-array name="smoking_frequency_list">
+        <item>عرضي</item>
+        <item>مدخن</item>
+        <item>يحاول الإقلاع</item>
+        <item>التدخين عند الشرب</item>
+        <item>أبدًا</item>
+    </string-array>
+
+    <!-- Workout -->
+    <string-array name="workout_frequency_list">
+        <item>كل يوم</item>
+        <item>غالبًا</item>
+        <item>أحيانًا</item>
+        <item>أبدًا</item>
+    </string-array>
+
+    <!-- Relocation -->
+    <string-array name="relocation_preference_list">
+        <item>نعم، أنا منفتح على الانتقال إلى الخارج</item>
+        <item>لا، أفضل البقاء في بلدي</item>
+        <item>يعتمد على وضع الزوج</item>
+        <item>أعيش بالفعل في الخارج</item>
+    </string-array>
+
+    <string-array name="profession_list">
+        <item>المحاسبة</item>
+        <item>الزراعة</item>
+        <item>الهندسة المعمارية</item>
+        <item>الإدارة</item>
+        <item>الطيران</item>
+        <item>الخدمات المصرفية</item>
+        <item>بين الوظائف</item>
+        <item>البناء</item>
+        <item>الاستشارات</item>
+        <item>الفنون الإبداعية</item>
+        <item>خدمة العملاء</item>
+        <item>البيانات والتحليلات</item>
+        <item>الدفاع</item>
+        <item>الإعلام الرقمي</item>
+        <item>التعليم</item>
+        <item>الهندسة</item>
+        <item>رائد أعمال</item>
+        <item>البيئة</item>
+        <item>الأزياء</item>
+        <item>الأطعمة والمشروبات</item>
+        <item>الحكومة</item>
+        <item>الرعاية الصحية</item>
+        <item>ربة منزل</item>
+        <item>الضيافة</item>
+        <item>الموارد البشرية</item>
+        <item>تكنولوجيا المعلومات</item>
+        <item>التأمين</item>
+        <item>الصحافة</item>
+        <item>إنفاذ القانون</item>
+        <item>القانون</item>
+        <item>الخدمات اللوجستية</item>
+        <item>الإدارة والتسيير</item>
+        <item>التصنيع</item>
+        <item>البحرية</item>
+        <item>التسويق</item>
+        <item>الإعلام</item>
+        <item>المنظمات غير الربحية</item>
+        <item>التمريض</item>
+        <item>النفط والغاز</item>
+        <item>الفنون الأدائية</item>
+        <item>الصناعات الدوائية</item>
+        <item>التصوير الفوتوغرافي</item>
+        <item>إدارة المشاريع</item>
+        <item>علم النفس</item>
+        <item>الصحة العامة</item>
+        <item>السياسات العامة</item>
+        <item>ضمان الجودة</item>
+        <item>العقارات</item>
+        <item>الخدمات الدينية</item>
+        <item>البحث</item>
+        <item>البيع بالتجزئة</item>
+        <item>متقاعد</item>
+        <item>العلوم</item>
+        <item>عمل حر</item>
+        <item>المهن الحرفية</item>
+        <item>الخدمة الاجتماعية</item>
+        <item>البرمجيات</item>
+        <item>الرياضة واللياقة البدنية</item>
+        <item>طالب</item>
+        <item>الاتصالات</item>
+        <item>اللاهوت</item>
+        <item>التدريب</item>
+        <item>الترجمة</item>
+        <item>الطب البيطري</item>
+        <item>العافية</item>
+
+        <!-- ALWAYS LAST -->
+        <item>أفضل عدم الإفصاح</item>
+        <item>أخرى</item>
+    </string-array>
+    <string-array name="chip_list">
+        <item>الإعجابات</item>
+        <item>تم إرسال إعجاب</item>
+        <item>المطابقات</item>
+        <item>مرفوض</item>
+    </string-array>
+
+    <string-array name="ticket_issue_types">
+        <item>مشاكل الدفع</item>
+        <item>مشاكل المطابقة / الدردشة</item>
+        <item>مشاكل التحقق</item>
+        <item>مخاوف الاحتيال / الأمان</item>
+        <item>الفوترة والاشتراك - تقرير خطأ تقني</item>
+    </string-array>
+
+    <!-- Report Reasons -->
+    <string name="reason_wrong_age">عمر خاطئ</string>
+    <string name="reason_married_pretending_single">متزوج ويتظاهر بأنه أعزب</string>
+    <string name="reason_harassment">مضايقة</string>
+    <string name="reason_religious_disrespect">إساءة دينية</string>
+    <string name="reason_sexual_content">محتوى جنسي</string>
+    <string name="reason_scamming_fraud">احتيال / نصب</string>
+    <string name="reason_spam">رسائل مزعجة</string>
+    <string name="reason_catfishing">انتحال هوية</string>
+    <string name="reason_extremist_political">محتوى متطرف / سياسي</string>
+    <string name="reason_bad_behavior_chat_call">سلوك سيء أثناء الدردشة أو المكالمة</string>
+    <string name="reason_threats_bullying">تهديدات / تنمر</string>
+    <string name="reason_financial_scam">محاولة احتيال مالي</string>
+    <string name="reason_other">أخرى</string>
+
+    <!-- Actions -->
+    <string name="report">إبلاغ</string>
+    <string name="report_block"><![CDATA[إبلاغ وحظر]]></string>
+    <string name="block">حظر</string>
+    <string name="unmatch">إلغاء التطابق</string>
+
+    <!-- Profile Badges -->
+    <string name="faith_identity">الهوية الإيمانية</string>
+    <string name="interests">الاهتمامات</string>
+    <string name="face_verified">تم التحقق من الوجه</string>
+    <string name="id_verified">تم التحقق من الهوية</string>
+    <string name="age_verified">تم التحقق من العمر</string>
+
+    <!-- Units -->
+    <string name="cm">سم</string>
+    <string name="ft">قدم</string>
+
+    <!-- Compatibility -->
+    <string name="compatibility_score">%1$s نسبة التوافق</string>
+
+    <!-- Profile Fields -->
+    <string name="religion_practice">الممارسة الدينية</string>
+    <string name="children_status">حالة الأطفال</string>
+    <string name="relocation_after_marriage">الانتقال بعد الزواج</string>
+    <string name="unblock_profile">رفع الحظر عن الملف الشخصي</string>
+    <string name="education_level">المستوى التعليمي</string>
+    <string name="current_profession">المهنة الحالية</string>
+    <string name="habits">العادات</string>
+
+
+    <!-- Smoking Habits -->
+    <string name="smokimg">التدخين</string>
+    <string name="casual">عرضي</string>
+    <string name="smoker">مدخن</string>
+    <string name="trying_to_quit">أحاول الإقلاع</string>
+    <string name="smoking_when_drinking">أدخن عند الشرب</string>
+    <string name="never">أبداً</string>
+    <string name="occasional">أحياناً</string>
+    <string name="regular">بانتظام</string>
+
+    <!-- Workout -->
+    <string name="workout">التمرين</string>
+    <string name="everyday">كل يوم</string>
+    <string name="often">كثيراً</string>
+    <string name="sometimes">أحياناً</string>
+
+    <!-- Profile General -->
+    <string name="personality_bio">الشخصية (النبذة)</string>
+    <string name="name">الاسم</string>
+    <string name="preview_profile">معاينة الملف الشخصي</string>
+    <string name="about">حول</string>
+    <string name="update">تحديث</string>
+    <string name="profile_picture">صورة الملف الشخصي</string>
+
+    <!-- Match -->
+    <string name="its_a_match">إنه تطابق!</string>
+    <string name="start_a_conversation_with_each_other">ابدأ محادثة مع بعضكما البعض</string>
+    <string name="interests_to_explore_more">اهتمامات لاستكشاف المزيد</string>
+    <string name="update_your">تحديث</string>
+    <string name="no_chat_yet">لا توجد محادثة بعد</string>
+    <string name="you_match_with_on">تطابقت مع في</string>
+
+    <!-- Onboarding Common -->
+    <string name="skip">تخطي</string>
+    <string name="next">التالي</string>
+
+    <!-- Onboarding Screen 1 -->
+    <string name="onboarding_title_1">مطابقة متوافقة مع الشريعة للزواج</string>
+    <string name="marriage_focused">يركز على الزواج</string>
+    <string name="built_with_islamic_values">مبني على القيم الإسلامية</string>
+    <string name="deen_first_compatibility">التوافق بالدين أولاً</string>
+
+    <!-- Onboarding Screen 2 -->
+    <string name="onboarding_title_2">كل ملف شخصي موثق. كل شخص حقيقي.</string>
+    <string name="supporting_badge">شارة الدعم</string>
+    <string name="government_id_verified">تم التحقق بالهوية الحكومية</string>
+    <string name="live_face_scan">مسح الوجه المباشر</string>
+    <string name="ai_protected_platform">منصة محمية بالذكاء الاصطناعي</string>
+    <string name="zero_tolerance_fake_profiles">عدم التسامح مع الملفات المزيفة</string>
+
+    <!-- Onboarding Screen 3 -->
+    <string name="onboarding_title_3">تواصل محترم ومحادثات هادفة.</string>
+    <string name="ai_moderated_chat">دردشة مشرفة بالذكاء الاصطناعي</string>
+    <string name="privacy_first_messaging">مراسلة تحترم الخصوصية</string>
+    <string name="quality_matches">تطابقات عالية الجودة</string>
+    <string name="calling">مكالمة</string>
+
+    <!-- Call Actions -->
+    <string name="decline_call">رفض</string>
+    <string name="accept_call">قبول</string>
+
+    <!-- Permission -->
+    <string name="microphone_permission_required">إذن الميكروفون مطلوب</string>
+
+    <!-- Visibility Control Screen -->
+    <string name="visibility_control">التحكم في الظهور</string>
+
+    <!-- Section Titles -->
+    <string name="profile_visibility">ظهور الملف الشخصي</string>
+    <string name="profile_status">حالة الملف الشخصي</string>
+    <string name="privacy_settings">إعدادات الخصوصية</string>
+    <string name="visibility_filter">فلتر الظهور</string>
+    <string name="who_can_see_me">من يمكنه رؤيتي</string>
+    <string name="message_filter">فلتر الرسائل</string>
+    <string name="who_can_message_me">من يمكنه مراسلتي</string>
+
+    <!-- Profile Status -->
+    <string name="active">نشط</string>
+    <string name="hidden">مخفي</string>
+    <string name="paused">متوقف مؤقتاً</string>
+    <string name="deactivated">معطّل</string>
+
+    <string name="active_description">الملف الشخصي مرئي بالكامل في الاكتشاف.</string>
+    <string name="hidden_description">غير مرئي مؤقتاً ويمكن إعادة التفعيل في أي وقت.</string>
+    <string name="paused_description">غير قابل للاكتشاف ولكن يمكن الدردشة مع التطابقات الحالية.</string>
+    <string name="deactivated_description">غير مرئي تماماً والوصول إلى التطبيق مقيد.</string>
+
+    <!-- Message Filter -->
+    <string name="everyone">الجميع</string>
+    <string name="verified_users_only">المستخدمون الموثقون فقط</string>
+    <string name="premium_users_only">المستخدمون المميزون فقط</string>
+
+    <!-- Visibility Filter -->
+    <string name="premium_users_gold_platinum">المستخدمون المميزون فقط (ذهبي / بلاتيني)</string>
+    <string name="people_i_liked_only">الأشخاص الذين أعجبت بهم فقط</string>
+
+    <!-- Privacy Toggles -->
+    <string name="show_age">إظهار العمر</string>
+    <string name="show_location">إظهار الموقع</string>
+    <string name="show_distance">إظهار المسافة</string>
+    <string name="show_last_active">إظهار آخر نشاط</string>
+    <string name="blur_profile">تمويه ملفي الشخصي</string>
+
+    <string name="show_age_description">خيار لإظهار العمر أو إخفائه.</string>
+    <string name="show_location_description">اختر إظهار المدينة والبلد أو الإخفاء الكامل.</string>
+    <string name="show_distance_description">إظهار أو إخفاء المسافة عن المستخدمين الآخرين.</string>
+    <string name="show_last_active_description">خيار لإظهار أو إخفاء حالة "آخر ظهور".</string>
+    <string name="blur_profile_description">خيار لتمويه الملف الشخصي.</string>
+
+    <!-- Blocked Profiles -->
+    <string name="no_blocked_profiles">لا توجد ملفات محظورة</string>
+
+    <!-- Profile Approval -->
+    <string name="your_profile_wasn_t_approved">لم تتم الموافقة على ملفك الشخصي</string>
+    <string name="please_fix_the_following_issues_before_your_profile_can_be_shown_to_other_members">يرجى إصلاح المشكلات التالية قبل أن يتم عرض ملفك الشخصي للأعضاء الآخرين</string>
+    <string name="face_scan">مسح الوجه</string>
+    <string name="approved">تمت الموافقة</string>
+    <string name="id_proof">إثبات الهوية</string>
+    <string name="id_proof_not_approved_yet">إثبات الهوية لم تتم الموافقة عليه بعد!</string>
+
+    <!-- Input Hints -->
+    <string name="write_here">اكتب هنا...</string>
+    <string name="enter_height">أدخل الطول</string>
+
+    <!-- Lifestyle -->
+    <string name="life_style">نمط الحياة</string>
+
+    <!-- Marital Status -->
+    <string name="never_married">لم يتزوج من قبل</string>
+    <string name="divorced">مطلق</string>
+    <string name="widowed">أرمل</string>
+    <string name="separated">منفصل</string>
+
+    <!-- Religion Practice -->
+    <string name="very_practicing">ملتزم جداً</string>
+    <string name="practicing">ملتزم</string>
+    <string name="moderately_practicing">ملتزم نسبياً</string>
+    <string name="cultural_muslim">مسلم بالموروث الثقافي</string>
+
+    <!-- Relocation -->
+    <string name="already_living_abroad">أعيش بالفعل في الخارج</string>
+    <string name="depends_on_spouse">يعتمد على وضع الزوج/الزوجة</string>
+    <string name="prefer_not_to_say">أفضل عدم الإفصاح</string>
+
+    <!-- Edit Fields -->
+    <string name="edit_height">تعديل الطول</string>
+    <string name="edit_interested_in">تعديل الاهتمام بـ</string>
+    <string name="edit_language">تعديل اللغة</string>
+    <string name="edit_sect">تعديل المذهب</string>
+    <string name="edit_marital_status">تعديل الحالة الاجتماعية</string>
+    <string name="edit_religion_practice">تعديل الممارسة الدينية</string>
+    <string name="edit_children_status">حالة الأطفال</string>
+    <string name="edit_relocation">تعديل الانتقال بعد الزواج</string>
+    <string name="edit_faith_identity">تعديل الهوية الإيمانية</string>
+    <string name="edit_habits">تعديل العادات</string>
+    <string name="edit_interest">تعديل الاهتمامات</string>
+
+    <!-- Date Picker -->
+    <string name="choose_date">اختر التاريخ</string>
+    <string name="from">من</string>
+    <string name="to">إلى</string>
+
+    <!-- General -->
+    <string name="no_results_found">لا توجد نتائج</string>
+    <string name="you_can_select_maximum_10_languages">يمكنك اختيار ١٠ لغات كحد أقصى</string>
+
+    <!-- Ticket System -->
+    <string name="no_tickets_found">لا توجد تذاكر</string>
+    <string name="add_ticket">إضافة تذكرة</string>
+    <string name="title">العنوان</string>
+    <string name="enter_title">أدخل العنوان</string>
+    <string name="select">اختر</string>
+    <string name="enter_description">أدخل الوصف</string>
+    <string name="add">إضافة</string>
+    <string name="please_enter_title">يرجى إدخال العنوان</string>
+    <string name="please_enter_ticket_type">يرجى إدخال نوع التذكرة</string>
+    <string name="please_enter_description">يرجى إدخال الوصف</string>
+    <string name="please_select_from_date_first">يرجى تحديد تاريخ البداية أولاً</string>
+    <string name="resolved">تم الحل</string>
+    <string name="n_a">غير متاح</string>
+    <string name="ticket_id">رقم التذكرة: </string>
+    <string name="title_prefix">عنوان-</string>
+
+    <string name="all">الكل</string>
+
+    <string name="country_afghanistan">أفغانستان</string>
+    <string name="country_albania">ألبانيا</string>
+    <string name="country_algeria">الجزائر</string>
+    <string name="country_andorra">أندورا</string>
+    <string name="country_angola">أنغولا</string>
+    <string name="country_antigua_and_barbuda">أنتيغوا وبربودا</string>
+    <string name="country_argentina">الأرجنتين</string>
+    <string name="country_armenia">أرمينيا</string>
+    <string name="country_australia">أستراليا</string>
+    <string name="country_austria">النمسا</string>
+    <string name="country_azerbaijan">أذربيجان</string>
+    <string name="country_bahamas">جزر البهاما</string>
+    <string name="country_bahrain">البحرين</string>
+    <string name="country_bangladesh">بنغلاديش</string>
+    <string name="country_barbados">بربادوس</string>
+    <string name="country_belarus">بيلاروسيا</string>
+    <string name="country_belgium">بلجيكا</string>
+    <string name="country_belize">بليز</string>
+    <string name="country_benin">بنين</string>
+    <string name="country_bhutan">بوتان</string>
+    <string name="country_bolivia">بوليفيا</string>
+    <string name="country_bosnia_and_herzegovina">البوسنة والهرسك</string>
+    <string name="country_botswana">بوتسوانا</string>
+    <string name="country_brazil">البرازيل</string>
+    <string name="country_brunei">بروناي</string>
+    <string name="country_bulgaria">بلغاريا</string>
+    <string name="country_burkina_faso">بوركينا فاسو</string>
+    <string name="country_burundi">بوروندي</string>
+    <string name="country_cabo_verde">الرأس الأخضر</string>
+    <string name="country_cambodia">كمبوديا</string>
+    <string name="country_cameroon">الكاميرون</string>
+    <string name="country_canada">كندا</string>
+    <string name="country_central_african_republic">جمهورية أفريقيا الوسطى</string>
+    <string name="country_chad">تشاد</string>
+    <string name="country_chile">تشيلي</string>
+    <string name="country_china">الصين</string>
+    <string name="country_colombia">كولومبيا</string>
+    <string name="country_comoros">جزر القمر</string>
+    <string name="country_congo_republic">الكونغو (جمهورية الكونغو)</string>
+    <string name="country_congo_democratic">الكونغو (جمهورية الكونغو الديمقراطية)</string>
+    <string name="country_costa_rica">كوستاريكا</string>
+    <string name="country_croatia">كرواتيا</string>
+    <string name="country_cuba">كوبا</string>
+    <string name="country_cyprus">قبرص</string>
+    <string name="country_czech_republic">جمهورية التشيك</string>
+    <string name="country_denmark">الدنمارك</string>
+    <string name="country_djibouti">جيبوتي</string>
+    <string name="country_dominica">دومينيكا</string>
+    <string name="country_dominican_republic">جمهورية الدومينيكان</string>
+    <string name="country_ecuador">الإكوادور</string>
+    <string name="country_egypt">مصر</string>
+    <string name="country_el_salvador">السلفادور</string>
+    <string name="country_equatorial_guinea">غينيا الاستوائية</string>
+    <string name="country_eritrea">إريتريا</string>
+    <string name="country_estonia">إستونيا</string>
+    <string name="country_eswatini">إسواتيني</string>
+    <string name="country_ethiopia">إثيوبيا</string>
+    <string name="country_fiji">فيجي</string>
+    <string name="country_finland">فنلندا</string>
+    <string name="country_france">فرنسا</string>
+    <string name="country_gabon">الغابون</string>
+    <string name="country_gambia">غامبيا</string>
+    <string name="country_georgia">جورجيا</string>
+    <string name="country_germany">ألمانيا</string>
+    <string name="country_ghana">غانا</string>
+    <string name="country_greece">اليونان</string>
+    <string name="country_grenada">غرينادا</string>
+    <string name="country_guatemala">غواتيمالا</string>
+    <string name="country_guinea">غينيا</string>
+    <string name="country_guinea_bissau">غينيا بيساو</string>
+    <string name="country_guyana">غيانا</string>
+    <string name="country_haiti">هايتي</string>
+    <string name="country_honduras">هندوراس</string>
+    <string name="country_hungary">المجر</string>
+    <string name="country_iceland">آيسلندا</string>
+    <string name="country_india">الهند</string>
+    <string name="country_indonesia">إندونيسيا</string>
+    <string name="country_iran">إيران</string>
+    <string name="country_iraq">العراق</string>
+    <string name="country_ireland">أيرلندا</string>
+    <string name="country_israel">إسرائيل</string>
+    <string name="country_italy">إيطاليا</string>
+    <string name="country_jamaica">جامايكا</string>
+    <string name="country_japan">اليابان</string>
+    <string name="country_jordan">الأردن</string>
+    <string name="country_kazakhstan">كازاخستان</string>
+    <string name="country_kenya">كينيا</string>
+    <string name="country_kiribati">كيريباتي</string>
+    <string name="country_kuwait">الكويت</string>
+    <string name="country_kyrgyzstan">قيرغيزستان</string>
+    <string name="country_laos">لاوس</string>
+    <string name="country_latvia">لاتفيا</string>
+    <string name="country_lebanon">لبنان</string>
+    <string name="country_lesotho">ليسوتو</string>
+    <string name="country_liberia">ليبيريا</string>
+    <string name="country_libya">ليبيا</string>
+    <string name="country_liechtenstein">ليختنشتاين</string>
+    <string name="country_lithuania">ليتوانيا</string>
+    <string name="country_luxembourg">لوكسمبورغ</string>
+    <string name="country_madagascar">مدغشقر</string>
+    <string name="country_malawi">مالاوي</string>
+    <string name="country_malaysia">ماليزيا</string>
+    <string name="country_maldives">جزر المالديف</string>
+    <string name="country_mali">مالي</string>
+    <string name="country_malta">مالطا</string>
+    <string name="country_marshall_islands">جزر مارشال</string>
+    <string name="country_mauritania">موريتانيا</string>
+    <string name="country_mauritius">موريشيوس</string>
+    <string name="country_mexico">المكسيك</string>
+    <string name="country_micronesia">ميكرونيزيا</string>
+    <string name="country_moldova">مولدوفا</string>
+    <string name="country_monaco">موناكو</string>
+    <string name="country_mongolia">منغوليا</string>
+    <string name="country_montenegro">الجبل الأسود</string>
+    <string name="country_morocco">المغرب</string>
+    <string name="country_mozambique">موزمبيق</string>
+    <string name="country_myanmar">ميانمار</string>
+    <string name="country_namibia">ناميبيا</string>
+    <string name="country_nauru">ناورو</string>
+    <string name="country_nepal">نيبال</string>
+    <string name="country_netherlands">هولندا</string>
+    <string name="country_new_zealand">نيوزيلندا</string>
+    <string name="country_nicaragua">نيكاراغوا</string>
+    <string name="country_niger">النيجر</string>
+    <string name="country_nigeria">نيجيريا</string>
+    <string name="country_north_korea">كوريا الشمالية</string>
+    <string name="country_north_macedonia">مقدونيا الشمالية</string>
+    <string name="country_norway">النرويج</string>
+    <string name="country_oman">عُمان</string>
+    <string name="country_pakistan">باكستان</string>
+    <string name="country_palau">بالاو</string>
+    <string name="country_panama">بنما</string>
+    <string name="country_papua_new_guinea">بابوا غينيا الجديدة</string>
+    <string name="country_paraguay">باراغواي</string>
+    <string name="country_peru">بيرو</string>
+    <string name="country_philippines">الفلبين</string>
+    <string name="country_poland">بولندا</string>
+    <string name="country_portugal">البرتغال</string>
+    <string name="country_qatar">قطر</string>
+    <string name="country_romania">رومانيا</string>
+    <string name="country_russia">روسيا</string>
+    <string name="country_rwanda">رواندا</string>
+    <string name="country_saint_kitts_and_nevis">سانت كيتس ونيفيس</string>
+    <string name="country_saint_lucia">سانت لوسيا</string>
+    <string name="country_saint_vincent_and_the_grenadines">سانت فنسنت وجزر غرينادين</string>
+    <string name="country_samoa">ساموا</string>
+    <string name="country_san_marino">سان مارينو</string>
+    <string name="country_sao_tome_and_principe">ساو تومي وبرينسيبي</string>
+    <string name="country_saudi_arabia">المملكة العربية السعودية</string>
+    <string name="country_senegal">السنغال</string>
+    <string name="country_serbia">صربيا</string>
+    <string name="country_seychelles">سيشل</string>
+    <string name="country_sierra_leone">سيراليون</string>
+    <string name="country_singapore">سنغافورة</string>
+    <string name="country_slovakia">سلوفاكيا</string>
+    <string name="country_slovenia">سلوفينيا</string>
+    <string name="country_solomon_islands">جزر سليمان</string>
+    <string name="country_somalia">الصومال</string>
+    <string name="country_south_africa">جنوب أفريقيا</string>
+    <string name="country_south_korea">كوريا الجنوبية</string>
+    <string name="country_south_sudan">جنوب السودان</string>
+    <string name="country_spain">إسبانيا</string>
+    <string name="country_sri_lanka">سريلانكا</string>
+    <string name="country_sudan">السودان</string>
+    <string name="country_suriname">سورينام</string>
+    <string name="country_sweden">السويد</string>
+    <string name="country_switzerland">سويسرا</string>
+    <string name="country_syria">سوريا</string>
+    <string name="country_taiwan">تايوان</string>
+    <string name="country_tajikistan">طاجيكستان</string>
+    <string name="country_tanzania">تنزانيا</string>
+    <string name="country_thailand">تايلاند</string>
+    <string name="country_timor_leste">تيمور الشرقية</string>
+    <string name="country_togo">توغو</string>
+    <string name="country_tonga">تونغا</string>
+    <string name="country_trinidad_and_tobago">ترينيداد وتوباغو</string>
+    <string name="country_tunisia">تونس</string>
+    <string name="country_turkey">تركيا</string>
+    <string name="country_turkmenistan">تركمانستان</string>
+    <string name="country_tuvalu">توفالو</string>
+    <string name="country_uganda">أوغندا</string>
+    <string name="country_ukraine">أوكرانيا</string>
+    <string name="country_united_arab_emirates">الإمارات العربية المتحدة</string>
+    <string name="country_united_kingdom">المملكة المتحدة</string>
+    <string name="country_united_states">الولايات المتحدة الأمريكية</string>
+    <string name="country_uruguay">أوروغواي</string>
+    <string name="country_uzbekistan">أوزبكستان</string>
+    <string name="country_vanuatu">فانواتو</string>
+    <string name="country_vatican_city">مدينة الفاتيكان</string>
+    <string name="country_venezuela">فنزويلا</string>
+    <string name="country_vietnam">فيتنام</string>
+    <string name="country_yemen">اليمن</string>
+    <string name="country_zambia">زامبيا</string>
+    <string name="country_zimbabwe">زيمبابوي</string>
+    <string name="terms_and_conditions">الشروط والأحكام</string>
+    <string name="privacy_and_policy">سياسة الخصوصية</string>
+    <string name="and_symbol">و</string>
+
+    <!-- Alternative: Combined string for better context -->
+    <string name="terms_privacy_text">الشروط والأحكام  و  سياسة الخصوصية</string>
+
+    <!-- Settings Screen -->
+    <string name="notification_settings">إعدادات الإشعارات</string>
+
+    <!-- Notification Options -->
+    <string name="push_notification">الإشعارات الفورية</string>
+    <string name="disable_all_notifications">تعطيل جميع الإشعارات</string>
+    <string name="new_messages">الرسائل الجديدة</string>
+    <string name="liked_received">الإعجابات المستلمة</string>
+
+    <!-- Delete Account Dialog -->
+    <string name="delete_account_title">حذف الحساب نهائياً</string>
+    <string name="delete_account_message">هل أنت متأكد أنك تريد حذف الحساب نهائياً</string>
+    <string name="delete">حذف</string>
+
+    <string name="audio_recording">جارٍ تسجيل الصوت...</string>
+
+    <string name="typing">يكتب...</string>
+
+    <string name="write_a_message">اكتب رسالة</string>
+
+    <string name="block_report_profile"><![CDATA[حظر والإبلاغ عن الملف الشخصي]]></string>
+
+    <string name="report_submitted_sucessfully">تم إرسال البلاغ بنجاح</string>
+
+    <string name="profile_unmatched">تم إلغاء المطابقة!</string>
+
+    <string name="block_report">حظر والإبلاغ</string>
+
+    <string name="clear_chat">مسح الدردشة</string>
+
+    <string name="you_won_t_see_each_other_anymore">لن تتمكنوا من رؤية بعضكم البعض بعد الآن.</string>
+
+    <string name="blocked">تم الحظر</string>
+
+    <string name="microphone_permission_is_require_to_use_this_feature">
+        يتطلب إذن الميكروفون لاستخدام هذه الميزة
+    </string>
+
+
+    <string name="reason_scamming">احتيال / خداع</string>
+
+    <string name="reason_extremist">محتوى متطرف / سياسي</string>
+    <string name="reason_bad_behavior">سلوك سيء أثناء الدردشة أو المكالمة</string>
+    <string name="reason_threats">تهديدات / تنمر</string>
+
+    <!-- Action Buttons -->
+    <string name="log_out">تسجيل الخروج</string>
+    <string name="delete_account">حذف الحساب</string>
+
+    <!-- Additional Common Strings -->
+    <string name="confirm">تأكيد</string>
+    <string name="back">رجوع</string>
+    <string name="save">حفظ</string>
+    <string name="matched_with">لقد تطابقت مع %1$s في %2$s</string>
+    <string name="you_ve_seen_the_all_the_profiles">لقد شاهدت جميع الملفات الشخصية</string>
+
+    <string-array name="spoken_languages">
+        <item>الأفريكانية</item>
+        <item>الألبانية</item>
+        <item>الأمهرية</item>
+        <item>العربية (الفصحى الحديثة)</item>
+        <item>الأرمنية</item>
+        <item>الأسامية</item>
+        <item>الأذربيجانية</item>
+
+        <item>الإندونيسية</item>
+        <item>الملايو (الماليزية)</item>
+        <item>البلوشية</item>
+        <item>البنغالية</item>
+        <item>الأمازيغية (قبائلية)</item>
+        <item>الأمازيغية (تمازيغت)</item>
+        <item>البوجبورية</item>
+        <item>البوسنية</item>
+        <item>البلغارية</item>
+        <item>البورمية (ميانمار)</item>
+
+        <item>الكانتونية</item>
+        <item>السيبوانية</item>
+        <item>الصينية (الماندرين)</item>
+        <item>التشيتاغونية</item>
+        <item>الكرواتية</item>
+        <item>التشيكية</item>
+
+        <item>الدنماركية</item>
+        <item>الدارية</item>
+        <item>الهولندية</item>
+        <item>الزونغخا (بوتان)</item>
+
+        <item>العربية المصرية</item>
+        <item>الإنجليزية (كندا)</item>
+        <item>الإنجليزية (المملكة المتحدة)</item>
+        <item>الإنجليزية (الولايات المتحدة)</item>
+
+        <item>الفيجية</item>
+        <item>الفلبينية (تاغالوغ)</item>
+        <item>الفنلندية</item>
+        <item>الفرنسية</item>
+        <item>الفرنسية (كندا)</item>
+
+        <item>الألمانية</item>
+        <item>اليونانية</item>
+        <item>الغوارانية</item>
+        <item>الغوجاراتية</item>
+        <item>العربية الخليجية</item>
+
+        <item>الكريول الهايتية</item>
+        <item>الحريانية</item>
+        <item>الهاوايية</item>
+        <item>الهوسا</item>
+        <item>العبرية</item>
+        <item>الهندية</item>
+        <item>الهوكين</item>
+        <item>المجرية</item>
+
+        <item>الإيغبو</item>
+        <item>الأيرلندية الغيلية</item>
+        <item>الإيطالية</item>
+
+        <item>اليابانية</item>
+        <item>الجاوية</item>
+
+        <item>الكانادا</item>
+        <item>الكشميرية</item>
+        <item>الخميرية (كمبوديا)</item>
+        <item>الكونكانية</item>
+        <item>الكورية</item>
+        <item>الكردية (باديني)</item>
+        <item>الكردية (كورمانجي)</item>
+        <item>الكردية (سوراني)</item>
+        <item>الكردية (زازاكي)</item>
+
+        <item>اللاوية</item>
+        <item>العربية الشامية</item>
+
+        <item>الماغاهية</item>
+        <item>الملغاشية</item>
+        <item>المالايالامية</item>
+        <item>الماورية (نيوزيلندا)</item>
+        <item>الماراثية</item>
+        <item>المنغولية</item>
+
+        <item>النافاجو</item>
+        <item>النيبالية</item>
+        <item>النرويجية</item>
+
+        <item>الأوديا</item>
+
+        <item>البشتوية</item>
+        <item>الفارسية (الفارسية)</item>
+        <item>البولندية</item>
+        <item>البرتغالية</item>
+        <item>البرتغالية (البرازيل)</item>
+        <item>البنجابية (الهند)</item>
+        <item>البنجابية (باكستان)</item>
+
+        <item>الكيتشوا</item>
+        <item>الروهينغية</item>
+        <item>الرومانية</item>
+        <item>الروسية</item>
+
+        <item>الساموية</item>
+        <item>السرايكية</item>
+        <item>الغيلية الاسكتلندية</item>
+        <item>الصربية</item>
+        <item>الشونا</item>
+        <item>السنهالية (سريلانكا)</item>
+        <item>السندية</item>
+        <item>السندية (الهند)</item>
+        <item>السلوفاكية</item>
+        <item>الصومالية</item>
+        <item>الإسبانية</item>
+        <item>الإسبانية (أمريكا اللاتينية)</item>
+        <item>العربية السودانية</item>
+        <item>السوندانية</item>
+        <item>السواحيلية</item>
+        <item>السويدية</item>
+
+        <item>التاهيتية</item>
+        <item>التاميلية</item>
+        <item>التيلوجو</item>
+        <item>التايلاندية</item>
+        <item>التبتية</item>
+        <item>التغرينية</item>
+        <item>توك بيسين (بابوا)</item>
+        <item>التونغية</item>
+        <item>التركية</item>
+
+        <item>الأوكرانية</item>
+        <item>الأردية</item>
+        <item>الأردية (الهند)</item>
+
+        <item>الفيتنامية</item>
+
+        <item>الويلزية</item>
+
+        <item>العربية اليمنية</item>
+        <item>اليوروبا</item>
+        <item>الزولو</item>
+        <item>أخرى</item>
+    </string-array>
+
+    <string-array name="country_list">
+        <item>أفغانستان</item>
+        <item>ألبانيا</item>
+        <item>الجزائر</item>
+        <item>أندورا</item>
+        <item>أنغولا</item>
+        <item>أنتيغوا وبربودا</item>
+        <item>الأرجنتين</item>
+        <item>أرمينيا</item>
+        <item>أستراليا</item>
+        <item>النمسا</item>
+        <item>أذربيجان</item>
+        <item>جزر البهاما</item>
+        <item>البحرين</item>
+        <item>بنغلاديش</item>
+        <item>بربادوس</item>
+        <item>بيلاروسيا</item>
+        <item>بلجيكا</item>
+        <item>بليز</item>
+        <item>بنين</item>
+        <item>بوتان</item>
+        <item>بوليفيا</item>
+        <item>البوسنة والهرسك</item>
+        <item>بوتسوانا</item>
+        <item>البرازيل</item>
+        <item>بروناي</item>
+        <item>بلغاريا</item>
+        <item>بوركينا فاسو</item>
+        <item>بوروندي</item>
+        <item>الرأس الأخضر</item>
+        <item>كمبوديا</item>
+        <item>الكاميرون</item>
+        <item>كندا</item>
+        <item>جمهورية أفريقيا الوسطى</item>
+        <item>تشاد</item>
+        <item>تشيلي</item>
+        <item>الصين</item>
+        <item>كولومبيا</item>
+        <item>جزر القمر</item>
+        <item>الكونغو (جمهورية الكونغو)</item>
+        <item>الكونغو (جمهورية الكونغو الديمقراطية)</item>
+        <item>كوستاريكا</item>
+        <item>كرواتيا</item>
+        <item>كوبا</item>
+        <item>قبرص</item>
+        <item>جمهورية التشيك</item>
+        <item>الدنمارك</item>
+        <item>جيبوتي</item>
+        <item>دومينيكا</item>
+        <item>جمهورية الدومينيكان</item>
+        <item>الإكوادور</item>
+        <item>مصر</item>
+        <item>السلفادور</item>
+        <item>غينيا الاستوائية</item>
+        <item>إريتريا</item>
+        <item>إستونيا</item>
+        <item>إسواتيني</item>
+        <item>إثيوبيا</item>
+        <item>فيجي</item>
+        <item>فنلندا</item>
+        <item>فرنسا</item>
+        <item>الغابون</item>
+        <item>غامبيا</item>
+        <item>جورجيا</item>
+        <item>ألمانيا</item>
+        <item>غانا</item>
+        <item>اليونان</item>
+        <item>غرينادا</item>
+        <item>غواتيمالا</item>
+        <item>غينيا</item>
+        <item>غينيا بيساو</item>
+        <item>غيانا</item>
+        <item>هايتي</item>
+        <item>هندوراس</item>
+        <item>المجر</item>
+        <item>آيسلندا</item>
+        <item>الهند</item>
+        <item>إندونيسيا</item>
+        <item>إيران</item>
+        <item>العراق</item>
+        <item>أيرلندا</item>
+        <item>إسرائيل</item>
+        <item>إيطاليا</item>
+        <item>جامايكا</item>
+        <item>اليابان</item>
+        <item>الأردن</item>
+        <item>كازاخستان</item>
+        <item>كينيا</item>
+        <item>كيريباتي</item>
+        <item>الكويت</item>
+        <item>قيرغيزستان</item>
+        <item>لاوس</item>
+        <item>لاتفيا</item>
+        <item>لبنان</item>
+        <item>ليسوتو</item>
+        <item>ليبيريا</item>
+        <item>ليبيا</item>
+        <item>ليختنشتاين</item>
+        <item>ليتوانيا</item>
+        <item>لوكسمبورغ</item>
+        <item>مدغشقر</item>
+        <item>ملاوي</item>
+        <item>ماليزيا</item>
+        <item>المالديف</item>
+        <item>مالي</item>
+        <item>مالطا</item>
+        <item>جزر مارشال</item>
+        <item>موريتانيا</item>
+        <item>موريشيوس</item>
+        <item>المكسيك</item>
+        <item>ميكرونيزيا</item>
+        <item>مولدوفا</item>
+        <item>موناكو</item>
+        <item>منغوليا</item>
+        <item>الجبل الأسود</item>
+        <item>المغرب</item>
+        <item>موزمبيق</item>
+        <item>ميانمار</item>
+        <item>ناميبيا</item>
+        <item>ناورو</item>
+        <item>نيبال</item>
+        <item>هولندا</item>
+        <item>نيوزيلندا</item>
+        <item>نيكاراغوا</item>
+        <item>النيجر</item>
+        <item>نيجيريا</item>
+        <item>كوريا الشمالية</item>
+        <item>مقدونيا الشمالية</item>
+        <item>النرويج</item>
+        <item>عُمان</item>
+        <item>باكستان</item>
+        <item>بالاو</item>
+        <item>بنما</item>
+        <item>بابوا غينيا الجديدة</item>
+        <item>باراغواي</item>
+        <item>بيرو</item>
+        <item>الفلبين</item>
+        <item>بولندا</item>
+        <item>البرتغال</item>
+        <item>قطر</item>
+        <item>رومانيا</item>
+        <item>روسيا</item>
+        <item>رواندا</item>
+        <item>سانت كيتس ونيفيس</item>
+        <item>سانت لوسيا</item>
+        <item>سانت فينسنت وجزر غرينادين</item>
+        <item>ساموا</item>
+        <item>سان مارينو</item>
+        <item>ساو تومي وبرينسيبي</item>
+        <item>المملكة العربية السعودية</item>
+        <item>السنغال</item>
+        <item>صربيا</item>
+        <item>سيشل</item>
+        <item>سيراليون</item>
+        <item>سنغافورة</item>
+        <item>سلوفاكيا</item>
+        <item>سلوفينيا</item>
+        <item>جزر سليمان</item>
+        <item>الصومال</item>
+        <item>جنوب أفريقيا</item>
+        <item>كوريا الجنوبية</item>
+        <item>جنوب السودان</item>
+        <item>إسبانيا</item>
+        <item>سريلانكا</item>
+        <item>السودان</item>
+        <item>سورينام</item>
+        <item>السويد</item>
+        <item>سويسرا</item>
+        <item>سوريا</item>
+        <item>تايوان</item>
+        <item>طاجيكستان</item>
+        <item>تنزانيا</item>
+        <item>تايلاند</item>
+        <item>تيمور الشرقية</item>
+        <item>توغو</item>
+        <item>تونغا</item>
+        <item>ترينيداد وتوباغو</item>
+        <item>تونس</item>
+        <item>تركيا</item>
+        <item>تركمانستان</item>
+        <item>توفالو</item>
+        <item>أوغندا</item>
+        <item>أوكرانيا</item>
+        <item>الإمارات العربية المتحدة</item>
+        <item>المملكة المتحدة</item>
+        <item>الولايات المتحدة الأمريكية</item>
+        <item>أوروغواي</item>
+        <item>أوزبكستان</item>
+        <item>فانواتو</item>
+        <item>مدينة الفاتيكان</item>
+        <item>فنزويلا</item>
+        <item>فيتنام</item>
+        <item>اليمن</item>
+        <item>زامبيا</item>
+        <item>زيمبابوي</item>
+    </string-array>
+    <string name="loading">جار التحميل...</string>
+    <string name="no_notifications">لا توجد إشعارات</string>
+    <string name="notifications">الإشعارات</string>
+    <string name="dd_mm_yyyy">يوم/شهر/سنة</string>
+    <string name="faq_s">الأسئلة الشائعة</string>
+    <string name="attachment_if_any">مرفق (إن وجد)</string>
+    <string name="call">اتصال</string>
+    <string name="email">البريد الإلكتروني</string>
+    <string name="photo_guidline">إرشادات الصورة</string>
+    <string name="pass">تم</string>
+    <string name="your_account_has_been">تم إنشاء حسابك \n</string>
+    <string name="created_successfully">بنجاح!</string>
+    <string name="face_verification_done_successfully">تم التحقق من الوجه بنجاح</string>
+    <string name="verification_failed">فشل التحقق</string>
+    <string name="your_face_has_been_successfully_verified">تم التحقق من وجهك بنجاح</string>
+    <string name="please_try_again">يرجى المحاولة مرة أخرى</string>
+    <string name="try_again">حاول مرة أخرى</string>
+    <string name="liveness_verified">تم التحقق من الحيوية!</string>
+    <string name="this_photo_is_only_for">هذه الصورة فقط لـ</string>
+    <string name="verification_purpose">" غرض التحقق."</string>
+    <string name="this_photo_will_not_show_to_other_users">لن تظهر هذه الصورة للمستخدمين الآخرين</string>
+    <string name="initializing_face_verification">جارٍ تهيئة التحقق من الوجه...</string>
+    <string name="face_verification">التحقق من الوجه</string>
+    <string name="grant_permission">منح الإذن</string>
+    <string name="camera_permission_required">مطلوب إذن الكاميرا</string>
+    <string name="liveness_confidence_too_low_please_try_again">مستوى الثقة في الحيوية منخفض جدًا. يرجى المحاولة مرة أخرى.</string>
+    <string name="it_s_a_match">لقد حصل تطابق!</string>
+    <string name="say_hello">ابدأ بالتحية</string>
+
+    <!-- Blocked Items -->
+    <string name="multiple_face">وجوه متعددة</string>
+    <string name="ai_generated">تم إنشاؤها بالذكاء الاصطناعي</string>
+    <string name="weapons">أسلحة</string>
+    <string name="face_covered">الوجه مغطى</string>
+    <string name="drugs">مخدرات</string>
+
+    <!-- Pass Items -->
+    <string name="clear_face">وجه\nواضح</string>
+    <string name="original_image">صورة\nأصلية</string>
+    <string name="authentic_expression">تعبير\nحقيقي</string>
+    <string name="photos_upload_guideline">إرشادات تحميل الصور</string>
+    <string name="no_profile_views_yet">لا توجد مشاهدات للملف الشخصي بعد</string>
+    <string name="translating_cities">جارٍ ترجمة المدن، يرجى الانتظار…</string>
+    <string name="blocked_profiles">الملفات الشخصية المحظورة</string>
+    <string name="subscription_terms">
+إصدار أندرويد (جوجل بلاي)
+
+من خلال المتابعة، فإنك تؤكد أنك قرأت وتوافق على سياسة الخصوصية وشروط الخدمة الخاصة بـ بيرليكس.
+
+سيتم خصم الدفع من حساب جوجل بلاي الخاص بك عند تأكيد الاشتراك أو بعد انتهاء أي فترة تجريبية مجانية إن وجدت.
+
+سيتم تجديد اشتراكك تلقائيًا لنفس المدة وبنفس السعر ما لم يتم إيقاف التجديد التلقائي باستخدام زر التبديل داخل التطبيق أو من خلال إعدادات جوجل بلاي.
+
+يمكنك إيقاف التجديد التلقائي في أي وقت:
+
+مباشرة من زر إيقاف التجديد داخل التطبيق، أو
+
+من خلال جوجل بلاي ← المدفوعات والاشتراكات ← الاشتراكات
+
+يجب إجراء أي تغييرات على التجديد التلقائي قبل 24 ساعة على الأقل من نهاية فترة الفوترة الحالية لتجنب تحصيل رسوم للدورة التالية.
+
+إذا تم إيقاف التجديد التلقائي، سيبقى اشتراكك نشطًا حتى نهاية فترة الفوترة الحالية ولن يتم تجديده بعد ذلك.
+
+لن يتم تقديم أي استرداد للأموال عن أي جزء غير مستخدم من فترة الاشتراك الحالية.
+</string>
+    <string name="internal_server_error">خطأ في الخادم الداخلي</string>
+    <string name="no_internet_connection">لا يوجد اتصال بالإنترنت</string>
+    <string name="something_went_wrong">حدث خطأ ما</string>
+    <string name="get_start">ابدأ</string>
+    <string name="ok">حسناً</string>
+    <string name="no_filter_matches">لا توجد نتائج مطابقة للتصفية. قم بتحديث تفضيلاتك للمتابعة.</string>
+    <string name="min">%1$s\n دقيقة</string>
+    <string name="alhamdulillah">الحمد لله</string>
+    <string name="it_s_a_matchh">إنه تطابق!</string>
+    <string name="say_salam">قل السلام</string>
+    <string name="keep_exploring">استمر في الاستكشاف</string>
+    <string name="and_among_his_signs_he_created_for_you">ومن آياته أن خلق لكم</string>
+    <string name="you_both_showed_interest">لقد أبدى كل منكما اهتمامًا.\n</string>
+    <string name="begin_with_respect_and_intention">ابدأ بالاحترام والنية.</string>
+    <string name="ai_weekly_matches">المطابقات الأسبوعية بالذكاء الاصطناعي</string>
+    <string name="ai_random_matches">مطابقات عشوائية بالذكاء الاصطناعي</string>
+    <string name="matches">المطابقات</string>
+    <string name="choose_option">اختر خيار</string>
+
+    <string name="delete_message">حذف الرسالة</string>
+
+    <string name="are_you_sure_you_want_to_delete_this_message_for_everyone">
+هل أنت متأكد أنك تريد حذف هذه الرسالة للجميع؟
+    </string>
+
+    <string name="options">خيارات</string>
+    <string name="select_plans">اختر الباقات</string>
+    <string name="no_plan">لا توجد باقة</string>
+    <string name="today">اليوم، %1$s</string>
+    <string name="yesterday">أمس، %1$s</string>
+    <string name="connection_not_ready">الاتصال غير جاهز، يرجى الانتظار</string>
+    <string name="choose_camera_option">اختر خيار الكاميرا</string>
+    <string name="photo">صورة</string>
+
+    <string name="_5_km_away">على بُعد 5 كم</string>
+
+    <string name="pairlix_premium">بايرليكس بريميوم</string>
+
+    <string name="get_the_premium_plans_to_get_more_matches_enhance_visibility_nd_unlock_premium_features">
+احصل على خطط بريميوم للحصول على المزيد من المطابقات، وزيادة الظهور، وفتح الميزات المميزة
+</string>
+
+    <string name="date_of_birth_not_fetch_please_re_upload_document">
+تعذر جلب تاريخ الميلاد، يرجى إعادة رفع المستند
+</string>
+
+    <string name="upgrade_to_gold">الترقية إلى الذهبي</string>
+
+    <string name="upgrade_to_platinum">الترقية إلى البلاتيني</string>
+
+    <string name="tab_to_age_verify">اضغط للتحقق من العمر</string>
+
+    <string name="billed_montly">يتم الفوترة شهريًا</string>
+
+    <string name="save_50">وفر 50٪</string>
+
+    <string name="save_30">وفر 30٪</string>
+
+    <string name="best_valued">أفضل قيمة</string>
+
+    <string name="begin_your_journey">ابدأ رحلتك</string>
+
+    <string name="a_community_of_verified_muslims">مجتمع من المسلمين الموثقين</string>
+
+    <string name="serious_about_halal_marriage">جادون بشأن الزواج الحلال</string>
+
+    <string name="assalaamu_alaikum_welcome_to_pairlix">السلام عليكم، مرحبًا بكم في Pairlix</string>
+
+    <string name="unblock_successfully">تم إلغاء الحظر بنجاح</string>
+
+    <string name="turn_on_gps">قم بتشغيل GPS</string>
+
+    <string name="please_enable_your_gps_to_continue">يرجى تمكين GPS للمتابعة</string>
+
+    <string name="gps_is_off">GPS متوقف</string>
+
+
+
+
+</resources>

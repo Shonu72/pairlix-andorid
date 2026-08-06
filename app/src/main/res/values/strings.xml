@@ -1,0 +1,1408 @@
+<resources>
+
+    <string name="app_name" translatable="false">Pairlix</string>
+    <string name="no_network_found">No Network Found</string>
+    <string name="default_notification_channel_id">Channel_01</string>
+    <string name="change_language">Change Language</string>
+    <string name="Continue">Continue</string>
+
+    <!-- Login Screen -->
+    <string name="login">Login</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="email_id">Email id</string>
+    <string name="enter_mobile_number">Enter mobile number</string>
+    <string name="enter_email_id">Enter Email ID</string>
+    <!-- Validation -->
+    <string name="please_enter_mobile_number">Please enter mobile number</string>
+    <string name="please_enter_valid_phone">Please enter a valid phone number</string>
+    <string name="location_not_fetch">Location not fetch</string>
+    <string name="please_enter_email">Please enter email</string>
+    <string name="please_enter_valid_email">Please enter a valid email</string>
+    <!-- Social login -->
+    <string name="or_sign_in_with">Or Sign in with</string>
+    <!-- Create account -->
+    <string name="new_user">New User ? </string>
+    <string name="create_account"> Create Account</string>
+    <string name="language">Language</string>
+    <string name="theme">Theme</string>
+    <string name="blocked_profile">Blocked Profile</string>
+    <string name="ticket">Ticket</string>
+    <string name="terms_conditions">Terms &amp; Conditions</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="faq">FAQs</string>
+    <string name="help">Help</string>
+    <string name="share_app">Share App</string>
+    <string name="rate_app">Rate App</string>
+    <string name="settings">Settings</string>
+    <string name="safety_support">Safety &amp; Support</string>
+    <string name="light_mode">Light Mode</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="as_per_os">As per the OS</string>
+    <string name="expire_in_days">Expire in %1$d Days</string>
+    <string name="expire_today">Expire Today</string>
+    <string name="expired">Expired</string>
+    <string name="logout">Logout</string>
+    <string name="manage_profile">Manage Profile</string>
+    <string name="active_plan">Active Plan</string>
+    <string name="free_plan">Free Plan</string>
+    <string name="gold_plan">Gold Plan</string>
+    <string name="platinum_plan">Platinum Plan</string>
+    <string name="upgrade_plan">Upgrade Plan</string>
+    <string name="follow_us">Follow Us</string>
+    <string name="facebook">Facebook</string>
+    <string name="instagram">Instagram</string>
+    <string name="twitter">X</string>
+    <string name="app_version">App Version 1.0.1</string>
+    <string name="title_account_authentication">Title-Account authentication</string>
+    <string name="pending">Pending</string>
+    <string name="tickets">Tickets</string>
+    <string name="description">Description</string>
+    <string name="ticket_type">Ticket Type</string>
+    <string name="payment_issue">payment issue</string>
+    <string name="attachment">Attachment</string>
+    <string name="replied_by_admin">Replied by admin</string>
+    <string name="matchmaking_for_marriage">Matchmaking for Marriage</string>
+    <string name="shariah_aligned">Shariah-Aligned</string>
+    <string name="every_person_is_real">Every Person is Real.</string>
+    <string name="every_profile_is_verified">Every Profile is Verified.</string>
+    <string name="meaningful_conversations">Meaningful Conversations.</string>
+    <string name="respectful_communication">Respectful Communication</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="change_profile_photo">Change Profile Photo</string>
+    <string name="upload_profile">Upload Profile</string>
+    <string name="first_name">First Name</string>
+    <string name="required_symbol">*</string>
+    <string name="enter_first_name">Enter First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="enter_last_name">Enter Last Name</string>
+    <string name="no_country_found">No country found</string>
+    <string name="no_city_found">No city found</string>
+    <string name="please_enter_a_valid_mobile_number_7_to_15_digits">Please enter a valid mobile number (7 to 15 digits)</string>
+    <string name="select_country">Select Country</string>
+    <string name="select_location">Select location</string>
+    <string name="gender">Gender</string>
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="please_enter_first_name">Please enter first name</string>
+    <string name="please_enter_last_name">Please enter last name</string>
+    <string name="please_enter_country_code">Please enter country code</string>
+    <string name="please_select_dob">Please select date of birth</string>
+    <string name="minimum_age_required">Minimum age required is 18 years</string>
+    <string name="please_select_city">Please select city</string>
+    <string name="please_select_gender">Please select gender</string>
+    <string name="please_upload_profile_image">Please upload profile image</string>
+    <string name="submit">Submit</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="please_choose_country_first">Please choose country first</string>
+    <string name="select_city">Select City</string>
+    <string name="select_option">Select Option</string>
+    <string name="otp_verification">Otp Verification</string>
+    <string name="_4_digit_otp_has_been_sent_to_your">"4 digit OTP has been sent to your\n %1$s "</string>
+    <string name="_4_digit_otp_has_been_sent_to_your_registered_email_id">4 digit OTP has been sent to your\n registered Email Id.</string>
+    <string name="please_enter_valid_4_digit_otp">Please enter valid 4 digit OTP</string>
+    <string name="otp_must_be_numbers_only">OTP must be numbers only</string>
+    <string name="email_otp_must_be_numbers_only">Email OTP must be numbers only</string>
+    <string name="please_enter_valid_4_digit_email_otp">Please enter valid 4 digit email OTP</string>
+    <string name="resend_otp">"Resend OTP "</string>
+    <string name="in">"In "</string>
+    <string name="sec">%1$s Sec</string>
+    <string name="now">Now</string>
+    <string name="registered_email_id">registered Email Id.</string>
+    <string name="registered_mobile_number">registered Mobile Number.</string>
+    <string name="complete_profile">Complete Profile</string>
+    <string name="upload_upto_9_photo_three_mandatory">Upload Upto 9 Photo (Three Mandatory)</string>
+    <string name="please_wait_for_uploads_to_complete">Please wait for uploads to complete</string>
+    <string name="please_wait_for_at_least_3_images_to_upload_successfully">Please wait for at least 3 images to upload successfully</string>
+    <string name="camera_permission_is_required">Camera permission is required</string>
+    <string name="choose_source">Choose source</string>
+    <string name="camera">Camera</string>
+    <string name="please_wait_until_images_upload">Please wait until images upload</string>
+    <string name="moderation_failed_images_rejected">Moderation failed. Images rejected.</string>
+    <string name="images_rejected_due_to_content_policy">Images rejected due to content policy.</string>
+    <string name="images_approved">Images approved.</string>
+    <string name="gallery">Gallery</string>
+    <string name="upload_failed">Upload failed: %1$s</string>
+    <string name="interested_in">Interested in</string>
+    <string name="spoken_language">"Spoken language "</string>
+    <string name="select_up_to_10">(select up to 10)</string>
+    <string name="what_sect_do_you_belong_to">What sect do you belong to?</string>
+    <string name="type_your_sect">Type your sect</string>
+    <string name="please_select_your_interest">Please select your interest</string>
+    <string name="please_select_at_least_1_language">Please select at least 1 language</string>
+    <string name="please_select_what_sect_you_belong_to">Please select what sect you belong to</string>
+    <string name="please_enter_your_sect">Please enter your sect</string>
+    <string name="what_is_your_current_profession">What is your current profession?</string>
+    <string name="type_your_profession">Type your Profession</string>
+    <string name="education">Education</string>
+    <string name="select_education_level">Select Education Level</string>
+    <string name="please_select_your_profession">Please select your profession</string>
+    <string name="please_select_your_education">Please select your education</string>
+    <string name="please_enter_profession">"Please enter  profession "</string>
+
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+
+    <string name="country_afghanistan">Afghanistan</string>
+    <string name="country_albania">Albania</string>
+    <string name="country_algeria">Algeria</string>
+    <string name="country_andorra">Andorra</string>
+    <string name="country_angola">Angola</string>
+    <string name="country_antigua_and_barbuda">Antigua and Barbuda</string>
+    <string name="country_argentina">Argentina</string>
+    <string name="country_armenia">Armenia</string>
+    <string name="country_australia">Australia</string>
+    <string name="country_austria">Austria</string>
+    <string name="country_azerbaijan">Azerbaijan</string>
+    <string name="country_bahamas">Bahamas</string>
+    <string name="country_bahrain">Bahrain</string>
+    <string name="country_bangladesh">Bangladesh</string>
+    <string name="country_barbados">Barbados</string>
+    <string name="country_belarus">Belarus</string>
+    <string name="country_belgium">Belgium</string>
+    <string name="country_belize">Belize</string>
+    <string name="country_benin">Benin</string>
+    <string name="country_bhutan">Bhutan</string>
+    <string name="country_bolivia">Bolivia</string>
+    <string name="country_bosnia_and_herzegovina">Bosnia and Herzegovina</string>
+    <string name="country_botswana">Botswana</string>
+    <string name="country_brazil">Brazil</string>
+    <string name="country_brunei">Brunei</string>
+    <string name="country_bulgaria">Bulgaria</string>
+    <string name="country_burkina_faso">Burkina Faso</string>
+    <string name="country_burundi">Burundi</string>
+    <string name="country_cabo_verde">Cabo Verde</string>
+    <string name="country_cambodia">Cambodia</string>
+    <string name="country_cameroon">Cameroon</string>
+    <string name="country_canada">Canada</string>
+    <string name="country_central_african_republic">Central African Republic</string>
+    <string name="country_chad">Chad</string>
+    <string name="country_chile">Chile</string>
+    <string name="country_china">China</string>
+    <string name="country_colombia">Colombia</string>
+    <string name="country_comoros">Comoros</string>
+    <string name="country_congo_republic">Congo (Republic of the Congo)</string>
+    <string name="country_congo_democratic">Congo (Democratic Republic of the Congo)</string>
+    <string name="country_costa_rica">Costa Rica</string>
+    <string name="country_croatia">Croatia</string>
+    <string name="country_cuba">Cuba</string>
+    <string name="country_cyprus">Cyprus</string>
+    <string name="country_czech_republic">Czech Republic</string>
+    <string name="country_denmark">Denmark</string>
+    <string name="country_djibouti">Djibouti</string>
+    <string name="country_dominica">Dominica</string>
+    <string name="country_dominican_republic">Dominican Republic</string>
+    <string name="country_ecuador">Ecuador</string>
+    <string name="country_egypt">Egypt</string>
+    <string name="country_el_salvador">El Salvador</string>
+    <string name="country_equatorial_guinea">Equatorial Guinea</string>
+    <string name="country_eritrea">Eritrea</string>
+    <string name="country_estonia">Estonia</string>
+    <string name="country_eswatini">Eswatini</string>
+    <string name="country_ethiopia">Ethiopia</string>
+    <string name="country_fiji">Fiji</string>
+    <string name="country_finland">Finland</string>
+    <string name="country_france">France</string>
+    <string name="country_gabon">Gabon</string>
+    <string name="country_gambia">Gambia</string>
+    <string name="country_georgia">Georgia</string>
+    <string name="country_germany">Germany</string>
+    <string name="country_ghana">Ghana</string>
+    <string name="country_greece">Greece</string>
+    <string name="country_grenada">Grenada</string>
+    <string name="country_guatemala">Guatemala</string>
+    <string name="country_guinea">Guinea</string>
+    <string name="country_guinea_bissau">Guinea-Bissau</string>
+    <string name="country_guyana">Guyana</string>
+    <string name="country_haiti">Haiti</string>
+    <string name="country_honduras">Honduras</string>
+    <string name="country_hungary">Hungary</string>
+    <string name="country_iceland">Iceland</string>
+    <string name="country_india">India</string>
+    <string name="country_indonesia">Indonesia</string>
+    <string name="country_iran">Iran</string>
+    <string name="country_iraq">Iraq</string>
+    <string name="country_ireland">Ireland</string>
+    <string name="country_israel">Israel</string>
+    <string name="country_italy">Italy</string>
+    <string name="country_jamaica">Jamaica</string>
+    <string name="country_japan">Japan</string>
+    <string name="country_jordan">Jordan</string>
+    <string name="country_kazakhstan">Kazakhstan</string>
+    <string name="country_kenya">Kenya</string>
+    <string name="country_kiribati">Kiribati</string>
+    <string name="country_kuwait">Kuwait</string>
+    <string name="country_kyrgyzstan">Kyrgyzstan</string>
+    <string name="country_laos">Laos</string>
+    <string name="country_latvia">Latvia</string>
+    <string name="country_lebanon">Lebanon</string>
+    <string name="country_lesotho">Lesotho</string>
+    <string name="country_liberia">Liberia</string>
+    <string name="country_libya">Libya</string>
+    <string name="country_liechtenstein">Liechtenstein</string>
+    <string name="country_lithuania">Lithuania</string>
+    <string name="country_luxembourg">Luxembourg</string>
+    <string name="country_madagascar">Madagascar</string>
+    <string name="country_malawi">Malawi</string>
+    <string name="country_malaysia">Malaysia</string>
+    <string name="country_maldives">Maldives</string>
+    <string name="country_mali">Mali</string>
+    <string name="country_malta">Malta</string>
+    <string name="country_marshall_islands">Marshall Islands</string>
+    <string name="country_mauritania">Mauritania</string>
+    <string name="country_mauritius">Mauritius</string>
+    <string name="country_mexico">Mexico</string>
+    <string name="country_micronesia">Micronesia</string>
+    <string name="country_moldova">Moldova</string>
+    <string name="country_monaco">Monaco</string>
+    <string name="country_mongolia">Mongolia</string>
+    <string name="country_montenegro">Montenegro</string>
+    <string name="country_morocco">Morocco</string>
+    <string name="country_mozambique">Mozambique</string>
+    <string name="country_myanmar">Myanmar</string>
+    <string name="country_namibia">Namibia</string>
+    <string name="country_nauru">Nauru</string>
+    <string name="country_nepal">Nepal</string>
+    <string name="country_netherlands">Netherlands</string>
+    <string name="country_new_zealand">New Zealand</string>
+    <string name="country_nicaragua">Nicaragua</string>
+    <string name="country_niger">Niger</string>
+    <string name="country_nigeria">Nigeria</string>
+    <string name="country_north_korea">North Korea</string>
+    <string name="country_north_macedonia">North Macedonia</string>
+    <string name="country_norway">Norway</string>
+    <string name="country_oman">Oman</string>
+    <string name="country_pakistan">Pakistan</string>
+    <string name="country_palau">Palau</string>
+    <string name="country_panama">Panama</string>
+    <string name="country_papua_new_guinea">Papua New Guinea</string>
+    <string name="country_paraguay">Paraguay</string>
+    <string name="country_peru">Peru</string>
+    <string name="country_philippines">Philippines</string>
+    <string name="country_poland">Poland</string>
+    <string name="country_portugal">Portugal</string>
+    <string name="country_qatar">Qatar</string>
+    <string name="country_romania">Romania</string>
+    <string name="country_russia">Russia</string>
+    <string name="country_rwanda">Rwanda</string>
+    <string name="country_saint_kitts_and_nevis">Saint Kitts and Nevis</string>
+    <string name="country_saint_lucia">Saint Lucia</string>
+    <string name="country_saint_vincent_and_the_grenadines">Saint Vincent and the Grenadines</string>
+    <string name="country_samoa">Samoa</string>
+    <string name="country_san_marino">San Marino</string>
+    <string name="country_sao_tome_and_principe">São Tomé and Príncipe</string>
+    <string name="country_saudi_arabia">Saudi Arabia</string>
+    <string name="country_senegal">Senegal</string>
+    <string name="country_serbia">Serbia</string>
+    <string name="country_seychelles">Seychelles</string>
+    <string name="country_sierra_leone">Sierra Leone</string>
+    <string name="country_singapore">Singapore</string>
+    <string name="country_slovakia">Slovakia</string>
+    <string name="country_slovenia">Slovenia</string>
+    <string name="country_solomon_islands">Solomon Islands</string>
+    <string name="country_somalia">Somalia</string>
+    <string name="country_south_africa">South Africa</string>
+    <string name="country_south_korea">South Korea</string>
+    <string name="country_south_sudan">South Sudan</string>
+    <string name="country_spain">Spain</string>
+    <string name="country_sri_lanka">Sri Lanka</string>
+    <string name="country_sudan">Sudan</string>
+    <string name="country_suriname">Suriname</string>
+    <string name="country_sweden">Sweden</string>
+    <string name="country_switzerland">Switzerland</string>
+    <string name="country_syria">Syria</string>
+    <string name="country_taiwan">Taiwan</string>
+    <string name="country_tajikistan">Tajikistan</string>
+    <string name="country_tanzania">Tanzania</string>
+    <string name="country_thailand">Thailand</string>
+    <string name="country_timor_leste">Timor-Leste</string>
+    <string name="country_togo">Togo</string>
+    <string name="country_tonga">Tonga</string>
+    <string name="country_trinidad_and_tobago">Trinidad and Tobago</string>
+    <string name="country_tunisia">Tunisia</string>
+    <string name="country_turkey">Turkey</string>
+    <string name="country_turkmenistan">Turkmenistan</string>
+    <string name="country_tuvalu">Tuvalu</string>
+    <string name="country_uganda">Uganda</string>
+    <string name="country_ukraine">Ukraine</string>
+    <string name="country_united_arab_emirates">United Arab Emirates</string>
+    <string name="country_united_kingdom">United Kingdom</string>
+    <string name="country_united_states">United States</string>
+    <string name="country_uruguay">Uruguay</string>
+    <string name="country_uzbekistan">Uzbekistan</string>
+    <string name="country_vanuatu">Vanuatu</string>
+    <string name="country_vatican_city">Vatican City</string>
+    <string name="country_venezuela">Venezuela</string>
+    <string name="country_vietnam">Vietnam</string>
+    <string name="country_yemen">Yemen</string>
+    <string name="country_zambia">Zambia</string>
+    <string name="country_zimbabwe">Zimbabwe</string>
+    <string name="marital_status">"Marital Status "</string>
+    <string name="do_you_have_children">Do you have children?</string>
+    <string name="how_do_you_practice_your_religion">How do you practice your religion?</string>
+    <string name="please_select_your_marital_status">Please select your marital status</string>
+    <string name="please_select_your_children_status">Please select your Children status</string>
+    <string name="please_select_your_religious_practice_level">Please select your religious practice level</string>
+    <string name="how_often_do_you_drink">"How often do you drink? "</string>
+    <string name="how_often_do_you_smoke">"How often do you smoke? "</string>
+    <string name="how_often_do_you_workout">How often do you workout?</string>
+    <string name="please_select_how_often_you_drink">Please select how often you drink</string>
+    <string name="please_select_how_often_you_smoke">Please select how often you smoke</string>
+    <string name="please_select_your_workout_frequency">Please select your workout frequency</string>
+    <string name="unknown_category">Unknown Category</string>
+    <string name="unnamed">Unnamed</string>
+    <string name="you_can_select_maximum_10_tags">You can select maximum 10 tags</string>
+    <string name="please_select_at_least_one_tag">Please select at least one tag</string>
+    <string name="how_would_you_describe_your_personality">How would you describe your personality?</string>
+    <string name="select_the_category_that_best_represents_your_faith_identity">Select the category that best \nrepresents your faith identity</string>
+    <string name="would_you_move_abroad_after_marriage">Would you move abroad after marriage?</string>
+    <string name="height">Height</string>
+    <string name="please_select_at_least_one_faith_identity">Please select at least one faith identity</string>
+    <string name="please_enter_a_valid_height">Please enter a valid height</string>
+    <string name="please_write_something_about_your_personality">Please write something about your personality</string>
+    <string name="please_enter_your_height">Please enter your height</string>
+    <string name="please_select_your_move_abroad_after_marriage_preference">Please select your move abroad after marriage preference</string>
+    <string name="unknown">Unknown</string>
+    <string name="upload_id">Upload ID</string>
+    <string name="ocr_error">Error</string>
+    <string name="upload_id_proof">Upload ID Proof</string>
+    <string name="upload_front_side">Upload Front Side</string>
+    <string name="upload_back_side">Upload back Side</string>
+    <string name="select_image">Select Image</string>
+    <string name="choose_image_source">Choose image source</string>
+    <string name="user_information">User Information</string>
+    <string name="extracted_text_front">Extracted Text (Front):</string>
+    <string name="extracted_text_back">Extracted Text (Back):</string>
+    <string name="date_of_birth_not_match_with_your_document">date of birth  not match  with your document</string>
+    <string name="skip_for_now">Skip for Now</string>
+    <string name="camera_permission_denied">Camera permission denied</string>
+
+    <string name="home">Home</string>
+    <string name="activity">Activity</string>
+    <string name="chat">Chat</string>
+    <string name="profile">Profile</string>
+    <string name="inactive">InActive</string>
+    <string name="km_away">%1$s km Away</string>
+    <string name="match">Match</string>
+    <string name="just_now">Just now</string>
+    <string name="minutes_ago">%1$d min ago</string>
+    <string name="hours_ago">%1$d hr ago</string>
+    <string name="days_ago">%1$d d ago</string>
+
+    <string name="filter">Filter</string>
+    <string name="filter_cleared_successfully">Filter Cleared Successfully</string>
+    <string name="clear_filter">Clear Filter</string>
+    <string name="maximum_distance">Maximum Distance</string>
+    <string name="km">KM</string>
+    <string name="age_range">Age Range</string>
+    <string name="country">Country</string>
+    <string name="user_type">User Type</string>
+    <string name="children">Children</string>
+    <string name="sect">Sect</string>
+    <string name="profession">Profession</string>
+    <string name="language_spoken">Language Spoken</string>
+    <string name="drinking">Drinking</string>
+    <string name="smoking">Smoking</string>
+    <string name="cancel">Cancel</string>
+    <string name="done">Done</string>
+    <string name="religion">Religion</string>
+    <string name="edit_bio">Edit Bio</string>
+    <string name="language_not_found">Language not found</string>
+    <string name="country_not_found">Country not found</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="platinum">Platinum</string>
+    <string name="gold">Gold</string>
+    <string name="profiles_you_skip_will_appear_here_for_reference">Profiles you skip will appear here for reference</string>
+    <string name="complete_your_profile_and_upload_great_photos_to_get_noticed">Complete your profile and upload great photos to get noticed</string>
+    <string name="start_exploring_profiles_and_send_your_first_like">Start exploring profiles and send your first like</string>
+    <string name="keep_swiping_the_right_connection_takes_time">Keep swiping \n the right connection takes time</string>
+    <string name="profile_views">Profile Views</string>
+    <string name="search">Search</string>
+    <string name="your_profile_is_not_being_viewed_by_anyone">Your profile is not being viewed by anyone.</string>
+    <string name="video">video</string>
+    <string name="image">image</string>
+    <string name="audio">audio</string>
+    <string name="no_message">No message</string>
+    <string name="media">media</string>
+    <string name="no_name">No name</string>
+    <string name="your_current_plan">Your Current Plan</string>
+    <string name="auto_renewal">Auto Renewal</string>
+    <string name="turn_on_auto_renew_to_keep_your_subscription_active_without_any_hassle">Turn On Auto-Renew To Keep Your Subscription Active Without Any Hassle.</string>
+    <string name="upgrade_aed_160">Upgrade - AED 160</string>
+    <string name="gps_is_off_opaening_settings">GPS is OFF, opaening settings...</string>
+    <string name="plans">Plans</string>
+    <string name="plan_to_upgrade">Plan to Upgrade</string>
+    <string name="note_now_you_can_only_explore_plan_once_your_plan_expire_then_you_can_purchase_upgrade">NOTE: Now you can only explore plan once your plan expire then you can purchase/upgrade</string>
+    <string name="visibility_and_ultimate_connections">Visibility and ultimate connections</string>
+    <string name="plan_details">Plan Details</string>
+    <string name="basic_matching_connection">Basic matching and connection</string>
+    <string name="visibility_ultimate_connections">Visibility and ultimate connections</string>
+    <string name="ultimate_dating_experience">The ultimate experience</string>
+    <string name="upgrade_price">Upgrade - %1$s</string>
+    <string name="currently_active">Currently Active</string>
+    <string name="expire_in_sample">Expire in 4 Days</string>
+
+    <string name="location_permission_denied">Location Permission Denied!</string>
+    <string name="select_duration">Select Duration</string>
+    <string name="plan_1_month">1 Month</string>
+    <string name="plan_3_months">3 Months</string>
+    <string name="plan_6_months">6 Months</string>
+    <string name="plan_purchased_sucessfully">Plan Purchased Sucessfully</string>
+    <string name="message">Message</string>
+    <string name="write_a_reason_here">Write a reason here</string>
+
+    <string-array name="gold_benefits">
+        <item>Swipes &amp; Likes: Unlimited</item>
+        <item>Chat: Unlimited Text Chat</item>
+        <item>Admirers: See who Likes You instantly</item>
+        <item>Super Likes: 4 per Day</item>
+        <item>Profile Boosts: 2 Boosts per Week</item>
+        <item>AI Smart Matches: 3 Matches per Week</item>
+        <item>Exclusive: VIP Gold Badge</item>
+        <item>Special: Can Like/Super Like a profile even after rejecting it.</item>
+    </string-array>
+
+    <string-array name="popup_benefits">
+        <item>Unlimited Text Chat and calling</item>
+        <item>AI Smart Matches</item>
+        <item>See who Likes You instantly</item>
+        <item>Full Visibility Control</item>
+        <item>Profile Boosts</item>
+        <item>Exclusive: VIP Badge</item>
+    </string-array>
+
+    <string-array name="platinum_benefits">
+        <item>Includes: All Gold Features +</item>
+        <item>Super Likes: Unlimited</item>
+        <item>Calls: Voice &amp; Video Calls (Direct connect)</item>
+        <item>Profile Boosts: 5 Boosts per Week</item>
+        <item>AI Smart Matches: 5 Matches per Week</item>
+<!--
+        <item>Match Time: Extended to 48 hours (+12hr extension)</item>
+-->
+        <item>Connections: Second Chance Connect (Re-match)</item>
+        <item>Privacy: Full Visibility Control</item>
+        <item>Exclusive: VIP Platinum Badge</item>
+        <item>Special: Can Like/Super Like a profile even after rejecting it.</item>
+    </string-array>
+
+    <string-array name="free_benefits">
+        <item>Swipes: Unlimited (Browse all profiles)</item>
+        <item>Likes: 30 Likes per day</item>
+        <item>Super Likes: 1 per Month</item>
+        <item>Profile Boosts: 2 Free Boosts per Month</item>
+        <item>AI Smart Matches: 1 Match per Week</item>
+    </string-array>
+
+    <string-array name="belong_list">
+        <item>Suni</item>
+        <item>Shia</item>
+        <item>Prefer Not To Say</item>
+        <item>Other</item>
+
+    </string-array>
+    <!-- Interested -->
+    <string-array name="interested_list">
+        <item>Men</item>
+        <item>Female</item>
+        <item>Everyone</item>
+    </string-array>
+    <!-- Spoken Languages -->
+    <string-array name="spoken_languages">
+        <item>Afrikaans</item> <!-- 0 -->
+        <item>Albanian</item> <!-- 1 -->
+        <item>Amharic</item> <!-- 2 -->
+        <item>Arabic (Modern Standard)</item> <!-- 3 -->
+        <item>Armenian</item> <!-- 4 -->
+        <item>Assamese</item> <!-- 5 -->
+        <item>Azerbaijani</item> <!-- 6 -->
+
+        <item>Bahasa Indonesia</item> <!-- 7 -->
+        <item>Bahasa Melayu (Malay)</item> <!-- 8 -->
+        <item>Balochi</item> <!-- 9 -->
+        <item>Bengali</item> <!-- 10 -->
+        <item>Berber (Kabyle)</item> <!-- 11 -->
+        <item>Berber (Tamazight)</item> <!-- 12 -->
+        <item>Bhojpuri</item> <!-- 13 -->
+        <item>Bosnian</item> <!-- 14 -->
+        <item>Bulgarian</item> <!-- 15 -->
+        <item>Burmese (Myanmar)</item> <!-- 16 -->
+
+        <item>Cantonese</item> <!-- 17 -->
+        <item>Cebuano</item> <!-- 18 -->
+        <item>Chinese (Mandarin)</item> <!-- 19 -->
+        <item>Chittagonian</item> <!-- 20 -->
+        <item>Croatian</item> <!-- 21 -->
+        <item>Czech</item> <!-- 22 -->
+
+        <item>Danish</item> <!-- 23 -->
+        <item>Dari</item> <!-- 24 -->
+        <item>Dutch</item> <!-- 25 -->
+        <item>Dzongkha (Bhutan)</item> <!-- 26 -->
+
+        <item>Egyptian Arabic</item> <!-- 27 -->
+        <item>English (Canada)</item> <!-- 28 -->
+        <item>English (UK)</item> <!-- 29 -->
+        <item>English (US)</item> <!-- 30 -->
+
+        <item>Fijian</item> <!-- 31 -->
+        <item>Filipino (Tagalog)</item> <!-- 32 -->
+        <item>Finnish</item> <!-- 33 -->
+        <item>French</item> <!-- 34 -->
+        <item>French (Canada)</item> <!-- 35 -->
+
+        <item>German</item> <!-- 36 -->
+        <item>Greek</item> <!-- 37 -->
+        <item>Guarani</item> <!-- 38 -->
+        <item>Gujarati</item> <!-- 39 -->
+        <item>Gulf Arabic</item> <!-- 40 -->
+
+        <item>Haitian Creole</item> <!-- 41 -->
+        <item>Haryanvi</item> <!-- 42 -->
+        <item>Hawaiian</item> <!-- 43 -->
+        <item>Hausa</item> <!-- 44 -->
+        <item>Hebrew</item> <!-- 45 -->
+        <item>Hindi</item> <!-- 46 -->
+        <item>Hokkien</item> <!-- 47 -->
+        <item>Hungarian</item> <!-- 48 -->
+
+        <item>Igbo</item> <!-- 49 -->
+        <item>Irish Gaelic</item> <!-- 50 -->
+        <item>Italian</item> <!-- 51 -->
+
+        <item>Japanese</item> <!-- 52 -->
+        <item>Javanese</item> <!-- 53 -->
+
+        <item>Kannada</item> <!-- 54 -->
+        <item>Kashmiri</item> <!-- 55 -->
+        <item>Khmer (Cambodian)</item> <!-- 56 -->
+        <item>Konkani</item> <!-- 57 -->
+        <item>Korean</item> <!-- 58 -->
+        <item>Kurdish (Badini)</item> <!-- 59 -->
+        <item>Kurdish (Kurmanji)</item> <!-- 60 -->
+        <item>Kurdish (Sorani)</item> <!-- 61 -->
+        <item>Kurdish (Zazaki)</item> <!-- 62 -->
+
+        <item>Lao</item> <!-- 63 -->
+        <item>Levantine Arabic</item> <!-- 64 -->
+
+        <item>Magahi</item> <!-- 65 -->
+        <item>Malagasy</item> <!-- 66 -->
+        <item>Malayalam</item> <!-- 67 -->
+        <item>Maori (New Zealand)</item> <!-- 68 -->
+        <item>Marathi</item> <!-- 69 -->
+        <item>Mongolian</item> <!-- 70 -->
+
+        <item>Navajo</item> <!-- 71 -->
+        <item>Nepali</item> <!-- 72 -->
+        <item>Norwegian</item> <!-- 73 -->
+
+        <item>Odia</item> <!-- 74 -->
+
+        <item>Pashto</item> <!-- 75 -->
+        <item>Persian (Farsi)</item> <!-- 76 -->
+        <item>Polish</item> <!-- 77 -->
+        <item>Portuguese</item> <!-- 78 -->
+        <item>Portuguese (Brazil)</item> <!-- 79 -->
+        <item>Punjabi (India)</item> <!-- 80 -->
+        <item>Punjabi (Pakistan)</item> <!-- 81 -->
+
+        <item>Quechua</item> <!-- 82 -->
+        <item>Rohingya</item> <!-- 83 -->
+        <item>Romanian</item> <!-- 84 -->
+        <item>Russian</item> <!-- 85 -->
+
+        <item>Samoan</item> <!-- 86 -->
+        <item>Saraiki</item> <!-- 87 -->
+        <item>Scottish Gaelic</item> <!-- 88 -->
+        <item>Serbian</item> <!-- 89 -->
+        <item>Shona</item> <!-- 90 -->
+        <item>Sinhala (Sri Lanka)</item> <!-- 91 -->
+        <item>Sindhi</item> <!-- 92 -->
+        <item>Sindhi (India)</item> <!-- 93 -->
+        <item>Slovak</item> <!-- 94 -->
+        <item>Somali</item> <!-- 95 -->
+        <item>Spanish</item> <!-- 96 -->
+        <item>Spanish (Latin America)</item> <!-- 97 -->
+        <item>Sudanese Arabic</item> <!-- 98 -->
+        <item>Sundanese</item> <!-- 99 -->
+        <item>Swahili</item> <!-- 100 -->
+        <item>Swedish</item> <!-- 101 -->
+
+        <item>Tahitian</item> <!-- 102 -->
+        <item>Tamil</item> <!-- 103 -->
+        <item>Telugu</item> <!-- 104 -->
+        <item>Thai</item> <!-- 105 -->
+        <item>Tibetan</item> <!-- 106 -->
+        <item>Tigrinya</item> <!-- 107 -->
+        <item>Tok Pisin (Papuan)</item> <!-- 108 -->
+        <item>Tongan</item> <!-- 109 -->
+        <item>Turkish</item> <!-- 110 -->
+
+        <item>Ukrainian</item> <!-- 111 -->
+        <item>Urdu</item> <!-- 112 -->
+        <item>Urdu (India)</item> <!-- 113 -->
+
+        <item>Vietnamese</item> <!-- 114 -->
+
+        <item>Welsh</item> <!-- 115 -->
+
+        <item>Yemeni Arabic</item> <!-- 116 -->
+        <item>Yoruba</item> <!-- 117 -->
+        <item>Zulu</item> <!-- 118 -->
+        <item>Others</item> <!-- 119 -->
+    </string-array>
+
+    <string-array name="education_levels">
+        <item>A-Level</item>
+        <item>ACCA</item>
+        <item>Alima Degree</item>
+        <item>Arabic Certification</item>
+        <item>BA (Bachelor of Arts)</item>
+        <item>BArch (Architecture)</item>
+        <item>Bar-at-Law</item>
+        <item>BBA (Bachelor of Business Administration)</item>
+        <item>BCom (Bachelor of Commerce)</item>
+        <item>BCS (Computer Science)</item>
+        <item>BDS</item>
+        <item>BE (Engineering)</item>
+        <item>B.Ed (Education)</item>
+        <item>BIT (Information Technology)</item>
+        <item>BSc (Bachelor of Science)</item>
+        <item>BS (General)</item>
+        <item>BTech (Technology)</item>
+        <item>CA</item>
+        <item>CFA</item>
+        <item>CMA</item>
+        <item>DAE</item>
+        <item>Dars-e-Nizami (Alim Course)</item>
+        <item>DBA</item>
+        <item>DPhil</item>
+        <item>EdD</item>
+        <item>FCPS</item>
+        <item>Hifz (Quran Memorization)</item>
+        <item>Intermediate</item>
+        <item>Islamic Studies</item>
+        <item>LLB</item>
+        <item>LLM</item>
+        <item>MA (Master of Arts)</item>
+        <item>Matric</item>
+        <item>MBA (Master of Business Administration)</item>
+        <item>MBBS</item>
+        <item>MCom (Master of Commerce)</item>
+        <item>MCS</item>
+        <item>M.Ed</item>
+        <item>ME (Engineering)</item>
+        <item>MPhil</item>
+        <item>MRCP</item>
+        <item>MS</item>
+        <item>MSc (Master of Science)</item>
+        <item>MIT</item>
+        <item>Nazira</item>
+        <item>No Formal Education</item>
+        <item>O-Level</item>
+        <item>Pharm-D</item>
+        <item>PhD</item>
+        <item>Primary School</item>
+        <item>Shariah / Islamic Law</item>
+        <item>Tajweed Certification</item>
+        <item>USMLE</item>
+    </string-array>
+
+    <string-array name="profession_list">
+        <item>Accounting</item>
+        <item>Agriculture</item>
+        <item>Architecture</item>
+        <item>Administration</item>
+        <item>Aviation</item>
+        <item>Banking</item>
+        <item>Between Roles</item>
+        <item>Construction</item>
+        <item>Consulting</item>
+        <item>Creative Arts</item>
+        <item>Customer Service</item>
+        <item>Data &amp; Analytics</item>
+        <item>Defense</item>
+        <item>Digital Media</item>
+        <item>Education</item>
+        <item>Engineering</item>
+        <item>Entrepreneur</item>
+        <item>Environment</item>
+        <item>Fashion</item>
+        <item>Food &amp; Beverage</item>
+        <item>Government</item>
+        <item>Healthcare</item>
+        <item>Homemaker</item>
+        <item>Hospitality</item>
+        <item>Human Resources</item>
+        <item>Information Technology</item>
+        <item>Insurance</item>
+        <item>Journalism</item>
+        <item>Law Enforcement</item>
+        <item>Legal</item>
+        <item>Logistics</item>
+        <item>Management</item>
+        <item>Manufacturing</item>
+        <item>Maritime</item>
+        <item>Marketing</item>
+        <item>Media</item>
+        <item>Non-Profit</item>
+        <item>Nursing</item>
+        <item>Oil &amp; Gas</item>
+        <item>Performing Arts</item>
+        <item>Pharmaceuticals</item>
+        <item>Photography</item>
+        <item>Project Management</item>
+        <item>Psychology</item>
+        <item>Public Health</item>
+        <item>Public Policy</item>
+        <item>Quality Assurance</item>
+        <item>Real Estate</item>
+        <item>Religious Services</item>
+        <item>Research</item>
+        <item>Retail</item>
+        <item>Retired</item>
+        <item>Science</item>
+        <item>Self-Employed</item>
+        <item>Skilled Trades</item>
+        <item>Social Work</item>
+        <item>Software</item>
+        <item>Sports &amp; Fitness</item>
+        <item>Student</item>
+        <item>Telecommunications</item>
+        <item>Theology</item>
+        <item>Training</item>
+        <item>Translation</item>
+        <item>Veterinary</item>
+        <item>Wellness</item>
+
+        <!-- ALWAYS LAST -->
+        <item>Prefer Not to Say</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="marital_status_list">
+        <item>Never Married</item>
+        <item>Divorced</item>
+        <item>Widowed</item>
+        <item>Separated</item>
+    </string-array>
+
+    <string-array name="religious_practice_list">
+        <item>Very Practicing (Perform 5 daily prayers)</item>
+        <item>Practicing (Try to pray regularly)</item>
+        <item>Moderately Practicing (Pray occasionally)</item>
+        <item>Cultural Muslim (Identify as Muslim but not regular in worship)</item>
+    </string-array>
+
+    <string-array name="children_list">
+        <item>Yes</item>
+        <item>No</item>
+        <item>Prefer not to say</item>
+    </string-array>
+
+    <string-array name="drinking_frequency_list">
+        <item>Never</item>
+        <item>Occasional</item>
+        <item>Regular</item>
+    </string-array>
+
+    <string-array name="smoking_frequency_list">
+        <item>Casual</item>
+        <item>Smoker</item>
+        <item>Trying to Quit</item>
+        <item>Smoking when Drinking</item>
+        <item>Never</item>
+    </string-array>
+
+    <string-array name="workout_frequency_list">
+        <item>Everyday</item>
+        <item>Often</item>
+        <item>Sometimes</item>
+        <item>Never</item>
+    </string-array>
+
+    <string-array name="relocation_preference_list">
+        <item>Yes. I am open to relocating abroad</item>
+        <item>No. I prefer staying in my country</item>
+        <item>Depends on spouse’s situation</item>
+        <item>Already living abroad</item>
+    </string-array>
+    <string-array name="country_list">
+        <item>Afghanistan</item>
+        <item>Albania</item>
+        <item>Algeria</item>
+        <item>Andorra</item>
+        <item>Angola</item>
+        <item>Antigua and Barbuda</item>
+        <item>Argentina</item>
+        <item>Armenia</item>
+        <item>Australia</item>
+        <item>Austria</item>
+        <item>Azerbaijan</item>
+        <item>Bahamas</item>
+        <item>Bahrain</item>
+        <item>Bangladesh</item>
+        <item>Barbados</item>
+        <item>Belarus</item>
+        <item>Belgium</item>
+        <item>Belize</item>
+        <item>Benin</item>
+        <item>Bhutan</item>
+        <item>Bolivia</item>
+        <item>Bosnia and Herzegovina</item>
+        <item>Botswana</item>
+        <item>Brazil</item>
+        <item>Brunei</item>
+        <item>Bulgaria</item>
+        <item>Burkina Faso</item>
+        <item>Burundi</item>
+        <item>Cabo Verde</item>
+        <item>Cambodia</item>
+        <item>Cameroon</item>
+        <item>Canada</item>
+        <item>Central African Republic</item>
+        <item>Chad</item>
+        <item>Chile</item>
+        <item>China</item>
+        <item>Colombia</item>
+        <item>Comoros</item>
+        <item>Congo (Republic of the Congo)</item>
+        <item>Congo (Democratic Republic of the Congo)</item>
+        <item>Costa Rica</item>
+        <item>Croatia</item>
+        <item>Cuba</item>
+        <item>Cyprus</item>
+        <item>Czech Republic</item>
+        <item>Denmark</item>
+        <item>Djibouti</item>
+        <item>Dominica</item>
+        <item>Dominican Republic</item>
+        <item>Ecuador</item>
+        <item>Egypt</item>
+        <item>El Salvador</item>
+        <item>Equatorial Guinea</item>
+        <item>Eritrea</item>
+        <item>Estonia</item>
+        <item>Eswatini</item>
+        <item>Ethiopia</item>
+        <item>Fiji</item>
+        <item>Finland</item>
+        <item>France</item>
+        <item>Gabon</item>
+        <item>Gambia</item>
+        <item>Georgia</item>
+        <item>Germany</item>
+        <item>Ghana</item>
+        <item>Greece</item>
+        <item>Grenada</item>
+        <item>Guatemala</item>
+        <item>Guinea</item>
+        <item>Guinea-Bissau</item>
+        <item>Guyana</item>
+        <item>Haiti</item>
+        <item>Honduras</item>
+        <item>Hungary</item>
+        <item>Iceland</item>
+        <item>India</item>
+        <item>Indonesia</item>
+        <item>Iran</item>
+        <item>Iraq</item>
+        <item>Ireland</item>
+        <item>Israel</item>
+        <item>Italy</item>
+        <item>Jamaica</item>
+        <item>Japan</item>
+        <item>Jordan</item>
+        <item>Kazakhstan</item>
+        <item>Kenya</item>
+        <item>Kiribati</item>
+        <item>Kuwait</item>
+        <item>Kyrgyzstan</item>
+        <item>Laos</item>
+        <item>Latvia</item>
+        <item>Lebanon</item>
+        <item>Lesotho</item>
+        <item>Liberia</item>
+        <item>Libya</item>
+        <item>Liechtenstein</item>
+        <item>Lithuania</item>
+        <item>Luxembourg</item>
+        <item>Madagascar</item>
+        <item>Malawi</item>
+        <item>Malaysia</item>
+        <item>Maldives</item>
+        <item>Mali</item>
+        <item>Malta</item>
+        <item>Marshall Islands</item>
+        <item>Mauritania</item>
+        <item>Mauritius</item>
+        <item>Mexico</item>
+        <item>Micronesia</item>
+        <item>Moldova</item>
+        <item>Monaco</item>
+        <item>Mongolia</item>
+        <item>Montenegro</item>
+        <item>Morocco</item>
+        <item>Mozambique</item>
+        <item>Myanmar</item>
+        <item>Namibia</item>
+        <item>Nauru</item>
+        <item>Nepal</item>
+        <item>Netherlands</item>
+        <item>New Zealand</item>
+        <item>Nicaragua</item>
+        <item>Niger</item>
+        <item>Nigeria</item>
+        <item>North Korea</item>
+        <item>North Macedonia</item>
+        <item>Norway</item>
+        <item>Oman</item>
+        <item>Pakistan</item>
+        <item>Palau</item>
+        <item>Panama</item>
+        <item>Papua New Guinea</item>
+        <item>Paraguay</item>
+        <item>Peru</item>
+        <item>Philippines</item>
+        <item>Poland</item>
+        <item>Portugal</item>
+        <item>Qatar</item>
+        <item>Romania</item>
+        <item>Russia</item>
+        <item>Rwanda</item>
+        <item>Saint Kitts and Nevis</item>
+        <item>Saint Lucia</item>
+        <item>Saint Vincent and the Grenadines</item>
+        <item>Samoa</item>
+        <item>San Marino</item>
+        <item>São Tomé and Príncipe</item>
+        <item>Saudi Arabia</item>
+        <item>Senegal</item>
+        <item>Serbia</item>
+        <item>Seychelles</item>
+        <item>Sierra Leone</item>
+        <item>Singapore</item>
+        <item>Slovakia</item>
+        <item>Slovenia</item>
+        <item>Solomon Islands</item>
+        <item>Somalia</item>
+        <item>South Africa</item>
+        <item>South Korea</item>
+        <item>South Sudan</item>
+        <item>Spain</item>
+        <item>Sri Lanka</item>
+        <item>Sudan</item>
+        <item>Suriname</item>
+        <item>Sweden</item>
+        <item>Switzerland</item>
+        <item>Syria</item>
+        <item>Taiwan</item>
+        <item>Tajikistan</item>
+        <item>Tanzania</item>
+        <item>Thailand</item>
+        <item>Timor-Leste</item>
+        <item>Togo</item>
+        <item>Tonga</item>
+        <item>Trinidad and Tobago</item>
+        <item>Tunisia</item>
+        <item>Turkey</item>
+        <item>Turkmenistan</item>
+        <item>Tuvalu</item>
+        <item>Uganda</item>
+        <item>Ukraine</item>
+        <item>United Arab Emirates</item>
+        <item>United Kingdom</item>
+        <item>United States</item>
+        <item>Uruguay</item>
+        <item>Uzbekistan</item>
+        <item>Vanuatu</item>
+        <item>Vatican City</item>
+        <item>Venezuela</item>
+        <item>Vietnam</item>
+        <item>Yemen</item>
+        <item>Zambia</item>
+        <item>Zimbabwe</item>
+    </string-array>
+
+    <string-array name="chip_list">
+        <item>Likes</item>
+        <item>Like Sent</item>
+        <item>Matches</item>
+        <item>Rejected</item>
+    </string-array>
+
+
+
+    <string-array name="profile_chips">
+        <item>About</item>
+        <item>Education</item>
+        <item>Interest</item>
+        <item>Faith Identity</item>
+        <item>Personality (Bio)</item>
+    </string-array>
+
+    <string-array name="ticket_issue_types">
+        <item>Payment Issues</item>
+        <item>Match/Chat Issues</item>
+        <item>Verification Issues</item>
+        <item>Fraud/Safety Concerns</item>
+        <item>Subscription Billing - Technical/Bug Report</item>
+    </string-array>
+    <string name="reason_wrong_age">Wrong age</string>
+    <string name="reason_married_pretending_single">Married but pretending to be single</string>
+    <string name="reason_harassment">Harassment</string>
+    <string name="reason_religious_disrespect">Religious disrespect</string>
+    <string name="reason_sexual_content">Sexual content</string>
+    <string name="reason_scamming_fraud">Scamming / Fraud</string>
+    <string name="reason_spam">Spam</string>
+    <string name="reason_catfishing">Catfishing</string>
+    <string name="reason_extremist_political">Extremist / Political content</string>
+    <string name="reason_bad_behavior_chat_call">Bad behavior during chat or call</string>
+    <string name="reason_threats_bullying">Threats / Bullying</string>
+    <string name="reason_financial_scam">Financial scam attempt</string>
+    <string name="reason_other">Other</string>
+    <string name="report">Report</string>
+    <string name="report_block"><![CDATA[Report & Block]]></string>
+    <string name="block">Block</string>
+    <string name="unmatch">Unmatch</string>
+    <string name="faith_identity">Faith Identity</string>
+    <string name="interests">Interests</string>
+    <string name="face_verified">Face Verified</string>
+    <string name="id_verified">ID Verified</string>
+    <string name="age_verified">Age Verified</string>
+    <string name="cm">Cm</string>
+    <string name="ft">Ft</string>
+    <string name="compatibility_score">%1$s Compatibility Score</string>
+    <string name="religion_practice">Religion Practice</string>
+    <string name="children_status">Children Status</string>
+    <string name="relocation_after_marriage">Relocation After Marriage</string>
+    <string name="unblock_profile">Unblock Profile</string>
+    <string name="education_level">Education Level</string>
+    <string name="current_profession">Current Profession</string>
+    <string name="habits">Habits</string>
+    <string name="smokimg">smokimg</string>
+    <string name="casual">Casual</string>
+    <string name="smoker">Smoker</string>
+    <string name="trying_to_quit">Trying to Quit</string>
+    <string name="smoking_when_drinking">Smoking when Drinking</string>
+    <string name="never">Never</string>
+    <string name="occasional">Occasional</string>
+    <string name="regular">Regular</string>
+    <string name="workout">Workout</string>
+    <string name="everyday">Everyday</string>
+    <string name="often">Often</string>
+    <string name="sometimes">Sometimes</string>
+    <string name="personality_bio">Personality (Bio)</string>
+    <string name="name">Name</string>
+    <string name="preview_profile">Preview Profile</string>
+    <string name="about">About</string>
+    <string name="update">Update</string>
+    <string name="its_a_match">It\'s a Match</string>
+    <string name="start_a_conversation_with_each_other">Start a conversation with each other</string>
+    <string name="interests_to_explore_more">interests to explore more</string>
+    <string name="update_your">Update Your</string>
+    <string name="no_chat_yet">no chat yet</string>
+    <string name="you_match_with_on">you match with on</string>
+    <!-- Onboarding Common -->
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+
+    <!-- Screen 1 -->
+    <string name="onboarding_title_1">Shariah-Aligned Matchmaking for Marriage</string>
+
+    <string name="marriage_focused">Marriage Focused</string>
+    <string name="built_with_islamic_values">Built with Islamic Values</string>
+    <string name="deen_first_compatibility">Deen-First Compatibility</string>
+
+    <!-- Screen 2 -->
+    <string name="onboarding_title_2">Every Profile is Verified. Every Person is Real.</string>
+
+    <string name="supporting_badge">Supporting Badge</string>
+    <string name="government_id_verified">Government ID Verified</string>
+    <string name="live_face_scan">Live Face Scan</string>
+    <string name="ai_protected_platform">AI-Protected Platform</string>
+    <string name="zero_tolerance_fake_profiles">Zero Tolerance for Fake Profiles</string>
+
+    <!-- Screen 3 -->
+    <string name="onboarding_title_3">Respectful Communication Meaningful Conversations.</string>
+    <string name="ai_moderated_chat">AI-Moderated Chat</string>
+    <string name="privacy_first_messaging">Privacy-First Messaging</string>
+    <string name="quality_matches">Quality Matches</string>
+    <string name="calling">calling</string>
+    <string name="profile_picture">Profile picture</string>
+
+    <!-- Call Actions -->
+    <string name="decline_call">Decline</string>
+    <string name="accept_call">Accept</string>
+
+    <!-- Permission -->
+    <string name="microphone_permission_required">Microphone Permission Required</string>
+    Microphone permission is required to use this feature
+
+    <!-- Screen Title -->
+    <string name="visibility_control">Visibility Control</string>
+
+    <!-- Section Titles -->
+    <string name="profile_visibility">Profile Visibility</string>
+    <string name="profile_status">Profile Status</string>
+    <string name="privacy_settings">Privacy Settings</string>
+    <string name="visibility_filter">Visibility Filter</string>
+    <string name="who_can_see_me">Who Can See Me</string>
+    <string name="message_filter">Message Filter</string>
+    <string name="who_can_message_me">Who Can Message Me</string>
+
+    <!-- Profile Status -->
+    <string name="active">Active</string>
+    <string name="hidden">Hidden</string>
+    <string name="paused">Paused</string>
+    <string name="deactivated">Deactivated</string>
+
+    <string name="active_description">Profile is fully visible in discovery.</string>
+    <string name="hidden_description">Temporarily invisible but can be reactivated anytime.</string>
+    <string name="paused_description">Not discoverable but can still chat with existing matches.</string>
+    <string name="deactivated_description">Fully invisible and access to the app is restricted.</string>
+
+    <!-- Message Filter -->
+    <string name="everyone">Everyone</string>
+    <string name="verified_users_only">Verified Users Only</string>
+    <string name="premium_users_only">Premium Users Only</string>
+
+    <!-- Visibility Filter -->
+    <string name="premium_users_gold_platinum">Premium Users Only (Gold / Platinum)</string>
+    <string name="people_i_liked_only">People I’ve Liked Only</string>
+
+    <!-- Privacy Toggles -->
+    <string name="show_age">Show Age</string>
+    <string name="show_location">Show Location</string>
+    <string name="show_distance">Show Distance</string>
+    <string name="show_last_active">Show Last Active</string>
+    <string name="blur_profile">Blur my profile</string>
+
+
+    <string name="show_age_description">Option to display or hide age.</string>
+    <string name="show_location_description">Choose to show city country or hide entirely.</string>
+    <string name="show_distance_description">Display or hide distance from other users.</string>
+    <string name="show_last_active_description">Option to show or hide "last seen" status.</string>
+    <string name="blur_profile_description">Option to blur profile.</string>
+    <string name="no_blocked_profiles">"No Blocked Profiles " </string>
+    <string name="your_profile_wasn_t_approved">Your profile wasn\'t approved</string>
+    <string name="please_fix_the_following_issues_before_your_profile_can_be_shown_to_other_members">Please fix the following issues before your profile can be shown to other members</string>
+    <string name="face_scan">Face scan</string>
+    <string name="approved">Approved</string>
+    <string name="id_proof">Id Proof</string>
+    <string name="id_proof_not_approved_yet">"ID proof Not approved yet !  "</string>
+    <string name="write_here">Write here...</string>
+    <string name="you_can_select_maximum_10_languages">You can select maximum 10 languages</string>
+    <string name="enter_height">Enter height</string>
+    <string name="life_style">Life Style</string>
+    <string name="never_married">Never Married</string>
+    <string name="divorced">Divorced</string>
+    <string name="widowed">Widowed</string>
+    <string name="separated">Separated</string>
+    <string name="very_practicing">Very Practicing</string>
+    <string name="practicing">Practicing</string>
+    <string name="moderately_practicing">Moderately Practicing</string>
+    <string name="cultural_muslim">Cultural Muslim</string>
+    <string name="already_living_abroad">already living abroad</string>
+    <string name="depends_on_spouse">Depends on spouse\'s situation</string>
+    <string name="prefer_not_to_say">Prefer not to say</string>
+    <string name="edit_height">Edit Height</string>
+    <string name="edit_interested_in">Edit Interested in</string>
+    <string name="edit_language">Edit Language</string>
+    <string name="edit_sect">Edit Sect</string>
+    <string name="edit_marital_status">Edit Marital Status</string>
+    <string name="edit_religion_practice">Edit Religion Practice</string>
+    <string name="edit_children_status">Children Status</string>
+    <string name="edit_relocation">Edit Relocation After Marriage</string>
+    <string name="edit_faith_identity">Edit Faith Identity</string>
+    <string name="edit_habits">Edit Habits</string>
+    <string name="edit_interest">Edit Interest</string>
+    <string name="choose_date">Choose Date</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="no_results_found">No Results Found</string>
+    <string name="no_tickets_found">No Tickets Found</string>
+    <string name="add_ticket">Add Ticket</string>
+    <string name="title">Title</string>
+    <string name="enter_title">Enter Title</string>
+    <string name="select">Select</string>
+    <string name="enter_description">Enter Description</string>
+    <string name="add">Add</string>
+    <string name="please_enter_title">Please enter title</string>
+    <string name="please_enter_ticket_type">Please enter ticket type</string>
+    <string name="please_enter_description">Please enter description</string>
+    <string name="please_select_from_date_first">Please select From date first</string>
+    <string name="resolved">Resolved</string>
+    <string name="n_a">N/A</string>
+    <string name="ticket_id">Ticket ID: </string>
+    <string name="title_prefix">Title-</string>
+
+        <!-- Terms and Privacy -->
+        <string name="terms_and_conditions">Terms And Conditions</string>
+        <string name="privacy_and_policy">Privacy And Policy</string>
+        <string name="and_symbol">&amp;</string>
+
+        <!-- Alternative: Combined string for better context -->
+        <string name="terms_privacy_text">Terms And Conditions  &amp;  Privacy And Policy</string>
+
+    <!-- Buttons -->
+    <string name="all">All</string>
+
+
+    <!-- Settings Screen -->
+    <string name="notification_settings">Notification Settings</string>
+
+    <!-- Notification Options -->
+    <string name="push_notification">Push Notification</string>
+    <string name="disable_all_notifications">Disable All Notifications</string>
+    <string name="new_messages">New Messages</string>
+    <string name="liked_received">Liked Received</string>
+
+    <!-- Delete Account Dialog -->
+    <string name="delete_account_title">Account Delete Permanently</string>
+    <string name="delete_account_message">Are you sure you want to delete account permanently</string>
+    <string name="delete">Delete</string>
+
+    <!-- Action Buttons -->
+    <string name="log_out">Log Out</string>
+    <string name="delete_account">Delete Account</string>
+
+    <!-- Additional Common Strings -->
+    <string name="confirm">Confirm</string>
+    <string name="back">Back</string>
+    <string name="save">Save</string>
+
+
+    <string name="you_ve_seen_the_all_the_profiles">You’ve seen the all the profiles</string>
+    <string name="matched_with">You matched with %1$s on %2$s</string>
+    <string name="audio_recording">Audio Recording...</string>
+    <string name="typing">Typing...</string>
+    <string name="write_a_message">Write a Message</string>
+    <string name="block_report_profile"><![CDATA[Block & Report Profile]]></string>
+    <string name="report_submitted_sucessfully">Report submitted sucessfully</string>
+    <string name="profile_unmatched">Profile Unmatched!</string>
+    <string name="block_report">Block &amp; Report</string>
+    <string name="clear_chat">Clear Chat</string>
+    <string name="you_won_t_see_each_other_anymore">You won’t see each  other anymore.</string>
+    <string name="blocked">Blocked</string>
+    <string name="microphone_permission_is_require_to_use_this_feature">Microphone permission is require to use this feature</string>
+    <string name="reason_scamming">Scamming / Fraud</string>
+    <string name="reason_extremist">Extremist / Political content</string>
+    <string name="reason_bad_behavior">Bad behavior during chat or call</string>
+    <string name="reason_threats">Threats / Bullying</string>
+    <string name="loading">Loading...</string>
+    <string name="no_notifications">No Notifications</string>
+    <string name="notifications">Notifications</string>
+    <string name="dd_mm_yyyy">dd/mm/yyyy</string>
+    <string name="faq_s">FAQ’s</string>
+    <string name="attachment_if_any">Attachment (if any)</string>
+    <string name="call">Call</string>
+    <string name="email">Email</string>
+    <string name="photo_guidline">Photo Guidline</string>
+    <string name="pass">Pass</string>
+    <string name="your_account_has_been">Your account has been \n</string>
+    <string name="created_successfully">created successfully!</string>
+    <string name="face_verification_done_successfully">Face Verification Done Successfully</string>
+    <string name="verification_failed">Verification Failed</string>
+    <string name="your_face_has_been_successfully_verified">Your face has been successfully verified</string>
+    <string name="please_try_again">Please try again</string>
+    <string name="try_again">Try Again</string>
+    <string name="liveness_verified">Liveness Verified!</string>
+    <string name="this_photo_is_only_for">This photo is only for</string>
+    <string name="verification_purpose">" verification purpose."</string>
+    <string name="this_photo_will_not_show_to_other_users">This photo will not show to other users</string>
+    <string name="initializing_face_verification">Initializing face verification...</string>
+    <string name="face_verification">Face Verification</string>
+    <string name="grant_permission">Grant Permission</string>
+    <string name="camera_permission_required">Camera permission required</string>
+    <string name="liveness_confidence_too_low_please_try_again">Liveness confidence too low. Please try again.</string>
+    <string name="it_s_a_match">It\'s a Match !</string>
+    <string name="say_hello">Say Hello</string>
+    <string name="photos_upload_guideline">Photos Upload Guideline</string>
+
+    <!-- Blocked Items -->
+    <string name="multiple_face">Multiple Face</string>
+    <string name="ai_generated">AI Generated</string>
+    <string name="weapons">Weapons</string>
+    <string name="face_covered">Face Covered</string>
+    <string name="drugs">Drugs</string>
+
+    <!-- Pass Items -->
+    <string name="clear_face">Clear\nFace</string>
+    <string name="original_image">Original\nImage</string>
+    <string name="authentic_expression">Authentic\nExpression</string>
+    <string name="no_profile_views_yet">No profile views yet</string>
+    <string name="translating_cities">Translating cities, please wait…</string>
+    <string name="blocked_profiles">Blocked Profiles</string>
+
+    <string name="subscription_terms">
+Android (Google Play) Version\n
+
+By proceeding, you confirm that you have read and agree to Pairlix’s Privacy Policy and Terms of Service.
+
+Payment will be charged to your Google Play account upon subscription confirmation or after any applicable free trial period ends.
+
+Your subscription will automatically renew for the same duration and price unless auto-renewal is turned off using the in-app toggle or via Google Play settings.
+
+You can disable auto-renewal at any time:
+
+Directly from the auto-renewal toggle in this app, or
+
+Via Google Play → Payments &amp; Subscriptions → Subscriptions
+
+Changes to auto-renewal must be made at least 24 hours before the end of the current billing period to avoid being charged for the next cycle.
+
+If auto-renewal is turned off, your subscription will remain active until the end of the current billing period and will not renew afterward.
+
+No refunds will be provided for any unused portion of an active subscription period.
+</string>
+    <string name="internal_server_error">Internal Server Error</string>
+    <string name="no_internet_connection">No Internet Connection</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="ok">OK</string>
+    <string name="no_filter_matches">No filter matches. Update your preferences to continue.</string>
+    <string name="get_start">Get Started</string>
+    <string name="min">" %1$s\n min"</string>
+    <string name="alhamdulillah">ALHAMDULILLAH</string>
+    <string name="it_s_a_matchh">It\'s a Match!</string>
+    <string name="say_salam">Say Salam</string>
+    <string name="keep_exploring">Keep Exploring</string>
+    <string name="and_among_his_signs_he_created_for_you">And Among His Signs He created for you</string>
+    <string name="you_both_showed_interest">You both showed interest. \n</string>
+    <string name="begin_with_respect_and_intention">begin with respect and intention.</string>
+    <string name="ai_weekly_matches">AI Weekly Matches</string>
+    <string name="ai_random_matches">Ai Random Matches</string>
+    <string name="matches">Matches</string>
+    <string name="choose_option">Choose Option</string>
+    <string name="delete_message">Delete Message</string>
+    <string name="are_you_sure_you_want_to_delete_this_message_for_everyone">Are you sure you want to delete this message for everyone?</string>
+    <string name="options">Options</string>
+    <string name="select_plans">Select Plans</string>
+    <string name="no_plan">no plan</string>
+    <string name="today">today, %1$s</string>
+    <string name="yesterday">yesterday, %1$s</string>
+    <string name="please_do_not_write_email_phone_or_links">Please do not include email, phone number, or links</string>
+    <string name="connection_not_ready">Connection not ready, please wait</string>
+    <string name="choose_camera_option">Choose Camera Option</string>
+    <string name="photo">Photo</string>
+    <string name="please_upload_document">Please upload front side document</string>
+    <string name="_5_km_away">5 Km Away</string>
+    <string name="pairlix_premium">Pairlix Premium</string>
+    <string name="get_the_premium_plans_to_get_more_matches_enhance_visibility_nd_unlock_premium_features">Get the Premium Plans to get more matches, enhance visibility and unlock premium features</string>
+    <string name="date_of_birth_not_fetch_please_re_upload_document">date of birth not fetch please re-upload document</string>
+    <string name="upgrade_to_gold">Upgrade to gold</string>
+    <string name="upgrade_to_platinum">Upgrade to Platinum</string>
+    <string name="tab_to_age_verify">tab to age verify</string>
+    <string name="billed_montly">Billed Montly</string>
+    <string name="save_50">Save 50%</string>
+    <string name="save_30">Save 30%</string>
+    <string name="best_valued">Best Valued</string>
+    <string name="begin_your_journey">Begin your journey</string>
+    <string name="a_community_of_verified_muslims">A community of verified Muslims \n</string>
+    <string name="serious_about_halal_marriage">Serious about halal Marriage.</string>
+    <string name="assalaamu_alaikum_welcome_to_pairlix">Assalaamu Alaikum Welcome to Pairlix</string>
+    <string name="unblock_successfully">UnBlock Successfully</string>
+    <string name="turn_on_gps">Turn On GPS</string>
+    <string name="please_enable_your_gps_to_continue">Please enable your GPS to continue.</string>
+    <string name="gps_is_off">GPS is Off</string>
+
+</resources>

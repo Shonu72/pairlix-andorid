@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "911055312636",
+    "project_id": "pairlix-c6c67",
+    "storage_bucket": "pairlix-c6c67.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:911055312636:android:d1af583cd22bacf0e86979",
+        "android_client_info": {
+          "package_name": "com.pairlix.dating"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "911055312636-3imgufpe3gr9g5v236viiht646tua1h8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pairlix.dating",
+            "certificate_hash": "0f5a137924ee5d5f5a6cd6bde3146782edf55268"
+          }
+        },
+        {
+          "client_id": "911055312636-rbh0pe283606qhvmnknjcji6num93dq3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATRQf6S-gN4PbdfbKQagOvZtl3NWZPRRU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "911055312636-rbh0pe283606qhvmnknjcji6num93dq3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "911055312636-a1spf7fhu02mg0of9ibahut2jeae0a0q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.fluper.PairlixDating"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
