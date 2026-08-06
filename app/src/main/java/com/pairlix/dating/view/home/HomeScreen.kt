@@ -50,8 +50,16 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.ChevronRight
+import androidx.compose.material.icons.outlined.BookmarkBorder
+import androidx.compose.material.icons.outlined.Work
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -149,6 +157,7 @@ import com.pairlix.dating.helper.CountryListHelper
 import com.pairlix.dating.helper.CustomLoader
 import com.pairlix.dating.helper.EmpResource
 import com.pairlix.dating.helper.ErrorUtil
+import com.pairlix.dating.helper.SavedProfilesManager
 import com.pairlix.dating.helper.SharedPreference
 import com.pairlix.dating.helper.formatTime
 import com.pairlix.dating.helper.getRemainingSecondsFromUtc
@@ -393,8 +402,6 @@ fun HomeScreen(
         }
     }
 
-    //////dfdf///
-
 
     LaunchedEffect(profileViewAction) {
         profileViewAction.let {
@@ -531,854 +538,20 @@ fun HomeScreen(
         }
     }
 
-
-
     if (!viewModel.isMatchApiCalledOnce) {
         HomeSkeletonScreen()
     } else {
-        BoxWithConstraints(
-            modifier = Modifier
-                .fillMaxSize()
-                .navigationBarsPadding()
-                .statusBarsPadding()
-        ) {
-            /* Box(
-             modifier = Modifier
-                 .fillMaxSize()
-                 .zIndex(10f)
-         ) {
-             // if (documentVerified == true) {
-             if (!isMatchListEmpty) {
-                 ShutterWithGifAnd70Logics(viewModelM4, viewModel, data)
-             }
-             //}
-         }*/
-
-            val maxHeight = this.maxHeight
-
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(MaterialTheme.colorScheme.background)
-                    .pointerInput(Unit) {
-                        detectVerticalDragGestures(onVerticalDrag = { _, dragDistance ->
-                            scope.launch {
-                                offsetY.snapTo(offsetY.value + dragDistance)
-                            }
-                        }, onDragEnd = {
-                            if (!viewModel.getMatchList.isEmpty()) {
-                                scope.launch {
-
-                                    if (offsetY.value < -100f) {
-                                        data?.let { safeData ->
-                                            viewModel.setData(viewModel.getMatchList.firstOrNull()!!)
-                                            SingletonObject.isComeFromBlockedProfile = false
-                                            SingletonObject.isComeFromHomePage = true
-                                            SingletonObject.isFromProfileView = false
-                                            viewModelM4.showBottomActions = 4
-                                            navController.navigate(Screen.HomeScreenDetailScreen.route)
-                                        }
-                                        viewModelM5.hitProfileViewAction(
-                                            access_token = SharedPreference.get(context).accessToken,
-                                            request = ProfileViewActionRequest(
-                                                isFullProfileView = true,
-                                                viewDuration = 1,
-                                                toUserId = data?.userId
-                                            )
-                                        )
-                                    }
-
-                                    offsetY.animateTo(
-                                        targetValue = 0f, animationSpec = spring(
-                                            dampingRatio = Spring.DampingRatioLowBouncy
-                                        )
-                                    )
-                                }
-                            }
-                        })
-                    }
-            ) {
-
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 10.dp, start = 14.sdp, end = 14.sdp, bottom = 10.dp)
-                ) {
-                    var isClicked by remember { mutableStateOf(false) }
-
-                    Image(
-                        modifier = Modifier
-                            .clip(RoundedCornerShape(40.dp))
-                            .clickable {
-                                if (!isClicked) {
-                                    isClicked = true
-                                    navController.navigate(Screen.FilterScreen.route)
-                                    // reset after delay
-                                    CoroutineScope(Dispatchers.Main).launch {
-                                        delay(500)
-                                        isClicked = false
-                                    }
-                                }
-                            },
-                        painter = painterResource(R.drawable.filter_ic),
-                        contentDescription = "filter"
-                    )
-
-                    Spacer(modifier = Modifier.weight(1f))
-
-
-                    // Progress Circle
-                    Box(
-                        modifier = Modifier.size(40.dp),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        val isBoostActive = remainingSeconds > 0
-
-                        if (!isBoostActive) {
-                            Image(
-                                painter = painterResource(id = R.drawable.boost_btn),
-                                contentDescription = "Boost",
-                                modifier = Modifier
-                                    .size(40.dp)
-                                    .clip(CircleShape)
-                                    .clickable {
-                                        viewModelM6.hitBoostProfile(
-                                            access_token = SharedPreference.get(context).accessToken,
-                                            request = BoostProfileRequest(
-                                                isBoostActive = true
-                                            )
-                                        )
-                                    }
-
-                            )
-                        } else {
-                            GradientTimeProgress(
-                                progress = progress,
-                                timeText = formatTime(remainingSeconds.toInt())
-                            )
-                        }
-                    }
-
-                    Spacer(modifier = Modifier.width(12.sdp))
-
-
-
-                    Image(
-                        modifier = Modifier
-                            .clip(RoundedCornerShape(40.dp))
-                            .clickable { navController.navigate(Screen.NotificationScreen.route) },
-                        painter = painterResource(R.drawable.notification_bell_ic),
-                        contentDescription = "notification"
-                    )
-                }
-
-
-                if (showDialogRejected) {
-                    Dialog(onDismissRequest = { /* no-op */ }) {
-                        Box(
-                            modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center
-                        ) {
-                            AnimatedPreloaderReject(
-                                modifier = Modifier.size(1000.dp)
-                            )
-                        }
-                    }
-                }
-
-                if (showDialogLike) {
-                    Dialog(onDismissRequest = { /* no-op */ }) {
-                        Box(
-                            modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center
-                        ) {
-                            AnimatedPreloaderLike(
-                                modifier = Modifier.size(1000.dp)
-                            )
-                        }
-                    }
-                }
-
-                if (showDoubleTapLike) {
-                    Dialog(onDismissRequest = { /* no-op */ }) {
-                        Box(
-                            modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center
-                        ) {
-                            AnimatedPreloaderLike(
-                                modifier = Modifier.size(1000.dp)
-                            )
-                        }
-                    }
-                }
-
-                if (showDialogSuperLike) {
-                    Dialog(onDismissRequest = { /* no-op */ }) {
-                        Box(
-                            modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center
-                        ) {
-                            AnimatedPreloaderSuperLike(
-                                modifier = Modifier.size(1000.dp)
-                            )
-                        }
-                    }
-                }
-
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .weight(1f)
-                ) {
-                    Column(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            //.height(screenHeight * 0.75f)
-                            .background(MaterialTheme.colorScheme.background)
-                            .pointerInput(Unit) {
-                                detectTapGestures(
-                                    onDoubleTap = {
-                                        if (!isMatchListEmpty && !isActionInProgress) {
-                                            // showDialogLike = true
-                                            viewModelM4.hitAction(
-                                                access_token = SharedPreference.get(context).accessToken,
-                                                request = ActionRequest(
-                                                    action = "like", toUserId = data?.userId
-                                                )
-                                            )
-                                        }
-
-                                    })
-                            })
-                    {
-                        HorizontalPager(
-                            state = pagerState,
-                            beyondViewportPageCount = 2,
-                            modifier = Modifier.background(MaterialTheme.colorScheme.background)
-                        ) { page ->
-
-                            val isBlurred = data?.blurProfile == true
-                            val imageUrl = data?.personalDetails?.images?.getOrNull(page)
-                            val shouldBlurByPlan = when (userData?.activePlanType) {
-                                3 -> false // Platinum user: never blur
-                                2 -> data?.activePlanType == 3 // Gold user: blur only Platinum profiles
-                                1 -> data?.activePlanType in listOf(2, 3) // Free user: blur Gold & Platinum profiles
-                                else -> false
-                            }
-
-                            val shouldBlur = isBlurred || shouldBlurByPlan
-                            Box(
-                                modifier = Modifier
-                                    .fillMaxSize()
-                                    // .height(screenHeight * 0.75f)
-                                    .clip(RoundedCornerShape(28.dp))
-                            ) {
-                                Box(
-                                    modifier = Modifier
-                                        .fillMaxSize()
-                                        // .height(screenHeight * 0.75f)
-                                        .padding(horizontal = 16.dp)
-                                        .background(MaterialTheme.colorScheme.background)
-                                        .clip(
-                                            RoundedCornerShape(
-                                                topStart = 28.dp,
-                                                topEnd = 28.dp,
-                                                bottomStart = 28.dp,
-                                                bottomEnd = 28.dp
-                                            )
-                                        )
-                                ) {
-
-                                    AsyncImage(
-                                        model = ImageRequest.Builder(context)
-                                            .data(imageUrl ?: "")
-                                            .crossfade(true)
-                                            .size(1080)
-                                            .memoryCachePolicy(CachePolicy.ENABLED)
-                                            .diskCachePolicy(CachePolicy.ENABLED)
-                                            .build(),
-                                        contentDescription = "pic",
-                                        contentScale = ContentScale.Crop,
-                                        modifier = Modifier
-                                            .fillMaxSize()
-                                            .then(
-                                                if (shouldBlur) Modifier.blur(
-                                                    20.dp
-                                                ) else Modifier
-                                            )
-                                    )
-
-                                    if (shouldBlur) {
-                                        Box(
-                                            modifier = Modifier
-                                                .matchParentSize()
-                                                .background(Color.White.copy(alpha = 0.2f))
-                                        )
-                                    }
-                                    Box(
-                                        modifier = Modifier
-                                            .matchParentSize()
-                                            .background(
-                                                brush = Brush.verticalGradient(
-                                                    colorStops = arrayOf(
-                                                        0.0f to Color.Transparent,
-                                                        0.4f to Color.Transparent,
-                                                        0.6f to Color.Transparent,
-                                                        0.75f to Color(0xFF3C0060).copy(alpha = 0.1f),
-                                                        0.9f to Color(0xFF3C0060).copy(alpha = 0.2f),
-                                                        1.0f to Color(0xFF3C0060).copy(alpha = 0.3f)
-                                                    )
-                                                )
-                                            )
-                                    )
-                                }
-
-                            }
-                        }
-
-                    }
-
-                    if (viewModel.getMatchList.isEmpty() && !isActionInProgress) {
-                        val isFilterActive = viewModelM4.isFilterApplied()
-                        Column(
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .padding(top = 30.dp),
-                            horizontalAlignment = Alignment.CenterHorizontally
-                        ) {
-                            if (isFilterActive) {
-                                // Filter applied but no results
-                                Spacer(modifier = Modifier.weight(1f))
-
-                                Text(
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .padding(horizontal = 24.dp),
-                                    text = stringResource(R.string.no_filter_matches),
-                                    textAlign = TextAlign.Center,
-                                    color = MaterialTheme.colorScheme.onBackground,
-                                    fontSize = 18.sp,
-                                    fontFamily = FontFamily(Font(R.font.axiforma_bold))
-                                )
-                                verticalSpace(10)
-                                Text(
-                                    modifier = Modifier
-                                        .padding(top = 30.dp)
-                                        .clip(RoundedCornerShape(20.dp))
-                                        .appGradientBackground()
-                                        .clickable {
-                                            viewModelM4.clearAllFilters()
-                                            // context.showToast(context.getString(R.string.filter_cleared_successfully))
-                                            viewModel.hitGetMatch(
-                                                accessToken = SharedPreference.get(context).accessToken,
-                                                filter = filterRequest
-
-                                            )
-
-                                        }
-
-                                        .padding(horizontal = 15.dp, vertical = 10.dp),
-                                    textAlign = TextAlign.Center,
-                                    text = stringResource(R.string.clear_filter),
-                                    color = MaterialTheme.colorScheme.onBackground,
-
-                                    fontSize = 14.sp,
-                                    fontFamily = FontFamily(Font(R.font.axiforma_semi_bold))
-                                )
-
-                                Spacer(modifier = Modifier.weight(1f))
-
-                            } else {
-                                Image(
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .height(230.sdp),
-                                    painter = painterResource(R.drawable.nodata_image),
-                                    contentDescription = "img"
-                                )
-
-                                verticalSpace(30, true)
-
-                                Text(
-                                    modifier = Modifier.fillMaxWidth(),
-                                    text = stringResource(R.string.you_ve_seen_the_all_the_profiles),
-                                    textAlign = TextAlign.Center,
-                                    color = MaterialTheme.colorScheme.onBackground,
-                                    fontSize = 18.sp,
-                                    fontFamily = FontFamily(Font(R.font.axiforma_bold))
-                                )
-                                verticalSpace(5)
-
-                                Text(
-                                    modifier = Modifier.fillMaxWidth(),
-                                    text = stringResource(R.string.update_your),
-                                    textAlign = TextAlign.Center,
-                                    color = MaterialTheme.colorScheme.onBackground,
-                                    fontSize = 18.sp,
-                                    fontFamily = FontFamily(Font(R.font.axiforma_bold))
-                                )
-
-                                verticalSpace(10)
-
-                                Text(
-                                    modifier = Modifier.fillMaxWidth(),
-                                    text = stringResource(R.string.interests_to_explore_more),
-                                    textAlign = TextAlign.Center,
-                                    color = MaterialTheme.colorScheme.onBackground,
-                                    fontSize = 18.sp,
-                                    fontFamily = FontFamily(Font(R.font.axiforma_bold))
-                                )
-
-                                verticalSpace(20)
-
-                                AppButton(
-                                    modifier = Modifier
-                                        .padding(horizontal = 16.dp),
-                                    text = stringResource(R.string.update),
-                                    onClick = {
-                                        navController.navigate(Screen.ViewProfileScreen.route) {
-                                            popUpTo(Screen.MainScreen.route) { inclusive = false }
-                                        }
-                                    }
-                                )
-                            }
-                        }
-                    } else {
-
-
-                        if (data?.isActive == true) {
-
-                            Text(
-                                modifier = Modifier
-                                    .align(Alignment.TopStart)
-                                    .padding(start = 24.dp, top = 10.dp)
-                                    .background(
-                                        color = if (data?.isOnline == true) Color(
-                                            0xFFCCE1EFE0
-                                        ) else Color(0xFFD03A43).copy(alpha = 0.3f),
-                                        shape = RoundedCornerShape(48.dp)
-                                    )
-                                    .padding(horizontal = 8.dp, vertical = 7.dp)
-                                    .align(alignment = Alignment.TopStart),
-                                text = if (data?.isOnline == true) {
-                                    stringResource(R.string.active)
-                                } else if (data?.lastOnline != null && data?.isOnline == false) {
-                                    "${stringResource(R.string.active)} ${timeAgo(data?.lastOnline.toString())}"
-                                } else {
-                                    stringResource(R.string.inactive)
-                                },
-                                color = if (data?.isOnline == true) Color(0xFF128807) else Color(
-                                    0xFFEE404C),
-                                maxLines = 1,
-                                fontSize = 12.sp,
-                                fontFamily = FontFamily(Font(R.font.axiforma_semi_bold))
-                            )
-                        }
-
-
-///-10 column
-                        Column(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .align(Alignment.BottomEnd)
-                                .padding(bottom = 35.dp, start = 24.dp, end = 24.dp)
-                        ) {
-                            Box(
-                                modifier = Modifier.fillMaxWidth(),
-                            ) {
-                                // horizontal Pager dots
-                                Row(
-                                    modifier = Modifier.align(alignment = Alignment.Center),
-                                    horizontalArrangement = Arrangement.Center
-                                ) {
-                                    repeat(images.size) { index ->
-                                        val isSelected = pagerState.currentPage == index
-                                        Box(
-                                            modifier = Modifier
-                                                .padding(horizontal = 4.dp)
-                                                .size(if (isSelected) 10.dp else 8.dp)
-                                                .clip(CircleShape)
-                                                .background(
-                                                    if (isSelected) Color(0xFF530386)
-                                                    else Color.White
-                                                )
-                                        )
-                                    }
-                                }
-
-                                Box(
-                                    modifier = Modifier
-                                        .align(Alignment.BottomEnd)
-                                        .clip(RoundedCornerShape(48.dp))
-                                ) {
-                                    MatchProgressCircle(
-                                        percentage = data?.finalRankScore?.toInt() ?: 0
-                                    )
-
-                                }
-
-
-                            }
-
-                            // verticalSpace(5)
-                            Column(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                // .padding(20.dp)
-
-                            ) {
-
-
-                                Row(
-                                    horizontalArrangement = Arrangement.Start,
-                                    verticalAlignment = Alignment.CenterVertically
-                                ) {
-                                    if (data?.planType == 2 || data?.planType == 3) {
-                                        val planIcon = when (data!!.planType) {
-                                            2 -> if (languageManager.currentLanguage == "en") R.drawable.gold_new_en else R.drawable.gold_new_ar
-                                            3 -> if (languageManager.currentLanguage == "en") R.drawable.silver_new_en else R.drawable.silver_new_ar
-                                            else -> null
-
-                                        }
-
-                                        if (planIcon != null)
-                                            Image(
-                                                painter = painterResource(id = planIcon),
-                                                contentDescription = "premium",
-                                                modifier = Modifier
-                                                    .padding(start = 3.dp)
-                                                    .size(if (data?.planType == 3) 60.sdp else 50.sdp)
-                                                    .clip(shape = RoundedCornerShape(50.dp))
-                                                    .clickable {}
-                                            )
-                                    }
-                                }
-
-                                Row(
-                                    modifier = Modifier.fillMaxWidth(),
-                                    verticalAlignment = Alignment.CenterVertically
-                                ) {
-
-                                    Text(
-                                        text = buildString {
-                                            val fullName =
-                                                "${data?.firstName.orEmpty()} ${data?.lastName.orEmpty()}".trim()
-
-                                            append(fullName.take(20))
-                                            if (fullName.length > 20) append("...")
-                                        },
-                                        color = Color.White,
-                                        fontSize = 16.ssp,
-                                        fontFamily = FontFamily(Font(R.font.axiforma_bold)),
-                                        maxLines = 1,
-                                    )
-
-                                    Row(
-                                        verticalAlignment = Alignment.CenterVertically
-                                    ) {
-
-                                        if (data?.age != null) {
-
-                                            Text(
-                                                text = ", ${data?.age ?: 0}",
-                                                color = Color.White,
-                                                fontSize = 16.ssp,
-                                                fontFamily = FontFamily(Font(R.font.axiforma_bold))
-                                            )
-
-                                            Spacer(modifier = Modifier.width(4.dp))
-                                        }
-
-
-                                        if (data?.personalDetails?.isFaceVerified == true) {
-
-                                            Image(
-                                                modifier = Modifier.size(20.sdp),
-                                                painter = painterResource(R.drawable.blue1),
-                                                contentDescription = ""
-                                            )
-
-                                        }
-
-                                        Spacer(modifier = Modifier.width(4.dp))
-
-                                        if (data?.personalDetails?.isDocumentVerified == true) {
-                                            Image(
-                                                modifier = Modifier.size(21.sdp),
-                                                painter = painterResource(R.drawable.blue2),
-                                                contentDescription = ""
-                                            )
-                                        }
-
-                                    }
-
-
-                                    Spacer(modifier = Modifier.weight(1f))
-
-
-                                }
-                                Spacer(modifier = Modifier.height(10.dp))
-
-                                Row(
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .padding(),
-                                    verticalAlignment = Alignment.CenterVertically
-                                ) {
-                                    if (!data?.countryName.isNullOrEmpty()) {
-                                        val context = LocalContext.current
-                                        val countryNamesEn =
-                                            remember {
-                                                CountryListHelper.getEnglishCountryNames(
-                                                    context
-                                                )
-                                            }
-                                        val isoCodes = CommonResource().countryIsoCodes
-
-                                        // Find index using English name (since API returns English)
-                                        val index = countryNamesEn.indexOfFirst {
-                                            it.equals(data?.countryName ?: "", ignoreCase = true)
-                                        }
-
-                                        if (index >= 0 && index < isoCodes.size) {
-                                            Text(
-                                                text = countryCodeToFlagEmoji(isoCodes[index]),
-                                                fontSize = 15.sp
-                                            )
-                                            Spacer(modifier = Modifier.width(5.dp))
-                                        }
-                                    }
-
-
-                                    Text(
-                                        modifier = Modifier
-                                            .weight(1f)
-                                            .padding(end = 3.dp),
-                                        text = buildString {
-
-                                            if (data?.locationSetting == true) {
-                                                // City
-                                                if (!data?.city.isNullOrEmpty()) {
-                                                    if (isNotEmpty()) append(", ")
-                                                    append(
-                                                        if (languageManager.currentLanguage == "en") data?.city
-                                                            ?: "" else data?.cityAr ?: data?.city
-                                                    )
-                                                }
-                                                // Country
-                                                if (!data?.countryName.isNullOrEmpty()) {
-                                                    if (isNotEmpty()) append(", ")
-                                                    append(
-                                                        if (languageManager.currentLanguage == "en") data?.countryName
-                                                            ?: "" else data?.countryNameAr
-                                                            ?: data?.countryName
-                                                    )
-                                                }
-                                            }
-                                        },
-                                        color = Color(0xFFFAFAFA),
-                                        fontSize = 10.ssp,
-                                        maxLines = 1,
-                                        overflow = TextOverflow.Ellipsis,
-                                        fontFamily = FontFamily(Font(R.font.axiforma_medium)),
-                                    )
-
-
-                                    val distanceText = if (data?.distanceSetting == true) {
-                                        data?.distanceAway?.let { distance ->
-                                            if (distance < 5) {
-                                                stringResource(R.string._5_km_away)
-
-                                            } else {
-                                                stringResource(R.string.km_away, distance.toInt())
-                                            }
-                                        }
-                                    } else null
-
-
-                                    distanceText?.let {
-                                        Row(
-                                            modifier = Modifier
-                                                .background(
-                                                    color = Color(0xFF40000000),
-                                                    shape = RoundedCornerShape(20.dp)
-                                                )
-                                                .padding(horizontal = 6.dp, vertical = 5.dp),
-                                            verticalAlignment = Alignment.CenterVertically
-                                        ) {
-                                            Image(
-                                                painter = painterResource(R.drawable.location_ic),
-                                                contentDescription = "null",
-                                                colorFilter = ColorFilter.tint(Color.White),
-                                                modifier = Modifier.size(12.sdp)
-                                            )
-                                            horizontalSpace(5)
-
-                                            Text(
-                                                modifier = Modifier,
-                                                text = it,
-                                                textAlign = TextAlign.Center,
-                                                color = Color.White,
-                                                fontSize = 8.ssp,
-                                                maxLines = 1,
-                                                fontFamily = FontFamily(Font(R.font.axiforma_medium))
-                                            )
-                                        }
-                                    }
-                                }
-
-                                Spacer(modifier = Modifier.height(10.sdp))
-                                Box(
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .padding(bottom = 15.dp)
-                                ) {
-                                    Column(
-                                        modifier = Modifier.fillMaxWidth(),
-                                    ) {
-                                        showTagImageTextBlackBg(
-                                            text = data?.personalDetails?.currentProfession?.formatText()
-                                                ?: ""
-                                        )
-                                        Spacer(modifier = Modifier.height(10.dp))
-
-                                        showTagImageTextBlackBgEducaion(
-                                            text = data?.personalDetails?.educationLevel?.formatText()
-                                                ?: ""
-                                        )
-                                    }
-                                }
-                            }
-                        }
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .align(Alignment.BottomCenter)
-                                .offset(y = 30.dp)
-                                .padding(horizontal = 25.sdp),
-                            horizontalArrangement = Arrangement.Center
-                        ) {
-
-                            Box(
-                                modifier = Modifier
-                                    .size(45.sdp)
-                                    .clip(RoundedCornerShape(50.dp))
-                                    .clickable(enabled = !isActionInProgress) {
-                                        isClickLocked = true
-                                        viewModelM4.hitAction(
-                                            access_token = SharedPreference.get(context).accessToken,
-                                            request = ActionRequest(
-                                                action = "reject", toUserId = data?.userId
-                                            )
-                                        )
-                                    }
-                                    .background(
-
-                                        MaterialTheme.colorScheme.onTertiaryFixed,
-                                        shape = RoundedCornerShape(50.dp)
-                                    ), contentAlignment = Alignment.Center)
-                            {
-
-                                Image(
-                                    painter = painterResource(R.drawable.cross_red_ic),
-                                    contentDescription = null,
-                                    modifier = Modifier.size(15.sdp)
-                                )
-                            }
-
-                            horizontalSpace(25)
-
-                            Box(
-                                modifier = Modifier
-                                    .size(45.sdp)
-                                    .clip(RoundedCornerShape(50.dp))
-                                    .clickable(enabled = !isActionInProgress) {
-                                        isClickLocked = true
-                                        viewModelM4.hitAction(
-                                            access_token = SharedPreference.get(context).accessToken,
-                                            request = ActionRequest(
-                                                action = "like", toUserId = data?.userId
-                                            ))
-                                    }
-                                    .background(
-                                        MaterialTheme.colorScheme.onTertiaryFixed,
-                                        shape = RoundedCornerShape(50.dp)
-                                    ), contentAlignment = Alignment.Center)
-                            {
-
-                                Image(
-                                    painterResource(R.drawable.like_purple_ic),
-                                    contentDescription = "like",
-                                    modifier = Modifier
-                                       /* .clickable(enabled = !isActionInProgress) {
-                                            isClickLocked = true
-                                            viewModelM4.hitAction(
-                                                access_token = SharedPreference.get(context).accessToken,
-                                                request = ActionRequest(
-                                                    action = "like", toUserId = data?.userId
-                                                ))
-                                        }*/
-                                        .size(25.sdp),
-                                )
-
-                            }
-
-                            horizontalSpace(25)
-                            Box(
-                                modifier = Modifier
-                                    .size(45.sdp)
-                                    .clip(RoundedCornerShape(50.dp))
-                                    .clickable(enabled = !isActionInProgress) {
-                                        isClickLocked = true
-                                        viewModelM4.hitAction(
-                                            access_token = SharedPreference.get(context).accessToken,
-                                            request = ActionRequest(
-                                                action = "superlike", toUserId = data?.userId
-                                            )
-                                        )
-                                    }
-                                    .background(
-                                        // Color.Black,
-                                        MaterialTheme.colorScheme.onTertiaryFixed,
-                                        shape = RoundedCornerShape(50.dp)
-                                    ), contentAlignment = Alignment.Center)
-                            {
-                                Image(
-                                    painter = painterResource(R.drawable.pink_super_like_ic),
-                                    contentDescription = null,
-                                    modifier = Modifier.size(25.sdp)
-                                )
-                            }
-                        }
-                    }
-                }
-
-                Spacer(modifier = Modifier.height(50.sdp))
-            }
-            Spacer(modifier = Modifier.height(15.sdp))
-
-            Column(modifier = Modifier
-                    .fillMaxWidth()
-                    .background(MaterialTheme.colorScheme.background),) {
-                if (!viewModel.getMatchList.isEmpty()) {
-                } else {
-                }
-
-            }
-
-            if (isActionInProgress) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .zIndex(100f)
-                        /*.background(Color.Black.copy(alpha = 0.2f)) // optional dim*/
-                        .pointerInput(Unit) {
-                            awaitPointerEventScope {
-                                while (true) {
-                                    awaitPointerEvent()
-                                }
-                            }
-                        }
-                )
-            }
-
-        }
+        DiscoverHomeScreenLayout(
+            navController = navController,
+            viewModel = viewModel,
+            viewModelM4 = viewModelM4,
+            viewModelM5 = viewModelM5,
+            viewModelM6 = viewModelM6,
+            context = context,
+            remainingSeconds = remainingSeconds,
+            progress = progress
+        )
+    }
 
         if (SingletonObject.isComeFromUploadIdPage ) {
 
@@ -1468,9 +641,6 @@ verticalSpace(20)
         }
 
     }
-
-
-}
 
 fun HomePageObserver(
     viewModel: AuthViewModel,
@@ -1600,3 +770,485 @@ fun GetMatchObserver(
 data class MatchUser(
     val name: String, val imageUrl: String
 )
+
+@Composable
+fun DiscoverHomeScreenLayout(
+    navController: NavController,
+    viewModel: AuthViewModel,
+    viewModelM4: M4ViewModel,
+    viewModelM5: M5ViewModel,
+    viewModelM6: M6ViewModel,
+    context: Context,
+    remainingSeconds: Long,
+    progress: Float
+) {
+    var selectedChipIndex by remember { mutableIntStateOf(0) }
+    val matchList = viewModel.getMatchList
+
+    val displayedProfiles = remember(selectedChipIndex, matchList.toList()) {
+        val nonNullList = matchList.filterNotNull()
+        when (selectedChipIndex) {
+            1 -> nonNullList.sortedByDescending { it.createdAt ?: it.matchCreatedAt ?: "" }
+            2 -> nonNullList.filter { it.isOnline == true }
+            else -> nonNullList
+        }
+    }
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color(0xFFF9F9FB))
+            .statusBarsPadding()
+    ) {
+        // 1. Header (Discover Title + Subtitle + Notification / Filter Icons)
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp, vertical = 12.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Column {
+                Text(
+                    text = "Discover",
+                    fontFamily = FontFamily(Font(R.font.axiforma_bold)),
+                    fontSize = 26.sp,
+                    color = Color(0xFF1F1035)
+                )
+                Spacer(modifier = Modifier.height(2.dp))
+                Text(
+                    text = "Find your compatible match",
+                    fontFamily = FontFamily(Font(R.font.axiforma_regular)),
+                    fontSize = 13.sp,
+                    color = Color(0xFF757575)
+                )
+            }
+
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(10.dp)
+            ) {
+                // Notification Button
+                Box(
+                    modifier = Modifier
+                        .size(40.dp)
+                        .clip(CircleShape)
+                        .background(Color(0xFFF4EFFF))
+                        .clickable { navController.navigate(Screen.NotificationScreen.route) },
+                    contentAlignment = Alignment.Center
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.notification_bell_ic),
+                        contentDescription = "notification",
+                        modifier = Modifier.size(28.dp)
+                    )
+                }
+
+                // Filter Button
+                Box(
+                    modifier = Modifier
+                        .size(40.dp)
+                        .clip(CircleShape)
+                        .background(Color.White)
+                        .border(1.dp, Color(0xFFE5E5E5), CircleShape)
+                        .clickable { navController.navigate(Screen.FilterScreen.route) },
+                    contentAlignment = Alignment.Center
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.filter_ic),
+                        contentDescription = "filter",
+                        modifier = Modifier.size(28.dp)
+                    )
+                }
+            }
+        }
+
+        // 2. Verified Profiles Banner Card
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp, vertical = 6.dp),
+            shape = RoundedCornerShape(16.dp),
+            colors = CardDefaults.cardColors(containerColor = Color(0xFFF6EFFE)),
+            elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
+        ) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 14.dp, vertical = 12.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Box(
+                    modifier = Modifier
+                        .size(36.dp)
+                        .clip(CircleShape)
+                        .background(Color(0xFFE6D6FE)),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.blue1),
+                        contentDescription = "verified_shield",
+                        modifier = Modifier.size(20.dp)
+                    )
+                }
+
+                Spacer(modifier = Modifier.width(12.dp))
+
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(
+                        text = "Verified Profiles Only",
+                        fontFamily = FontFamily(Font(R.font.axiforma_bold)),
+                        fontSize = 14.sp,
+                        color = Color(0xFF1F1035)
+                    )
+                    Text(
+                        text = "Every profile is manually verified",
+                        fontFamily = FontFamily(Font(R.font.axiforma_regular)),
+                        fontSize = 11.sp,
+                        color = Color(0xFF757575)
+                    )
+                }
+
+                Icon(
+                    imageVector = Icons.Default.ChevronRight,
+                    contentDescription = "chevron",
+                    tint = Color(0xFF7330DB),
+                    modifier = Modifier.size(18.dp)
+                )
+            }
+        }
+
+        Spacer(modifier = Modifier.height(10.dp))
+
+        // 3. Filter Chips Bar (LazyRow)
+        val filterTitles = listOf("All Matches", "New", "Online •")
+        LazyRow(
+            modifier = Modifier.fillMaxWidth(),
+            contentPadding = androidx.compose.foundation.layout.PaddingValues(horizontal = 16.dp),
+            horizontalArrangement = Arrangement.spacedBy(10.dp)
+        ) {
+            itemsIndexed(filterTitles) { index, title ->
+                val isSelected = index == selectedChipIndex
+                Box(
+                    modifier = Modifier
+                        .height(36.dp)
+                        .clip(RoundedCornerShape(20.dp))
+                        .background(if (isSelected) Color(0xFF7330DB) else Color.White)
+                        .then(
+                            if (!isSelected) Modifier.border(1.dp, Color(0xFFE5E5E5), RoundedCornerShape(20.dp))
+                            else Modifier
+                        )
+                        .clickable { selectedChipIndex = index }
+                        .padding(horizontal = 16.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        text = title,
+                        fontFamily = FontFamily(Font(R.font.axiforma_semi_bold)),
+                        fontSize = 13.sp,
+                        color = if (isSelected) Color.White else Color(0xFF444444)
+                    )
+                }
+            }
+        }
+
+        Spacer(modifier = Modifier.height(12.dp))
+
+        // 4. Profiles Vertical Cards List (LazyColumn)
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxWidth()
+                .weight(1f),
+            contentPadding = androidx.compose.foundation.layout.PaddingValues(bottom = 100.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            itemsIndexed(displayedProfiles) { _, profile ->
+                MatchProfileCardItem(
+                    matchData = profile,
+                    onViewProfileClick = {
+                        viewModel.setData(profile)
+                        SingletonObject.isComeFromBlockedProfile = false
+                        SingletonObject.isComeFromHomePage = true
+                        SingletonObject.isFromProfileView = false
+                        viewModelM4.showBottomActions = 4
+                        navController.navigate(Screen.HomeScreenDetailScreen.route)
+
+                        viewModelM5.hitProfileViewAction(
+                            access_token = SharedPreference.get(context).accessToken,
+                            request = ProfileViewActionRequest(
+                                isFullProfileView = true,
+                                viewDuration = 1,
+                                toUserId = profile.userId ?: ""
+                            )
+                        )
+                    },
+                    onConnectClick = {
+                        viewModelM4.hitAction(
+                            access_token = SharedPreference.get(context).accessToken,
+                            request = ActionRequest(action = "like", toUserId = profile.userId ?: "")
+                        )
+                    },
+                    onBookmarkClick = {
+                        SavedProfilesManager.saveProfile(context, profile)
+                        context.showToast("Saved to bookmarks")
+                    }
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun MatchProfileCardItem(
+    matchData: GetMatchResponse.Data,
+    onViewProfileClick: () -> Unit,
+    onConnectClick: () -> Unit,
+    onBookmarkClick: () -> Unit
+) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp)
+            .clickable { onViewProfileClick() },
+        shape = RoundedCornerShape(18.dp),
+        colors = CardDefaults.cardColors(containerColor = Color.White),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+        border = BorderStroke(1.dp, Color(0xFFF0F0F0))
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(12.dp)
+        ) {
+            // Left Profile Image Container
+            Box(
+                modifier = Modifier
+                    .width(125.dp)
+                    .height(165.dp)
+                    .clip(RoundedCornerShape(14.dp))
+            ) {
+                val imageUrl = matchData.personalDetails?.images?.firstOrNull()
+                    ?: matchData.profileImages?.firstOrNull()
+                AsyncImage(
+                    model = imageUrl ?: "",
+                    contentDescription = "profile_img",
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier.fillMaxSize()
+                )
+
+                // Top Right Bookmark Button
+                Box(
+                    modifier = Modifier
+                        .align(Alignment.TopEnd)
+                        .padding(6.dp)
+                        .size(30.dp)
+                        .clip(CircleShape)
+                        .background(Color.White.copy(alpha = 0.9f))
+                        .clickable { onBookmarkClick() },
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        imageVector = Icons.Outlined.BookmarkBorder,
+                        contentDescription = "bookmark",
+                        tint = Color(0xFF333333),
+                        modifier = Modifier.size(16.dp)
+                    )
+                }
+
+                // Bottom Left Online Badge
+                if (matchData.isOnline == true) {
+                    Row(
+                        modifier = Modifier
+                            .align(Alignment.BottomStart)
+                            .padding(6.dp)
+                            .clip(RoundedCornerShape(10.dp))
+                            .background(Color(0xE60D3D22))
+                            .padding(horizontal = 8.dp, vertical = 3.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Box(
+                            modifier = Modifier
+                                .size(7.dp)
+                                .clip(CircleShape)
+                                .background(Color(0xFF10B981))
+                        )
+                        Spacer(modifier = Modifier.width(4.dp))
+                        Text(
+                            text = "Online",
+                            color = Color.White,
+                            fontSize = 10.sp,
+                            fontFamily = FontFamily(Font(R.font.axiforma_medium))
+                        )
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.width(12.dp))
+
+            // Right Info Details Column
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
+                verticalArrangement = Arrangement.SpaceBetween
+            ) {
+                Column {
+                    // Name
+                    val name = matchData.firstName ?: ""
+                    Text(
+                        text = name,
+                        fontFamily = FontFamily(Font(R.font.axiforma_bold)),
+                        fontSize = 17.sp,
+                        color = Color(0xFF1F1035),
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
+
+                    // Age, Location
+                    val age = matchData.age ?: 0
+                    val city = matchData.city ?: ""
+                    val country = matchData.countryName ?: ""
+                    val location = buildString {
+                        if (age > 0) append("$age")
+                        if (city.isNotEmpty()) {
+                            if (isNotEmpty()) append(", ")
+                            append(city)
+                        }
+                        if (country.isNotEmpty()) {
+                            if (isNotEmpty()) append(", ")
+                            append(country)
+                        }
+                    }
+                    Text(
+                        text = location,
+                        fontFamily = FontFamily(Font(R.font.axiforma_regular)),
+                        fontSize = 12.sp,
+                        color = Color(0xFF757575),
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
+
+                    Spacer(modifier = Modifier.height(6.dp))
+
+                    // Verified Pill Badge
+                    val isVerified = matchData.personalDetails?.isFaceVerified == true ||
+                            matchData.personalDetails?.isDocumentVerified == true
+                    if (isVerified) {
+                        Row(
+                            modifier = Modifier
+                                .clip(RoundedCornerShape(10.dp))
+                                .background(Color(0xFFF0E7FE))
+                                .padding(horizontal = 8.dp, vertical = 3.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Image(
+                                painter = painterResource(id = R.drawable.blue1),
+                                contentDescription = "verified",
+                                modifier = Modifier.size(12.dp)
+                            )
+                            Spacer(modifier = Modifier.width(4.dp))
+                            Text(
+                                text = "Verified",
+                                color = Color(0xFF7330DB),
+                                fontSize = 10.sp,
+                                fontFamily = FontFamily(Font(R.font.axiforma_bold))
+                            )
+                        }
+                        Spacer(modifier = Modifier.height(6.dp))
+                    }
+
+                    // Profession
+                    val profession = matchData.personalDetails?.currentProfession
+                        ?.ifEmpty { null }
+                        ?: matchData.personalDetails?.jobTitle
+                        ?.ifEmpty { null }
+                        ?: "Marketing"
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Icon(
+                            
+                            imageVector = Icons.Outlined.Work,
+                            contentDescription = "profession",
+                            tint = Color(0xFF656565),
+                            modifier = Modifier.size(14.dp)
+                        )
+                        Spacer(modifier = Modifier.width(6.dp))
+                        Text(
+                            text = profession,
+                            color = Color(0xFF555555),
+                            fontSize = 12.sp,
+                            fontFamily = FontFamily(Font(R.font.axiforma_regular)),
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.height(4.dp))
+
+                    // Compatibility Score
+                    val rawScore = matchData.finalRankScore ?: matchData.matchScore ?: 33.0
+                    val score = if (rawScore <= 0) 33 else rawScore.toInt()
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Image(
+                            painter = painterResource(id = R.drawable.like_purple_ic),
+                            contentDescription = "heart",
+                            modifier = Modifier.size(14.dp)
+                        )
+                        Spacer(modifier = Modifier.width(6.dp))
+                        Text(
+                            text = "$score% Compatibility",
+                            color = Color(0xFF7330DB),
+                            fontSize = 12.sp,
+                            fontFamily = FontFamily(Font(R.font.axiforma_medium))
+                        )
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(10.dp))
+
+                // Action Buttons Row
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    // View Profile Button
+                    Box(
+                        modifier = Modifier
+                            .weight(1f)
+                            .height(34.dp)
+                            .clip(RoundedCornerShape(10.dp))
+                            .background(Color(0xFFF4EFFF))
+                            .clickable { onViewProfileClick() },
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = "View Profile",
+                            color = Color(0xFF7330DB),
+                            fontSize = 12.sp,
+                            fontFamily = FontFamily(Font(R.font.axiforma_semi_bold))
+                        )
+                    }
+
+                    // Connect Button
+                    Box(
+                        modifier = Modifier
+                            .weight(1f)
+                            .height(34.dp)
+                            .clip(RoundedCornerShape(10.dp))
+                            .background(Color.White)
+                            .border(1.2.dp, Color(0xFF7330DB), RoundedCornerShape(10.dp))
+                            .clickable { onConnectClick() },
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = "Connect",
+                            color = Color(0xFF7330DB),
+                            fontSize = 12.sp,
+                            fontFamily = FontFamily(Font(R.font.axiforma_semi_bold))
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+

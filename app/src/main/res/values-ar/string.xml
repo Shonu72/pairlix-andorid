@@ -869,6 +869,7 @@
         <item>تم إرسال إعجاب</item>
         <item>المطابقات</item>
         <item>مرفوض</item>
+        <item>المحفوظة</item>
     </string-array>
 
     <string-array name="ticket_issue_types">

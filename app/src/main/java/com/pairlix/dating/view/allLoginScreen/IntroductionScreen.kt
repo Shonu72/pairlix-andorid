@@ -97,7 +97,7 @@ fun IntroductionScreen(navController: NavController) {
                 Text(
                     text = "Pairlix",
                     color = Color.White,
-                    fontSize = 32.sp,
+                    fontSize = 36.sp,
                     fontFamily = FontFamily(Font(R.font.axiforma_bold)),
                     textAlign = TextAlign.Center,
                     modifier = Modifier.offset(y = (-35).dp)

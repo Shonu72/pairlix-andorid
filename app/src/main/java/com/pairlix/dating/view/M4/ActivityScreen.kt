@@ -93,6 +93,7 @@ import com.pairlix.dating.helper.CountryListHelper
 import com.pairlix.dating.helper.CustomLoader
 import com.pairlix.dating.helper.EmpResource
 import com.pairlix.dating.helper.ErrorUtil
+import com.pairlix.dating.helper.SavedProfilesManager
 import com.pairlix.dating.helper.SharedPreference
 import com.pairlix.dating.navigation.Screen
 import com.pairlix.dating.response.ActivePlanResponse
@@ -619,11 +620,13 @@ fun ActivityScreen(
     val matchesList by viewModelM4.matches.collectAsState()
     val rejectedList by viewModelM4.rejected.collectAsState()
     val selectedChip = viewModelM4.selectedChipIndex.value
+    val savedProfilesList = remember(selectedChip) { SavedProfilesManager.getSavedProfiles(context) }
     val userList = when (selectedChip) {
         0 -> userLikeList
         1 -> linkSendList
         2 -> matchesList
-        else -> rejectedList
+        3 -> rejectedList
+        else -> savedProfilesList
     }
     val state by viewModelM4.getUserActivity.observeAsState(EmpResource.Idle)
     val isLoading = state is EmpResource.Loading
@@ -806,6 +809,11 @@ fun ActivityScreen(
                             verticalSpace(20)
                             Text(text = stringResource(R.string.profiles_you_skip_will_appear_here_for_reference), textAlign = TextAlign.Center, color = MaterialTheme.colorScheme.onBackground, fontSize = 18.sp, lineHeight = 24.sp, fontFamily = FontFamily(Font(R.font.axiforma_bold)))
                         }
+                        else -> {
+                            Image(modifier = Modifier.fillMaxWidth().height(300.dp), painter = painterResource(R.drawable.nodata_image), contentDescription = "img")
+                            verticalSpace(20)
+                            Text(text = "No saved profiles yet. Profiles you save will appear here.", textAlign = TextAlign.Center, color = MaterialTheme.colorScheme.onBackground, fontSize = 18.sp, lineHeight = 24.sp, fontFamily = FontFamily(Font(R.font.axiforma_bold)))
+                        }
                     }
                 }
 
@@ -840,7 +848,14 @@ fun ActivityScreen(
                         }
                     }
                 } else {
-                    items(if (selectedIndex == 0) userLikeList.chunked(2) else if (selectedIndex == 1) linkSendList.chunked(2) else rejectedList.chunked(2)) { rowItems ->
+                    val activeList = when (selectedIndex) {
+                        0 -> userLikeList
+                        1 -> linkSendList
+                        3 -> rejectedList
+                        4 -> savedProfilesList
+                        else -> emptyList()
+                    }
+                    items(activeList.chunked(2)) { rowItems ->
                         Row(modifier = Modifier.fillMaxWidth().padding(vertical = 12.dp), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                             rowItems.forEach { item -> GridItem(modifier = Modifier.weight(1f), navController = navController as NavHostController, data = item!!, viewModel = viewModelM4, authViewModel = authViewModel, planType = planType,showPlanPopUp = { showPlanPopUp = it }) }
                             if (rowItems.size == 1) Spacer(modifier = Modifier.weight(1f))
@@ -885,6 +900,7 @@ fun GridItem(
                 authViewModel.setData(data)
 
                 val chipIndex = viewModel.selectedChipIndex.value
+                viewModel.showBottomActions = chipIndex
 
                 when {
                     planType == 1 && chipIndex == 0 -> {

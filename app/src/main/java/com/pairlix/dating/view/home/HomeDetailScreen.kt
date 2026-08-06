@@ -34,10 +34,17 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Bookmark
+import androidx.compose.material.icons.outlined.BookmarkBorder
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.RadioButton
@@ -117,6 +124,7 @@ import com.pairlix.dating.ReusedComponents.countryNameToIsoCode
 import com.pairlix.dating.ReusedComponents.horizontalSpace
 import com.pairlix.dating.helper.CommonResource
 import com.pairlix.dating.helper.CountryListHelper
+import com.pairlix.dating.helper.SavedProfilesManager
 import com.pairlix.dating.helper.SharedPreference
 import com.pairlix.dating.navigation.Screen
 import com.pairlix.dating.requests.ActionRequest
@@ -235,6 +243,9 @@ fun HomeScreenDetailScreen(
     val startTime = remember { System.currentTimeMillis() }
     val lifecycleOwner= LocalLifecycleOwner.current
     val isFreeUser = userData?.activePlanType == 1
+    var isSaved by remember(data?.userId) {
+        mutableStateOf(SavedProfilesManager.isProfileSaved(context, data?.userId ?: ""))
+    }
 
     LaunchedEffect(Unit) {
         viewModelM4.resetActionResult()
@@ -1869,469 +1880,42 @@ fun HomeScreenDetailScreen(
         }
 
 
-        if (viewModelM4.showBottomActions != 5) {
-
-            if (viewModelM4.showBottomActions != 2) {
-//homePage
-                if (SingletonObject.isFromProfileView == false && viewModelM4.showBottomActions == 4) {
-
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(bottom = 50.sdp)
-                            .align(Alignment.BottomCenter),
-                        horizontalArrangement = Arrangement.Center,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(horizontal = 40.sdp)
-                                .dropShadow(
-                                    shape = RoundedCornerShape(40.dp), shadow = Shadow(
-                                        radius = 25.dp,
-                                        spread = 1.dp,
-                                        color = Color(0x40000000).copy(alpha = 0.1f),
-                                        offset = DpOffset(x = 1.dp, y = 1.dp)
-                                    )
-                                )
-                                .background(
-                                    Color(0xFFEAA9D3).copy(alpha = 0.20f),
-                                    RoundedCornerShape(40.dp)
-                                )
-                                .padding(horizontal = 5.sdp, vertical = (5.sdp)),
-                            horizontalArrangement = Arrangement.SpaceBetween
-                        ) {
-
-                            Image(
-                                painterResource(R.drawable.like_btn_ic),
-                                contentDescription = "like",
-                                modifier = Modifier
-                                    .clip(RoundedCornerShape(40.dp))
-                                    .clickable(enabled = !isActionInFlight) {
-                                        viewModelM4.hitAction(
-                                            access_token = SharedPreference.get(context).accessToken,
-                                            request = ActionRequest(
-                                                action = "like", toUserId = data?.userId
-                                            )
-                                        )
-                                    }
-                                    .size(45.sdp),
-                            )
-
-                            horizontalSpace(15)
-
-
-                            Box(
-                                modifier = Modifier
-                                    .size(45.sdp)
-                                    .clip(RoundedCornerShape(40.dp))
-                                    .clickable(enabled = !isActionInFlight) {
-                                        viewModelM4.hitAction(
-                                            access_token = SharedPreference.get(context).accessToken,
-                                            request = ActionRequest(
-                                                action = "superlike", toUserId = data?.userId
-                                            )
-                                        )
-
-
-                                    }
-                                    .background(
-                                        Color(0xFFE190C3).copy(alpha = 0.78f),
-                                        shape = RoundedCornerShape(40.dp)
-                                    ), contentAlignment = Alignment.Center)
-                            {
-                                Image(
-                                    painter = painterResource(R.drawable.star_ic),
-                                    contentDescription = null,
-                                    modifier = Modifier.size(25.sdp)
-                                )
-
-
-                            }
-                            Spacer(Modifier.weight(1f))
-                            Box(
-                                modifier = Modifier
-                                    .size(45.sdp)
-                                    .dropShadow(
-                                        shape = RoundedCornerShape(40.dp), shadow = Shadow(
-                                            radius = 15.dp,
-                                            spread = 3.dp,
-                                            color = Color(0x40000000).copy(alpha = 0.1f),
-                                            offset = DpOffset(x = 0.dp, y = 1.dp)
-                                        )
-                                    )
-                                    .background(
-                                        Color.White, shape = RoundedCornerShape(40.dp)
-                                    )
-                                    .clip(RoundedCornerShape(40.dp))
-                                    .clickable(enabled = !isActionInFlight) {
-                                        viewModelM4.hitAction(
-                                            access_token = SharedPreference.get(context).accessToken,
-                                            request = ActionRequest(
-                                                action = "reject", toUserId = data?.userId
-                                            )
-                                        )
-                                    }, contentAlignment = Alignment.Center
-                            ) {
-                                Image(
-                                    painter = painterResource(R.drawable.x_icon_cross),
-                                    contentDescription = null,
-                                    modifier = Modifier.size(15.sdp)
-                                )
-                            }
-                        }
+        RedesignedFloatingActionBar(
+            showBottomActions = viewModelM4.showBottomActions,
+            isActionInFlight = isActionInFlight,
+            isSaved = isSaved,
+            onSkipClick = {
+                viewModelM4.hitAction(
+                    access_token = SharedPreference.get(context).accessToken,
+                    request = ActionRequest(action = "reject", toUserId = data?.userId)
+                )
+            },
+            onConnectClick = {
+                if (isFreeUser && viewModelM4.showBottomActions == 3) {
+                    showPlanPopUp = true
+                } else {
+                    viewModelM4.hitAction(
+                        access_token = SharedPreference.get(context).accessToken,
+                        request = ActionRequest(action = "like", toUserId = data?.userId)
+                    )
+                }
+            },
+            onSaveClick = {
+                data?.let { profile ->
+                    val targetId = profile.userId ?: ""
+                    if (isSaved) {
+                        SavedProfilesManager.removeProfile(context, targetId)
+                        isSaved = false
+                        Toast.makeText(context, "Removed from bookmarks", Toast.LENGTH_SHORT).show()
+                    } else {
+                        SavedProfilesManager.saveProfile(context, profile)
+                        isSaved = true
+                        Toast.makeText(context, "Saved to bookmarks", Toast.LENGTH_SHORT).show()
                     }
                 }
-
-                if (SingletonObject.isFromProfileView == false && viewModelM4.showBottomActions == 0) {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(bottom = 50.sdp)
-                            .align(Alignment.BottomCenter),
-                        horizontalArrangement = Arrangement.Center,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Row(
-                            modifier = Modifier
-                                .padding(horizontal = 30.dp)
-                                .dropShadow(
-                                    shape = RoundedCornerShape(40.dp), shadow = Shadow(
-                                        radius = 25.dp,
-                                        spread = 1.dp,
-                                        color = Color(0x40000000).copy(alpha = 0.1f),
-                                        offset = DpOffset(x = 1.dp, y = 1.dp)
-                                    )
-                                )
-                                .background(
-                                    Color(0xFFEAA9D3).copy(alpha = 0.20f),
-                                    RoundedCornerShape(40.dp)
-                                )
-
-                                .padding(horizontal = 5.sdp, vertical = (5.sdp)),
-                            horizontalArrangement = Arrangement.SpaceBetween
-                        ) {
-
-                            horizontalSpace(30, true)
-
-                            Box(
-                                modifier = Modifier
-                                    .size(45.sdp)
-                                    .dropShadow(
-                                        shape = RoundedCornerShape(40.dp), shadow = Shadow(
-                                            radius = 15.dp,
-                                            spread = 3.dp,
-                                            color = Color(0x40000000).copy(alpha = 0.1f),
-                                            offset = DpOffset(x = 0.dp, y = 1.dp)
-                                        )
-                                    )
-                                    .background(
-                                        Color(0xFFEAA9D3).copy(alpha = 0.20f),
-                                        RoundedCornerShape(40.dp)
-                                    )
-
-                                    .clip(RoundedCornerShape(40.dp))
-
-                                    .clickable(enabled = !isActionInFlight) {
-                                        viewModelM4.hitAction(
-                                            access_token = SharedPreference.get(context).accessToken,
-                                            request = ActionRequest(
-                                                action = "reject", toUserId = data?.userId
-                                            )
-                                        )
-
-                                    },
-
-                                contentAlignment = Alignment.Center
-                            ) {
-
-                                Image(
-                                    painter = painterResource(R.drawable.x_icon_cross),
-                                    contentDescription = null,
-                                    modifier = Modifier.size(15.sdp)
-                                )
-
-
-                            }
-                            horizontalSpace(20, true)
-
-                            Image(
-                                painterResource(R.drawable.like_btn_ic),
-                                contentDescription = "like",
-                                modifier = Modifier
-                                    .clip(RoundedCornerShape(40.dp))
-                                    .clickable(enabled = !isActionInFlight) {
-                                        viewModelM4.hitAction(
-                                            access_token = SharedPreference.get(context).accessToken,
-                                            request = ActionRequest(
-                                                action = "like", toUserId = data?.userId
-                                            )
-                                        )
-                                    }
-
-                                    .size(45.sdp),
-                            )
-                            horizontalSpace(30, true)
-
-                        }
-
-                    }
-                }
-
-                if (SingletonObject.isFromProfileView == false && viewModelM4.showBottomActions == 1 && data?.action == "like") {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(bottom = 50.sdp)
-                            .align(Alignment.BottomCenter),
-                        horizontalArrangement = Arrangement.Center,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Row(
-                            modifier = Modifier
-                                .padding(horizontal = 30.dp)
-                                .dropShadow(
-                                    shape = RoundedCornerShape(40.dp), shadow = Shadow(
-                                        radius = 25.dp,
-                                        spread = 1.dp,
-                                        color = Color(0x40000000).copy(alpha = 0.1f),
-                                        offset = DpOffset(x = 1.dp, y = 1.dp)
-                                    )
-                                )
-                                .background(
-                                    Color(0xFFEAA9D3).copy(alpha = 0.20f),
-                                    RoundedCornerShape(40.dp)
-                                )
-                                .padding(horizontal = 5.sdp, vertical = (5.sdp)),
-                            horizontalArrangement = Arrangement.SpaceBetween
-                        ) {
-
-
-                            horizontalSpace(40, true)
-
-                            Box(
-                                modifier = Modifier
-                                    .size(45.sdp)
-                                    .clip(RoundedCornerShape(40.dp))
-                                    .clickable(enabled = !isActionInFlight) {
-                                        viewModelM4.hitAction(
-                                            access_token = SharedPreference.get(context).accessToken,
-                                            request = ActionRequest(
-                                                action = "superlike", toUserId = data?.userId
-                                            )
-                                        )
-                                    }
-
-                                    .background(
-                                        Color(0xFFE190C3).copy(alpha = 0.78f),
-                                        shape = RoundedCornerShape(40.dp)
-                                    ), contentAlignment = Alignment.Center) {
-                                Image(
-                                    painter = painterResource(R.drawable.star_ic),
-                                    contentDescription = null,
-                                    modifier = Modifier.size(25.sdp)
-                                )
-                            }
-                            horizontalSpace(40, true)
-                        }
-                    }
-                }
-
-                if (SingletonObject.isFromProfileView == false && viewModelM4.showBottomActions == 3) {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(bottom = 50.sdp)
-                            .align(Alignment.BottomCenter),
-                        horizontalArrangement = Arrangement.Center,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-
-                        Row(
-                            modifier = Modifier
-                                .padding(horizontal = 30.dp)
-                                .dropShadow(
-                                    shape = RoundedCornerShape(40.dp), shadow = Shadow(
-                                        radius = 25.dp,
-                                        spread = 1.dp,
-                                        color = Color(0x40000000).copy(alpha = 0.1f),
-                                        offset = DpOffset(x = 1.dp, y = 1.dp)
-                                    )
-                                )
-                                .background(
-                                    Color(0xFFEAA9D3).copy(alpha = 0.20f),
-                                    RoundedCornerShape(40.dp)
-                                )
-
-                                .padding(horizontal = 5.sdp, vertical = (5.sdp)),
-                            horizontalArrangement = Arrangement.SpaceBetween
-                        ) {
-
-                            horizontalSpace(30, true)
-
-                            Image(
-                                painterResource(R.drawable.like_btn_ic),
-                                contentDescription = "like",
-                                modifier = Modifier
-                                    .clip(RoundedCornerShape(40.dp))
-                                    .clickable(enabled = !isActionInFlight) {
-                                        if (isFreeUser) {
-                                            showPlanPopUp = true
-                                        } else {
-                                            viewModelM4.hitAction(
-                                                access_token = SharedPreference.get(context).accessToken,
-                                                request = ActionRequest(
-                                                    action = "like",
-                                                    toUserId = data?.userId
-                                                )
-                                            )
-                                        }
-                                    }
-
-                                    .size(45.sdp),
-                            )
-                            horizontalSpace(30, true)
-
-
-                            Box(
-                                modifier = Modifier
-                                    .size(45.sdp)
-                                    .clip(RoundedCornerShape(40.dp))
-                                    .clickable(enabled = !isActionInFlight) {
-                                        if (isFreeUser) {
-                                            showPlanPopUp = true  // ✅ Free user → show popup
-                                        } else {
-                                            viewModelM4.hitAction(
-                                                access_token = SharedPreference.get(context).accessToken,
-                                                request = ActionRequest(
-                                                    action = "superlike",
-                                                    toUserId = data?.userId
-                                                )
-                                            )
-                                        }
-                                    }
-                                    .background(
-                                        Color(0xFFE190C3).copy(alpha = 0.78f),
-                                        shape = RoundedCornerShape(40.dp)
-                                    ), contentAlignment = Alignment.Center) {
-                                Image(
-                                    painter = painterResource(R.drawable.star_ic),
-                                    contentDescription = null,
-                                    modifier = Modifier.size(25.sdp)
-                                )
-
-
-                            }
-                            horizontalSpace(30, true)
-                        }
-
-                    }
-                }
-
-                if (SingletonObject.isFromProfileView && data?.isLiked == false && data?.isRejected == false) {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(bottom = 50.sdp)
-                            .align(Alignment.BottomCenter),
-                        horizontalArrangement = Arrangement.Center,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-
-                        Row(
-                            modifier = Modifier
-                                .padding(horizontal = 30.dp)
-                                .dropShadow(
-                                    shape = RoundedCornerShape(40.dp), shadow = Shadow(
-                                        radius = 25.dp,
-                                        spread = 1.dp,
-                                        color = Color(0x40000000).copy(alpha = 0.1f),
-                                        offset = DpOffset(x = 1.dp, y = 1.dp)
-                                    )
-                                )
-                                .background(
-                                    Color(0xFFEAA9D3).copy(alpha = 0.20f),
-                                    RoundedCornerShape(40.dp)
-                                )
-
-                                .padding(horizontal = 5.sdp, vertical = (5.sdp)),
-                            horizontalArrangement = Arrangement.SpaceBetween
-                        ) {
-
-                            horizontalSpace(30, true)
-
-                            Box(
-                                modifier = Modifier
-                                    .size(45.sdp)
-                                    .dropShadow(
-                                        shape = RoundedCornerShape(40.dp), shadow = Shadow(
-                                            radius = 15.dp,
-                                            spread = 3.dp,
-                                            color = Color(0x40000000).copy(alpha = 0.1f),
-                                            offset = DpOffset(x = 0.dp, y = 1.dp)
-                                        )
-                                    )
-                                    .background(
-                                        Color(0xFFEAA9D3).copy(alpha = 0.20f),
-                                        RoundedCornerShape(40.dp)
-                                    )
-
-                                    .clip(RoundedCornerShape(40.dp))
-
-                                    .clickable(enabled = !isActionInFlight) {
-                                        viewModelM4.hitAction(
-                                            access_token = SharedPreference.get(context).accessToken,
-                                            request = ActionRequest(
-                                                action = "reject", toUserId = data?.userId
-                                            )
-                                        )
-                                    },
-
-                                contentAlignment = Alignment.Center
-                            ) {
-
-                                Image(
-                                    painter = painterResource(R.drawable.x_icon_cross),
-                                    contentDescription = null,
-                                    modifier = Modifier.size(15.sdp)
-                                )
-
-
-                            }
-                            horizontalSpace(20, true)
-
-                            Image(
-                                painterResource(R.drawable.like_btn_ic),
-                                contentDescription = "like",
-                                modifier = Modifier
-                                    .clip(RoundedCornerShape(40.dp))
-                                    .clickable(enabled = !isActionInFlight) {
-                                        viewModelM4.hitAction(
-                                            access_token = SharedPreference.get(context).accessToken,
-                                            request = ActionRequest(
-                                                action = "like", toUserId = data?.userId
-                                            )
-                                        )
-
-                                    }
-
-                                    .size(45.sdp),
-                            )
-                            horizontalSpace(30, true)
-
-
-                        }
-
-
-                    }
-
-                }
-
-            }
-
-        }
+            },
+            modifier = Modifier.align(Alignment.BottomCenter)
+        )
     }
 
 
@@ -2343,4 +1927,202 @@ fun HomeScreenDetailScreen(
 data class ReasonOption(
     val id: Int, val title: String
 )
+
+@Composable
+fun RedesignedFloatingActionBar(
+    showBottomActions: Int,
+    isActionInFlight: Boolean,
+    isSaved: Boolean = false,
+    onSkipClick: () -> Unit,
+    onConnectClick: () -> Unit,
+    onSaveClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    if (showBottomActions == 2 || showBottomActions == 5) return
+
+    val containerWidth = when (showBottomActions) {
+        1 -> 230.dp
+        3, 4 -> 210.dp
+        else -> 290.dp
+    }
+
+    Box(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(bottom = 20.dp),
+        contentAlignment = Alignment.Center
+    ) {
+        Row(
+            modifier = Modifier
+                .width(containerWidth)
+                .height(68.dp)
+                .clip(RoundedCornerShape(26.dp))
+                .background(Color(0xFFF8F5FA))
+                .border(1.dp, Color(0xFFEAEAEA), RoundedCornerShape(26.dp))
+                .padding(horizontal = 8.dp, vertical = 8.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            // A. SKIP BUTTON (Home Feed only: showBottomActions == 0)
+            if (showBottomActions == 0) {
+                Box(
+                    modifier = Modifier
+                        .width(58.dp)
+                        .height(52.dp)
+                        .clip(RoundedCornerShape(14.dp))
+                        .background(Color.White)
+                        .border(1.dp, Color(0xFFE6E6E6), RoundedCornerShape(14.dp))
+                        .clickable(enabled = !isActionInFlight) { onSkipClick() },
+                    contentAlignment = Alignment.Center
+                ) {
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Close,
+                            contentDescription = "skip",
+                            tint = Color(0xFFF24040),
+                            modifier = Modifier.size(16.dp)
+                        )
+                        Spacer(modifier = Modifier.height(2.dp))
+                        Text(
+                            text = "Skip",
+                            fontFamily = FontFamily(Font(R.font.axiforma_semi_bold)),
+                            fontSize = 11.sp,
+                            color = Color(0xFF333333)
+                        )
+                    }
+                }
+            }
+
+            // B. MIDDLE ACTION BUTTON
+            when (showBottomActions) {
+                1 -> {
+                    // Sent Tab: Disabled Request Sent Badge
+                    Box(
+                        modifier = Modifier
+                            .width(142.dp)
+                            .height(52.dp)
+                            .clip(RoundedCornerShape(14.dp))
+                            .background(Color(0xFF8C66C7)),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.Center
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.CheckCircle,
+                                contentDescription = "sent",
+                                tint = Color(0xFFF2F2F2),
+                                modifier = Modifier.size(15.dp)
+                            )
+                            Spacer(modifier = Modifier.width(6.dp))
+                            Text(
+                                text = "Request Sent",
+                                fontFamily = FontFamily(Font(R.font.axiforma_semi_bold)),
+                                fontSize = 13.sp,
+                                color = Color(0xFFF2F2F2)
+                            )
+                        }
+                    }
+                }
+                3, 4 -> {
+                    // Archived / Saved Tab: Enabled Connect Button (Width 124dp)
+                    Box(
+                        modifier = Modifier
+                            .width(124.dp)
+                            .height(52.dp)
+                            .clip(RoundedCornerShape(14.dp))
+                            .background(Color(0xFF7331D9))
+                            .clickable(enabled = !isActionInFlight) { onConnectClick() },
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.Center
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Favorite,
+                                contentDescription = "connect",
+                                tint = Color.White,
+                                modifier = Modifier.size(16.dp)
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(
+                                text = "Connect",
+                                fontFamily = FontFamily(Font(R.font.axiforma_semi_bold)),
+                                fontSize = 14.sp,
+                                color = Color.White
+                            )
+                        }
+                    }
+                }
+                else -> {
+                    // Standard Connect Button (Width 134dp)
+                    Box(
+                        modifier = Modifier
+                            .width(134.dp)
+                            .height(52.dp)
+                            .clip(RoundedCornerShape(14.dp))
+                            .background(Color(0xFF7331D9))
+                            .clickable(enabled = !isActionInFlight) { onConnectClick() },
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.Center
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Favorite,
+                                contentDescription = "connect",
+                                tint = Color.White,
+                                modifier = Modifier.size(16.dp)
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(
+                                text = "Connect",
+                                fontFamily = FontFamily(Font(R.font.axiforma_semi_bold)),
+                                fontSize = 14.sp,
+                                color = Color.White
+                            )
+                        }
+                    }
+                }
+            }
+
+            // C. SAVE / UNSAVE BUTTON
+            Box(
+                modifier = Modifier
+                    .width(58.dp)
+                    .height(52.dp)
+                    .clip(RoundedCornerShape(14.dp))
+                    .background(Color.White)
+                    .border(1.dp, Color(0xFFE6E6E6), RoundedCornerShape(14.dp))
+                    .clickable { onSaveClick() },
+                contentAlignment = Alignment.Center
+            ) {
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    Icon(
+                        imageVector = if (isSaved) Icons.Default.Bookmark else Icons.Outlined.BookmarkBorder,
+                        contentDescription = if (isSaved) "unsave" else "save",
+                        tint = if (isSaved) Color(0xFFF24040) else Color(0xFF7331D9),
+                        modifier = Modifier.size(15.dp)
+                    )
+                    Spacer(modifier = Modifier.height(2.dp))
+                    Text(
+                        text = if (isSaved) "Unsave" else "Save",
+                        fontFamily = FontFamily(Font(R.font.axiforma_semi_bold)),
+                        fontSize = 11.sp,
+                        color = if (isSaved) Color(0xFFF24040) else Color(0xFF333333)
+                    )
+                }
+            }
+        }
+    }
+}
 
