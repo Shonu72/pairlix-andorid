@@ -17,6 +17,8 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
+import com.pairlix.dating.ThemeManager.isAppInDarkTheme
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.gestures.detectVerticalDragGestures
@@ -55,14 +57,17 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.outlined.BookmarkBorder
 import androidx.compose.material.icons.outlined.Work
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
+import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -794,165 +799,178 @@ fun DiscoverHomeScreenLayout(
         }
     }
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color(0xFFF9F9FB))
-            .statusBarsPadding()
-    ) {
-        // 1. Header (Discover Title + Subtitle + Notification / Filter Icons)
-        Row(
+        val isDark = isAppInDarkTheme()
+
+        Column(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 12.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
+                .fillMaxSize()
+                .background(if (isDark) Color.Black else Color(0xFFF9F9FB))
+                .statusBarsPadding()
         ) {
-            Column {
-                Text(
-                    text = "Discover",
-                    fontFamily = FontFamily(Font(R.font.axiforma_bold)),
-                    fontSize = 26.sp,
-                    color = Color(0xFF1F1035)
-                )
-                Spacer(modifier = Modifier.height(2.dp))
-                Text(
-                    text = "Find your compatible match",
-                    fontFamily = FontFamily(Font(R.font.axiforma_regular)),
-                    fontSize = 13.sp,
-                    color = Color(0xFF757575)
-                )
-            }
-
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(10.dp)
-            ) {
-                // Notification Button
-                Box(
-                    modifier = Modifier
-                        .size(40.dp)
-                        .clip(CircleShape)
-                        .background(Color(0xFFF4EFFF))
-                        .clickable { navController.navigate(Screen.NotificationScreen.route) },
-                    contentAlignment = Alignment.Center
-                ) {
-                    Image(
-                        painter = painterResource(id = R.drawable.notification_bell_ic),
-                        contentDescription = "notification",
-                        modifier = Modifier.size(28.dp)
-                    )
-                }
-
-                // Filter Button
-                Box(
-                    modifier = Modifier
-                        .size(40.dp)
-                        .clip(CircleShape)
-                        .background(Color.White)
-                        .border(1.dp, Color(0xFFE5E5E5), CircleShape)
-                        .clickable { navController.navigate(Screen.FilterScreen.route) },
-                    contentAlignment = Alignment.Center
-                ) {
-                    Image(
-                        painter = painterResource(id = R.drawable.filter_ic),
-                        contentDescription = "filter",
-                        modifier = Modifier.size(28.dp)
-                    )
-                }
-            }
-        }
-
-        // 2. Verified Profiles Banner Card
-        Card(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 6.dp),
-            shape = RoundedCornerShape(16.dp),
-            colors = CardDefaults.cardColors(containerColor = Color(0xFFF6EFFE)),
-            elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
-        ) {
+            // 1. Header (Discover Title + Subtitle + Notification / Filter Icons)
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 14.dp, vertical = 12.dp),
-                verticalAlignment = Alignment.CenterVertically
+                    .padding(horizontal = 16.dp, vertical = 12.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Box(
-                    modifier = Modifier
-                        .size(36.dp)
-                        .clip(CircleShape)
-                        .background(Color(0xFFE6D6FE)),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Image(
-                        painter = painterResource(id = R.drawable.blue1),
-                        contentDescription = "verified_shield",
-                        modifier = Modifier.size(20.dp)
-                    )
-                }
-
-                Spacer(modifier = Modifier.width(12.dp))
-
-                Column(modifier = Modifier.weight(1f)) {
+                Column {
                     Text(
-                        text = "Verified Profiles Only",
+                        text = "Discover",
                         fontFamily = FontFamily(Font(R.font.axiforma_bold)),
-                        fontSize = 14.sp,
-                        color = Color(0xFF1F1035)
+                        fontSize = 26.sp,
+                        color = if (isDark) Color.White else Color(0xFF1F1035)
                     )
+                    Spacer(modifier = Modifier.height(2.dp))
                     Text(
-                        text = "Every profile is manually verified",
+                        text = "Find your compatible match",
                         fontFamily = FontFamily(Font(R.font.axiforma_regular)),
-                        fontSize = 11.sp,
-                        color = Color(0xFF757575)
-                    )
-                }
-
-                Icon(
-                    imageVector = Icons.Default.ChevronRight,
-                    contentDescription = "chevron",
-                    tint = Color(0xFF7330DB),
-                    modifier = Modifier.size(18.dp)
-                )
-            }
-        }
-
-        Spacer(modifier = Modifier.height(10.dp))
-
-        // 3. Filter Chips Bar (LazyRow)
-        val filterTitles = listOf("All Matches", "New", "Online •")
-        LazyRow(
-            modifier = Modifier.fillMaxWidth(),
-            contentPadding = androidx.compose.foundation.layout.PaddingValues(horizontal = 16.dp),
-            horizontalArrangement = Arrangement.spacedBy(10.dp)
-        ) {
-            itemsIndexed(filterTitles) { index, title ->
-                val isSelected = index == selectedChipIndex
-                Box(
-                    modifier = Modifier
-                        .height(36.dp)
-                        .clip(RoundedCornerShape(20.dp))
-                        .background(if (isSelected) Color(0xFF7330DB) else Color.White)
-                        .then(
-                            if (!isSelected) Modifier.border(1.dp, Color(0xFFE5E5E5), RoundedCornerShape(20.dp))
-                            else Modifier
-                        )
-                        .clickable { selectedChipIndex = index }
-                        .padding(horizontal = 16.dp),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Text(
-                        text = title,
-                        fontFamily = FontFamily(Font(R.font.axiforma_semi_bold)),
                         fontSize = 13.sp,
-                        color = if (isSelected) Color.White else Color(0xFF444444)
+                        color = if (isDark) Color(0xFFA6A6A6) else Color(0xFF757575)
+                    )
+                }
+
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(10.dp)
+                ) {
+                    // Notification Button
+                    Box(
+                        modifier = Modifier
+                            .size(40.dp)
+                            .clip(CircleShape)
+                            .background(if (isDark) Color(0xFF1C1C1E) else Color(0xFFF4EFFF))
+                            .then(if (isDark) Modifier.border(1.dp, Color(0xFF2E2E33), CircleShape) else Modifier)
+                            .clickable { navController.navigate(Screen.NotificationScreen.route) },
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Image(
+                            painter = painterResource(id = R.drawable.notification_bell_ic),
+                            contentDescription = "notification",
+                            modifier = Modifier.size(28.dp)
+                        )
+                    }
+
+                    // Filter Button
+                    Box(
+                        modifier = Modifier
+                            .size(40.dp)
+                            .clip(CircleShape)
+                            .background(if (isDark) Color(0xFF1C1C1E) else Color.White)
+                            .border(1.dp, if (isDark) Color(0xFF2E2E33) else Color(0xFFE5E5E5), CircleShape)
+                            .clickable { navController.navigate(Screen.FilterScreen.route) },
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Image(
+                            painter = painterResource(id = R.drawable.filter_ic),
+                            contentDescription = "filter",
+                            modifier = Modifier.size(28.dp)
+                        )
+                    }
+                }
+            }
+
+            // 2. Verified Profiles Banner Card
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp, vertical = 6.dp),
+                shape = RoundedCornerShape(16.dp),
+                colors = CardDefaults.cardColors(containerColor = if (isDark) Color(0xFF1C1C1E) else Color(0xFFF6EFFE)),
+                border = BorderStroke(1.dp, if (isDark) Color(0xFF2E2E33) else Color.Transparent),
+                elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 14.dp, vertical = 12.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .size(36.dp)
+                            .clip(CircleShape)
+                            .background(if (isDark) Color(0xFF2B213A) else Color(0xFFE6D6FE)),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Image(
+                            painter = painterResource(id = R.drawable.blue1),
+                            contentDescription = "verified_shield",
+                            modifier = Modifier.size(20.dp)
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.width(12.dp))
+
+                    Column(modifier = Modifier.weight(1f)) {
+                        Text(
+                            text = "Verified Profiles Only",
+                            fontFamily = FontFamily(Font(R.font.axiforma_bold)),
+                            fontSize = 14.sp,
+                            color = if (isDark) Color.White else Color(0xFF1F1035)
+                        )
+                        Text(
+                            text = "Every profile is manually verified",
+                            fontFamily = FontFamily(Font(R.font.axiforma_regular)),
+                            fontSize = 11.sp,
+                            color = if (isDark) Color(0xFFA6A6A6) else Color(0xFF757575)
+                        )
+                    }
+
+                    Icon(
+                        imageVector = Icons.Default.ChevronRight,
+                        contentDescription = "chevron",
+                        tint = if (isDark) Color(0xFFB373FF) else Color(0xFF7330DB),
+                        modifier = Modifier.size(18.dp)
                     )
                 }
             }
-        }
 
-        Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(10.dp))
+
+            // 3. Filter Chips Bar (LazyRow)
+            val filterTitles = listOf("All Matches", "New", "Online •")
+            LazyRow(
+                modifier = Modifier.fillMaxWidth(),
+                contentPadding = androidx.compose.foundation.layout.PaddingValues(horizontal = 16.dp),
+                horizontalArrangement = Arrangement.spacedBy(10.dp)
+            ) {
+                itemsIndexed(filterTitles) { index, title ->
+                    val isSelected = index == selectedChipIndex
+                    val chipBg = if (isSelected) {
+                        Color(0xFF8C52FF)
+                    } else {
+                        if (isDark) Color(0xFF242424) else Color.White
+                    }
+                    val chipBorder = if (!isSelected) {
+                        if (isDark) Color(0xFF333333) else Color(0xFFE5E5E5)
+                    } else Color.Transparent
+
+                    Box(
+                        modifier = Modifier
+                            .height(36.dp)
+                            .clip(RoundedCornerShape(20.dp))
+                            .background(chipBg)
+                            .then(
+                                if (!isSelected) Modifier.border(1.dp, chipBorder, RoundedCornerShape(20.dp))
+                                else Modifier
+                            )
+                            .clickable { selectedChipIndex = index }
+                            .padding(horizontal = 16.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = title,
+                            fontFamily = FontFamily(Font(R.font.axiforma_semi_bold)),
+                            fontSize = 13.sp,
+                            color = if (isSelected) Color.White else (if (isDark) Color.White else Color(0xFF444444))
+                        )
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(12.dp))
 
         // 4. Profiles Vertical Cards List (LazyColumn)
         LazyColumn(
@@ -989,8 +1007,14 @@ fun DiscoverHomeScreenLayout(
                         )
                     },
                     onBookmarkClick = {
-                        SavedProfilesManager.saveProfile(context, profile)
-                        context.showToast("Saved to bookmarks")
+                        val userId = profile.userId ?: ""
+                        if (SavedProfilesManager.isProfileSaved(context, userId)) {
+                            SavedProfilesManager.removeProfile(context, userId)
+                            context.showToast("Removed from bookmarks")
+                        } else {
+                            SavedProfilesManager.saveProfile(context, profile)
+                            context.showToast("Saved to bookmarks")
+                        }
                     }
                 )
             }
@@ -1005,15 +1029,20 @@ fun MatchProfileCardItem(
     onConnectClick: () -> Unit,
     onBookmarkClick: () -> Unit
 ) {
+    val context = LocalContext.current
+    val userId = matchData.userId ?: ""
+    var isSavedState by remember(matchData) { mutableStateOf(SavedProfilesManager.isProfileSaved(context, userId)) }
+    val isDark = isAppInDarkTheme()
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp)
             .clickable { onViewProfileClick() },
         shape = RoundedCornerShape(18.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
-        border = BorderStroke(1.dp, Color(0xFFF0F0F0))
+        colors = CardDefaults.cardColors(containerColor = if (isDark) Color(0xFF1C1C1E) else Color.White),
+        elevation = CardDefaults.cardElevation(defaultElevation = if (isDark) 0.dp else 2.dp),
+        border = BorderStroke(1.dp, if (isDark) Color(0xFF2E2E33) else Color(0xFFF0F0F0))
     ) {
         Row(
             modifier = Modifier
@@ -1043,14 +1072,17 @@ fun MatchProfileCardItem(
                         .padding(6.dp)
                         .size(30.dp)
                         .clip(CircleShape)
-                        .background(Color.White.copy(alpha = 0.9f))
-                        .clickable { onBookmarkClick() },
+                        .background(if (isDark) Color.Black.copy(alpha = 0.6f) else Color.White.copy(alpha = 0.9f))
+                        .clickable {
+                            onBookmarkClick()
+                            isSavedState = SavedProfilesManager.isProfileSaved(context, userId)
+                        },
                     contentAlignment = Alignment.Center
                 ) {
                     Icon(
-                        imageVector = Icons.Outlined.BookmarkBorder,
+                        imageVector = if (isSavedState) Icons.Filled.Bookmark else Icons.Outlined.BookmarkBorder,
                         contentDescription = "bookmark",
-                        tint = Color(0xFF333333),
+                        tint = if (isSavedState) Color(0xFFF24040) else (if (isDark) Color(0xFFB373FF) else Color(0xFF7330DB)),
                         modifier = Modifier.size(16.dp)
                     )
                 }
@@ -1099,7 +1131,7 @@ fun MatchProfileCardItem(
                         text = name,
                         fontFamily = FontFamily(Font(R.font.axiforma_bold)),
                         fontSize = 17.sp,
-                        color = Color(0xFF1F1035),
+                        color = if (isDark) Color.White else Color(0xFF1F1035),
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis
                     )
@@ -1123,7 +1155,7 @@ fun MatchProfileCardItem(
                         text = location,
                         fontFamily = FontFamily(Font(R.font.axiforma_regular)),
                         fontSize = 12.sp,
-                        color = Color(0xFF757575),
+                        color = if (isDark) Color(0xFFA6A6A6) else Color(0xFF757575),
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis
                     )
@@ -1137,7 +1169,7 @@ fun MatchProfileCardItem(
                         Row(
                             modifier = Modifier
                                 .clip(RoundedCornerShape(10.dp))
-                                .background(Color(0xFFF0E7FE))
+                                .background(if (isDark) Color(0xFF2B213A) else Color(0xFFF0E7FE))
                                 .padding(horizontal = 8.dp, vertical = 3.dp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
@@ -1149,7 +1181,7 @@ fun MatchProfileCardItem(
                             Spacer(modifier = Modifier.width(4.dp))
                             Text(
                                 text = "Verified",
-                                color = Color(0xFF7330DB),
+                                color = if (isDark) Color(0xFFB373FF) else Color(0xFF7330DB),
                                 fontSize = 10.sp,
                                 fontFamily = FontFamily(Font(R.font.axiforma_bold))
                             )
@@ -1165,16 +1197,15 @@ fun MatchProfileCardItem(
                         ?: "Marketing"
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Icon(
-                            
                             imageVector = Icons.Outlined.Work,
                             contentDescription = "profession",
-                            tint = Color(0xFF656565),
+                            tint = if (isDark) Color(0xFFA6A6A6) else Color(0xFF656565),
                             modifier = Modifier.size(14.dp)
                         )
                         Spacer(modifier = Modifier.width(6.dp))
                         Text(
                             text = profession,
-                            color = Color(0xFF555555),
+                            color = if (isDark) Color(0xFFA6A6A6) else Color(0xFF555555),
                             fontSize = 12.sp,
                             fontFamily = FontFamily(Font(R.font.axiforma_regular)),
                             maxLines = 1,
@@ -1196,7 +1227,7 @@ fun MatchProfileCardItem(
                         Spacer(modifier = Modifier.width(6.dp))
                         Text(
                             text = "$score% Compatibility",
-                            color = Color(0xFF7330DB),
+                            color = if (isDark) Color(0xFFB373FF) else Color(0xFF7330DB),
                             fontSize = 12.sp,
                             fontFamily = FontFamily(Font(R.font.axiforma_medium))
                         )
@@ -1216,13 +1247,13 @@ fun MatchProfileCardItem(
                             .weight(1f)
                             .height(34.dp)
                             .clip(RoundedCornerShape(10.dp))
-                            .background(Color(0xFFF4EFFF))
+                            .background(if (isDark) Color(0xFF2D2838) else Color(0xFFF4EFFF))
                             .clickable { onViewProfileClick() },
                         contentAlignment = Alignment.Center
                     ) {
                         Text(
                             text = "View Profile",
-                            color = Color(0xFF7330DB),
+                            color = if (isDark) Color.White else Color(0xFF7330DB),
                             fontSize = 12.sp,
                             fontFamily = FontFamily(Font(R.font.axiforma_semi_bold))
                         )
@@ -1234,14 +1265,14 @@ fun MatchProfileCardItem(
                             .weight(1f)
                             .height(34.dp)
                             .clip(RoundedCornerShape(10.dp))
-                            .background(Color.White)
-                            .border(1.2.dp, Color(0xFF7330DB), RoundedCornerShape(10.dp))
+                            .background(if (isDark) Color(0xFF222222) else Color.White)
+                            .border(1.2.dp, if (isDark) Color(0xFFB373FF) else Color(0xFF7330DB), RoundedCornerShape(10.dp))
                             .clickable { onConnectClick() },
                         contentAlignment = Alignment.Center
                     ) {
                         Text(
                             text = "Connect",
-                            color = Color(0xFF7330DB),
+                            color = if (isDark) Color.White else Color(0xFF7330DB),
                             fontSize = 12.sp,
                             fontFamily = FontFamily(Font(R.font.axiforma_semi_bold))
                         )

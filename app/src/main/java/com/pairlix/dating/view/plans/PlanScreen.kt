@@ -8,6 +8,8 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
+import com.pairlix.dating.ThemeManager.isAppInDarkTheme
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -779,6 +781,8 @@ fun GoldPlanCard(
 
     val goldBenefits = stringArrayResource(R.array.gold_benefits).toList()
 
+    val isDark = isAppInDarkTheme()
+
     Card(
         modifier = modifier
             .fillMaxWidth()
@@ -796,7 +800,11 @@ fun GoldPlanCard(
                     .fillMaxWidth()
                     .background(
                         brush = Brush.horizontalGradient(
-                            listOf(
+                            if (isDark) listOf(
+                                Color(0xFF4A3B18),
+                                Color(0xFF6B5320),
+                                Color(0xFF52401B)
+                            ) else listOf(
                                 Color(0xFFFFBA55),
                                 Color(0xFFFFF1DA),
                                 Color(0xFFFFCF80),
@@ -823,13 +831,13 @@ fun GoldPlanCard(
                                 text = stringResource(R.string.gold_plan),
                                 fontSize = 22.sp,
                                 fontFamily = FontFamily(Font(R.font.axiforma_bold)),
-                                color = Color(0xFF000000)
+                                color = if (isDark) Color.White else Color(0xFF000000)
                             )
                             Text(
                                 text = priceText,
                                 fontSize = 20.sp,
                                 fontFamily = FontFamily(Font(R.font.axiforma_bold)),
-                                color = MaterialTheme.colorScheme.onBackground
+                                color = if (isDark) Color.White else MaterialTheme.colorScheme.onBackground
                             )
                         }
                     }
@@ -842,7 +850,7 @@ fun GoldPlanCard(
                                 text = stringResource(R.string.visibility_and_ultimate_connections),
                                 fontSize = 16.sp,
                                 fontFamily = FontFamily(Font(R.font.axiforma_regular)),
-                                color = Color(0xFF000000)
+                                color = if (isDark) Color.White.copy(alpha = 0.9f) else Color(0xFF000000)
                             )
                         }
                     }
@@ -994,6 +1002,8 @@ fun PlatinumPlanCard(
 
     val platinumBenefits = stringArrayResource(R.array.platinum_benefits).toList()
 
+    val isDarkPlatinum = isAppInDarkTheme()
+
     Card(
         modifier = modifier
             .fillMaxWidth()
@@ -1011,7 +1021,11 @@ fun PlatinumPlanCard(
                     .fillMaxWidth()
                     .background(
                         brush = Brush.horizontalGradient(
-                            listOf(
+                            if (isDarkPlatinum) listOf(
+                                Color(0xFF2B213A),
+                                Color(0xFF3D2B54),
+                                Color(0xFF2B213A)
+                            ) else listOf(
                                 Color(0xFFD9D9D9),
                                 Color(0xFFF2F2F2),
                                 Color(0xFFE0E0E0),
@@ -1038,14 +1052,14 @@ fun PlatinumPlanCard(
                             text = stringResource(R.string.platinum_plan),
                             fontSize = 22.sp,
                             fontFamily = FontFamily(Font(R.font.axiforma_bold)),
-                            color = Color(0xFF4A148C)
+                            color = if (isDarkPlatinum) Color.White else Color(0xFF4A148C)
                         )
 
                         Text(
                             text = priceText,
                             fontSize = 20.sp,
                             fontFamily = FontFamily(Font(R.font.axiforma_bold)),
-                            color = Color(0xFF4A148C)
+                            color = if (isDarkPlatinum) Color.White else Color(0xFF4A148C)
                         )
                     }
 
@@ -1055,7 +1069,7 @@ fun PlatinumPlanCard(
                         text = stringResource(R.string.ultimate_dating_experience),
                         fontSize = 16.sp,
                         fontFamily = FontFamily(Font(R.font.axiforma_regular)),
-                        color = Color(0xFF000000)
+                        color = if (isDarkPlatinum) Color.White.copy(alpha = 0.9f) else Color(0xFF000000)
                     )
                 }
             }

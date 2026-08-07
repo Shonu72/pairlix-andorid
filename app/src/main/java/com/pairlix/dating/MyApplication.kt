@@ -41,7 +41,7 @@ class MyApplication : Application() {
             private set
 
         // Delay before disconnecting socket when app goes to background
-        private const val DISCONNECT_DELAY_MS = 30000L // 30 seconds
+        private const val DISCONNECT_DELAY_MS = 500L
     }
 
     override fun onCreate() {

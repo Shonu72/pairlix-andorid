@@ -1,10 +1,16 @@
 package com.pairlix.dating.view.home
 
 import android.os.Build
+import android.widget.Toast
 import androidx.activity.compose.BackHandler
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
+import com.pairlix.dating.ThemeManager.isAppInDarkTheme
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -72,6 +78,21 @@ fun MainScreen(
     viewModelM6: M6ViewModel
 ) {
     val socketState by socketViewModel.socketState.collectAsState()
+    val context = LocalContext.current
+    var backPressedTime by remember { mutableStateOf(0L) }
+
+    BackHandler {
+        if (viewModel4.selectedMainScreenIndex.value != 0) {
+            viewModel4.selectedMainScreenIndex.value = 0
+        } else {
+            if (System.currentTimeMillis() - backPressedTime < 2000) {
+                (context as? android.app.Activity)?.finish()
+            } else {
+                Toast.makeText(context, "Press back again to exit", Toast.LENGTH_SHORT).show()
+                backPressedTime = System.currentTimeMillis()
+            }
+        }
+    }
 
     Column(
         modifier = Modifier
@@ -131,7 +152,7 @@ fun MainScreen(
 
 @Composable
 fun CustomBottomBar(
-    modifier: Modifier= Modifier,
+    modifier: Modifier = Modifier,
     selectedIndex: Int,
     onItemSelected: (Int) -> Unit
 ) {
@@ -141,54 +162,66 @@ fun CustomBottomBar(
         BottomNavItem.Chat,
         BottomNavItem.Profile
     )
+    val isDark = isAppInDarkTheme()
+
+    val glassBgColor = if (isDark) Color(0xB80D0D10) else Color(0xADFFFFFF)
+    val glassBorderColor = if (isDark) Color(0x59FFFFFF) else Color(0xF0FFFFFF)
 
     Box(
         modifier = modifier
             .fillMaxWidth()
-            .padding(start = 16.dp, end = 16.dp, bottom = 10.dp)
-            .background(Color.Black, RoundedCornerShape(60.dp))
-          /*  .background(
-                Color(0xFFF2ECF6),
-                RoundedCornerShape(60.dp)
-            )*/
-            .padding(vertical = 6.sdp)
+            .padding(start = 20.dp, end = 20.dp, bottom = 12.dp)
+            .shadow(
+                elevation = if (isDark) 16.dp else 12.dp,
+                shape = RoundedCornerShape(36.dp),
+                ambientColor = if (isDark) Color.Black else Color(0x30000000),
+                spotColor = if (isDark) Color.Black else Color(0x30000000)
+            )
+            .background(
+                color = glassBgColor,
+                shape = RoundedCornerShape(36.dp)
+            )
+            .border(
+                width = 1.2.dp,
+                color = glassBorderColor,
+                shape = RoundedCornerShape(36.dp)
+            )
+            .padding(vertical = 6.dp)
     ) {
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically
         ) {
-
             items.forEachIndexed { index, item ->
-
                 val isSelected = index == selectedIndex
+                val activeBg = if (isSelected) {
+                    if (isDark) Color(0x2EFFFFFF) else Color(0x1F8033E6)
+                } else Color.Transparent
 
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center,
+                val iconColor = if (isSelected) {
+                    if (isDark) Color.White else Color(0xFF8033E6)
+                } else {
+                    if (isDark) Color(0x7CFFFFFF) else Color(0xFF59596B)
+                }
+
+                Box(
                     modifier = Modifier
+                        .clip(RoundedCornerShape(20.dp))
+                        .background(activeBg)
                         .clickable(
                             interactionSource = remember { MutableInteractionSource() },
                             indication = null
-                        ) {onItemSelected(index)}
-                        .padding(12.dp)
+                        ) { onItemSelected(index) }
+                        .padding(horizontal = 14.dp, vertical = 10.dp),
+                    contentAlignment = Alignment.Center
                 ) {
-
                     Icon(
                         painter = painterResource(id = item.icon),
                         contentDescription = null,
-                        tint = if (isSelected) Color.White else Color(0xFF6D6D6D),
-                        modifier = Modifier.size(28.dp)
+                        tint = iconColor,
+                        modifier = Modifier.size(32.dp)
                     )
-
-                  /*  Spacer(modifier = Modifier.height(10.sdp))
-
-                    Text(
-                        text = stringResource( item.title),
-                        color = if (isSelected) Color(0xFF590988) else Color.Black,
-                        fontSize = 14.sp,
-                        fontFamily = FontFamily(Font(R.font.axiforma_regular))
-                    )*/
                 }
             }
         }

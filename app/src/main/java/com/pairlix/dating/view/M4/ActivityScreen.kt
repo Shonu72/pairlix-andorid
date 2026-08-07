@@ -14,6 +14,8 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
+import com.pairlix.dating.ThemeManager.isAppInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
@@ -1008,10 +1010,15 @@ fun GridItem(
 
         }
 
+        val isDark = isAppInDarkTheme()
+        val textColorPrimary = if (isDark) Color.White else Color(0xFF590988)
+        val textColorSecondary = if (isDark) Color(0xFFB373FF) else Color(0xFF590988)
+        val overlayBg = if (isDark) Color(0xFF1C1C1E).copy(alpha = 0.85f) else Color.White.copy(alpha = 0.35f)
+
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(Color.White.copy(alpha = 0.35f))
+                .background(overlayBg)
                 .align(Alignment.BottomCenter)
                 .padding(10.dp),
             verticalArrangement = Arrangement.Center,
@@ -1027,7 +1034,7 @@ fun GridItem(
                     text = if ((data.firstName?.length
                             ?: 0) < 8
                     ) "${data.firstName ?: ""}" else data.firstName?.substring(0, 7) + "...",
-                    color = Color(0xFF590988),
+                    color = textColorPrimary,
                     fontSize = 10.sp,
                     overflow = TextOverflow.Ellipsis,
                     fontFamily = FontFamily(Font(R.font.axiforma_bold)),
@@ -1037,7 +1044,7 @@ fun GridItem(
                 if (data?.age != null) {
                     Text(
                         text = ",${data?.age ?: ""}",
-                        color = Color(0xFF590988),
+                        color = textColorPrimary,
                         fontSize = 10.sp,
                         maxLines = 1,
                         fontFamily = FontFamily(Font(R.font.axiforma_bold))
@@ -1131,7 +1138,7 @@ fun GridItem(
                 Text(
                     modifier = Modifier.weight(1f),
                     text = locationText,
-                    color = Color(0xFF590988),
+                    color = textColorSecondary,
                     fontSize = 12.sp,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,

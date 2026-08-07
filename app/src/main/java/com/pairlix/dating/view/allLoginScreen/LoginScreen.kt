@@ -78,6 +78,7 @@ import com.abi.simplecountrypicker.DialogCountryPicker
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.libraries.identity.googleid.GetGoogleIdOption
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
+import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.messaging.FirebaseMessaging
 
@@ -138,7 +139,15 @@ fun LoginScreen(navController: NavController, viewModel: AuthViewModel, m4ViewMo
     var userCountryIso by remember { mutableStateOf("") }
     val lifecycleOwner = LocalLifecycleOwner.current
     val activity = context as Activity
-    val firebaseAuth = FirebaseAuth.getInstance()
+    val firebaseAuth = try {
+        if (FirebaseApp.getApps(context).isEmpty()) {
+            FirebaseApp.initializeApp(context)
+        }
+        FirebaseAuth.getInstance()
+    } catch (e: Exception) {
+        Log.e("LoginScreen", "FirebaseAuth error: ${e.message}")
+        null
+    }
     var socialLoginType by remember { mutableStateOf("") }
     val credentialManager = CredentialManager.create(context)
     // 🔹 Device token ko state me rakhenge
@@ -882,23 +891,22 @@ fun loginObserver(
 }
 
 fun generateToken(context: Context, token: (String) -> Unit) {
-    FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
-
-        if (!task.isSuccessful) {
-            return@OnCompleteListener
+    try {
+        if (FirebaseApp.getApps(context).isEmpty()) {
+            FirebaseApp.initializeApp(context)
         }
-        // Get new FCM registration token
-        val token = task.result
-        SharedPreference.get(context).deviceToken = token ?: ""
-        token(token)
-        // Log and toast
-        val msg = token.toString()
-        Log.d("TAG", "deviceToken ==" + msg)
-        //  Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
-
-    })
-
-
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                return@OnCompleteListener
+            }
+            val t = task.result
+            SharedPreference.get(context).deviceToken = t ?: ""
+            token(t ?: "")
+            Log.d("TAG", "deviceToken == $t")
+        })
+    } catch (e: Exception) {
+        Log.e("generateToken", "Failed to generate FCM token", e)
+    }
 }
 
 fun appleSignIn(
@@ -914,7 +922,15 @@ fun appleSignIn(
         addCustomParameter("locale", "en")
     }
 
-    val auth = FirebaseAuth.getInstance()
+    val auth = try {
+        if (FirebaseApp.getApps(context).isEmpty()) {
+            FirebaseApp.initializeApp(context)
+        }
+        FirebaseAuth.getInstance()
+    } catch (e: Exception) {
+        Log.e("appleSignIn", "FirebaseAuth error: ${e.message}")
+        return
+    }
 
     auth.pendingAuthResult?.addOnSuccessListener { authResult ->
 

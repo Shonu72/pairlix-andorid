@@ -214,8 +214,6 @@ fun ChangeLanguageScreen(navController: NavController,m7ViewModel: M7ViewModel,v
                     navController.navigate(Screen.IntroductionScreens.route) {
                        // popUpTo(Screen.ChangeLanguage.route) { inclusive = true }
                     }
-                    (context as MainActivity).recreate()
-
             }
         )
     }

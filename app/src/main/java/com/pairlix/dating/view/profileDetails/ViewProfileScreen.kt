@@ -11,6 +11,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.isSystemInDarkTheme
+import com.pairlix.dating.ThemeManager.isAppInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
@@ -3011,6 +3012,7 @@ fun PreviewStickyChips(
     val axiformaFont = remember {
         FontFamily(Font(R.font.axiforma_medium))
     }
+    val isDark = isAppInDarkTheme()
 
     LazyRow(
         modifier = modifier
@@ -3023,11 +3025,19 @@ fun PreviewStickyChips(
             items = list, key = { index, _ -> index }) { index, text ->
 
             val isSelected = index == selectedIndex
+            val chipTextColor = if (isSelected) Color.White else (if (isDark) Color.White else Color(0xFF590988))
+            val chipBrush = if (isSelected) {
+                Brush.linearGradient(listOf(Color(0xFF8B5DF6), Color(0xFFF6A6D6)))
+            } else if (isDark) {
+                Brush.linearGradient(listOf(Color(0xFF242424), Color(0xFF242424)))
+            } else {
+                Brush.linearGradient(listOf(Color.White, Color.White))
+            }
 
             Text(
                 text = text,
                 fontFamily = axiformaFont,
-                color = if (isSelected) Color.White else Color(0xFF590988),
+                color = chipTextColor,
                 fontSize = 14.sp,
                 modifier = Modifier
                     .clickable(
@@ -3038,11 +3048,12 @@ fun PreviewStickyChips(
                         }
                     }
                     .background(
-                        brush = if (isSelected) Brush.linearGradient(
-                            listOf(Color(0xFF8B5DF6), Color(0xFFF6A6D6))
-                        )
-                        else Brush.linearGradient(listOf(Color.White, Color.White)),
+                        brush = chipBrush,
                         shape = RoundedCornerShape(42.dp)
+                    )
+                    .then(
+                        if (!isSelected && isDark) Modifier.border(1.dp, Color(0xFF333333), RoundedCornerShape(42.dp))
+                        else Modifier
                     )
                     .padding(horizontal = 20.dp, vertical = 10.dp))
         }

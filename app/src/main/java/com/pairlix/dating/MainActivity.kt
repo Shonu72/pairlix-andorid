@@ -144,13 +144,6 @@ class MainActivity : ComponentActivity() {
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-
-        val themeMode = SharedPreference.get(this).themeMode
-
-        // only if user selected "As per OS"
-        if (themeMode == 2) {
-            recreate()
-        }
     }
 
     override fun applyOverrideConfiguration(overrideConfiguration: Configuration?) {

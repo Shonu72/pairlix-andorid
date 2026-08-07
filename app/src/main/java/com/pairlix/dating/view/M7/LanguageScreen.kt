@@ -222,9 +222,6 @@ fun SettingLanguageScreen(navController: NavController,m7ViewModel: M7ViewModel,
                 )
 
                 navController.popBackStack()
-                (context as MainActivity).recreate()
-
-
             })
     }
 }

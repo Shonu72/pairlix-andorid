@@ -161,9 +161,6 @@ fun ProfileScreen(navController: NavController, viewModel: AuthViewModel,m4ViewM
                     themeManager.themeMode = themeIndex
 
                     showBottomSheet = false
-                    (context as MainActivity).recreate()
-
-
                 }
 
             )
